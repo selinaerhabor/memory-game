@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+    	<meta charset="UTF-8">
+    	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" type="text/css" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fjalla+One" type="text/css" />
+        <link rel="stylesheet" href="assets/css/style.css" type="text/css" />
+    	    <title>Mimic® | Single-Player Memory Game Inspired by Simon</title>
+    </head>
+    <body>
+        <!---Navigation Bar-->
+        <header>
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="navbar-header">
+                                <a href="index.html" class="navbar-brand uppercase visible-xs">MiMiC®</a>
+                                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar" aria-expanded="true">
+                                        <span class="sr-only">Toggle navigation</span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                    </button>
+                            </div>
+                            <div class="navbar-collapse collapse" id="navbar">
+                                <ul class="nav navbar-nav navbar-right">
+                                    <li><a class="menu-link" data-toggle='modal' data-target='#instructionModal'>INSTRUCTIONS</a></li>
+                                    <li><a class="menu-link hidden-xs" data-toggle='modal' data-target='#jointloginregisterModal'>LOGIN</a></li>
+                                    <li><a class="menu-link visible-xs" data-toggle='modal' data-target='#jointloginregisterModal'>LOGIN/REGISTER</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <!---/Navigation Bar-->
+      
+        <div class="container-fluid background-container">
+            <div class="row">
+                <div class="col-xs-12 game-body">
+                    <div class="row">
+                        <div class="col-xs-12">
+                             <div class="buzzer squareGreen"></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 horizontal">
+                            <div class="col-xs-4">
+                                <div class="buzzer squareYellow"></div>
+                            </div>
+                            <div class="col-xs-4">
+                                <div class="main-control"></div>
+                            </div>
+                            <div class="col-xs-4">
+                                <div class="buzzer squareRed"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="buzzer squareBlue"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" 
+        crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" 
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="assets/js/memory-game.js"></script>
+    </body>
+</html>

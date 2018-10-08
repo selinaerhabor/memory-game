@@ -1,0 +1,165 @@
+body, html {
+  font-family: 'Fjalla One', sans-serif;
+  overflow-x: hidden;
+  background: url("../../assets/images/dark-abstract-background.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  display: flex;
+  z-index: -1;
+  justify-content: center;
+}
+
+.background-container {
+  text-align: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.game-body {
+  margin-top: 25px;
+  align-items: center;
+  display: inline-block;
+  justify-content: center;
+}
+
+
+
+/*------------------------------------------ Navigation / Menu Bar Settings --*/
+
+.navbar {
+  background-color: transparent;
+  position: absolute; 
+  padding: 0;
+  top: 0; 
+  left: 0; 
+  width: 100%;
+  border-radius: 0;
+  border-style: none;
+}
+
+.navbar-default .navbar-collapse {
+    border-color: transparent;
+}
+
+.navbar-default .navbar-toggle {
+    border: 0;
+}
+
+.navbar-default .navbar-toggle:hover {
+    background-color: transparent;
+}
+
+.menu-link {
+  cursor: pointer;
+  text-decoration: none;
+  color: #c0c0c0;
+  margin-left: 10px;
+}
+
+.btn-success {
+  width : 70px;
+}
+
+
+/*------------------------------------------------- 4 Game Coloured Buttons --*/
+
+.squareRed {
+  height: 200px;
+  width: 200px;
+  background-color: #9f0f17;
+  border: 7px solid #333;
+  border-radius: 10%;
+  cursor: pointer;
+  transition: all .2s ease 0s;
+  display: inline-block;
+}
+
+.squareRedActive {
+  background-color: #ff6666 !important;
+}
+
+.squareBlue {
+  height: 200px;
+  width: 200px;
+  background-color: #094a8f;
+  border: 7px solid #333;
+  border-radius: 10%;
+  cursor: pointer;
+  transition: all .2s ease 0s;
+  margin-top: -10px;
+  display: inline-block;
+}
+
+.squareBlueActive {
+  background-color: #3288ff !important;
+}
+
+.squareYellow {
+  height: 200px;
+  width: 200px;
+  background-color: #cca707;
+  border: 7px solid #333;
+  border-radius: 10%;
+  cursor: pointer;
+  transition: all .2s ease 0s;
+  display: inline-block;
+}
+
+.squareYellowActive {
+  background-color: #ffe54c !important;
+}
+
+.squareGreen {
+  height: 200px;
+  width: 200px;
+  background-color: #00a74a;
+  border-width: 7px !important;
+  border-style: solid;
+  border-color: #333;
+  border-radius: 10%;
+  cursor: pointer;
+  transition: all .2s ease 0s;
+  margin-bottom: -10px;
+  display: inline-block;
+}
+
+.squareGreenActive {
+  background-color: #13ff7c !important;
+}
+
+
+/*------------------------------------------------------- Main Control Face --*/
+
+.main-control {
+  width: 200px;
+  height: 200px;
+  border-radius: 10%;
+  background-color: #ece7ee;
+  border: 7px solid #333;
+}
+
+/*------------------------------------------------------- Media Rules --*/
+@media screen and (max-width: 475px){
+  
+  .game-body {
+    top: 100px;
+    left: 130px;
+    width: 625px;
+    margin: 0 auto;
+    -webkit-transform: scale(0.55);
+    -moz-transform: scale(0.55);
+    -ms-transform: scale(0.55);
+    -o-transform: scale(0.55);
+    transform: scale(0.55);
+    -o-transform-origin: 0 0;
+    -ms-transform-origin: 0 0;
+    -webkit-transform-origin: 0 0;
+    -moz-transform-origin: 0 0;
+    transform-origin: 0 0;
+  }
+
+}
+  
+  
