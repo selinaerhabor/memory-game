@@ -24,7 +24,10 @@ body, html {
   justify-content: center;
 }
 
-
+.no-padding {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
 
 /*------------------------------------------ Navigation / Menu Bar Settings --*/
 
@@ -145,7 +148,7 @@ body, html {
   
   .game-body {
     top: 100px;
-    left: 130px;
+    left: 140px;
     width: 625px;
     margin: 0 auto;
     -webkit-transform: scale(0.55);
@@ -159,7 +162,29 @@ body, html {
     -moz-transform-origin: 0 0;
     transform-origin: 0 0;
   }
-
 }
-  
-  
+
+@media screen and (min-width:476px) and (max-width:631px){
+  .game-body {
+    top: 100px;
+    left: 110px;
+    width: 625px;
+    margin: 0 auto;
+    -webkit-transform: scale(0.65);
+    -moz-transform: scale(0.65);
+    -ms-transform: scale(0.65);
+    -o-transform: scale(0.65);
+    transform: scale(0.65);
+    -o-transform-origin: 0 0;
+    -ms-transform-origin: 0 0;
+    -webkit-transform-origin: 0 0;
+    -moz-transform-origin: 0 0;
+    transform-origin: 0 0;
+  }
+}
+
+@media screen and (min-width:632px){
+  .game-body {
+    top: 15px;
+}
+}
