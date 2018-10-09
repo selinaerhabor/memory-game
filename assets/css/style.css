@@ -186,5 +186,6 @@ body, html {
 @media screen and (min-width:632px){
   .game-body {
     top: 15px;
+    width: 615px;
 }
 }
