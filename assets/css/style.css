@@ -143,6 +143,38 @@ body, html {
   border: 7px solid #333;
 }
 
+.brand {
+  color: #222;
+  font-size: 3.0em;
+  margin-top : 12px;
+}
+
+.brand .symbol {
+  font-size : 0.3em;
+  position : relative;
+  top : -20px;
+}
+
+.count {
+  font-family: 'Fjalla One', monospace;
+  font-size : 2.5em;
+  width : 70px;
+  color : #dc0d28;
+  background-color: #31060d;
+  border : 4px solid #222;
+  border-radius : 10px;
+  margin-left: -7px;
+  margin-top: -7px;
+  padding-top: 2px;
+}
+
+.display {
+  width : 60px;
+  position: relative;
+  text-align: center;
+  display: inline-block;
+}
+
 /*------------------------------------------------------- Media Rules --*/
 @media screen and (max-width: 475px){
   
