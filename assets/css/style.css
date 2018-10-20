@@ -83,6 +83,7 @@ body, html {
   background-color: #ff6666 !important;
 }
 
+
 .squareBlue {
   height: 200px;
   width: 200px;
@@ -99,6 +100,7 @@ body, html {
   background-color: #3288ff !important;
 }
 
+
 .squareYellow {
   height: 200px;
   width: 200px;
@@ -113,6 +115,7 @@ body, html {
 .squareYellowActive {
   background-color: #ffe54c !important;
 }
+
 
 .squareGreen {
   height: 200px;
@@ -131,6 +134,7 @@ body, html {
 .squareGreenActive {
   background-color: #13ff7c !important;
 }
+
 
 
 /*------------------------------------------------------- Main Control Face --*/
