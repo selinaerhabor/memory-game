@@ -51,3 +51,11 @@
      div.style.backgroundColor = "#094a8f";
   }
       
+/*------------------------------------------------------THEME TUNE*/
+
+var mimicStartThemeTune = new Audio();
+mimicStartThemeTune.src = "assets/sounds/mimicStartThemeTune.wav";
+
+
+/*------------------------------------------------------*/
+
