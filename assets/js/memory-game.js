@@ -1,3 +1,4 @@
+
 /*------------------------------------------------------GREEN BUTTON*/
 
   var Green = new Audio();
@@ -7,7 +8,6 @@
      div.style.backgroundColor = "#13ff7c";
   }
       
-  
 /*------------------------------------------------------YELLOW BUTTON*/
      
    var Yellow = new Audio();
