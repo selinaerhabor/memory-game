@@ -7,6 +7,10 @@
    function greenLight(div){
      div.style.backgroundColor = "#13ff7c";
   }
+  
+  function greenInactive(div){
+     div.style.backgroundColor = "#00a74a";
+  }
       
 /*------------------------------------------------------YELLOW BUTTON*/
      
@@ -17,6 +21,10 @@
      div.style.backgroundColor = "#ffe54c";
   }
   
+  function yellowInactive(div){
+     div.style.backgroundColor = "#cca707";
+  }
+  
 /*------------------------------------------------------RED BUTTON*/
   
   var Red = new Audio();
@@ -24,6 +32,10 @@
    
    function redLight(div){
      div.style.backgroundColor = "#ff6666";
+  }
+  
+  function redInactive(div){
+     div.style.backgroundColor = "#9f0f17";
   }
       
 /*------------------------------------------------------BLUE BUTTON*/
@@ -33,5 +45,9 @@
       
    function blueLight(div){
      div.style.backgroundColor = "#3288ff";
+  }
+  
+  function blueInactive(div){
+     div.style.backgroundColor = "#094a8f";
   }
       
