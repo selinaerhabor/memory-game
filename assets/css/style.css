@@ -189,6 +189,28 @@ body, html {
   top : -5px;
 }
 
+.hint {
+  -webkit-transition: background-color 0.3s; 
+  -moz-transition: background-color 0.3s;
+  -o-transition: background-color 0.3s; 
+  transition: background-color 0.3s;
+}
+
+.hint:hover{
+  background-color: #ff8c00;
+}
+
+.start {
+  -webkit-transition: background-color 0.3s; 
+  -moz-transition: background-color 0.3s;
+  -o-transition: background-color 0.3s; 
+  transition: background-color 0.3s;
+}
+
+.start:hover{
+  background-color: #008800;
+}
+
 .label-btn {
   font-size: 0.9em;
   padding-left: 1px;
