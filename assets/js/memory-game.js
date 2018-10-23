@@ -63,5 +63,30 @@
             $(".count").text("00");
             level = 0;
             level++;
+            mimicMove=[];
+            playerMove=[];
+            mimicMovement();
         });
     });
+    
+    function mimicMovement() {
+        console.log("level "+level);
+        $(".count").text(level);
+        randomID;
+        var i=0;
+        var myInternal= setInterval(function() {
+            id=mimicMove[i];
+            squareColor=$("#"+id).attr("class");
+            squareColor=squareColor.split(" ")[1];
+            console.log("id"+" "+squareColor);
+            i++;
+            if(i== mimicMove.length) {
+                clearInterval(myInterval);
+            }
+        }, 1000);
+    }
+    
+    function randomID() {
+        var random = Math.floor(Math.random() * 4);
+        mimicMove.push(random);
+    }
