@@ -216,8 +216,15 @@ body, html {
   padding-left: 1px;
 }
 
+#start-btn {
+  margin-top: 10px;
+  align-items: center;
+}
 
-
+#hint-btn {
+  margin-top: 10px;
+  align-items: center;
+}
 
 
 /*------------------------------------------------------- Media Rules --*/
