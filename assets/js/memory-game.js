@@ -79,8 +79,7 @@
       var i = 0;
       var myInterval= setInterval(function() {
         id = mimicMove[i];
-        squareColor = $("#"+id).attr("class");
-        squareColor = squareColor.split(" ")[1];
+        squareColor = $("#"+id).attr("class").split(" ")[1];
         console.log(id+" "+squareColor);
         buzzerOn(id, squareColor);
         i++;
@@ -91,7 +90,7 @@
     }
     
     
-  /*---------------------------------------------------------Buzzer Selection*/
+  /*---------------------------------------------------------BUZZER SELECTION*/
   
     function randomID() {
       var random = Math.floor(Math.random() * 4);
@@ -118,3 +117,16 @@
       "assets/sounds/noteC.wav"  //squareBlue
       ];
     
+  /*------------------------------------------------MONITOR FOR PLAYER'S MOVES*/
+  
+    $(".buzzer").click(function(){
+      id=$(this).attr("id")
+      squareColor=$(this).attr("class").split(" ")[1];
+      playerMovement();
+    });
+    
+    function playerMovement(){
+      playerMove.push(id);
+      console.log(id+" "+squareColor);
+      buzzerOn(id, squareColor);
+    }
