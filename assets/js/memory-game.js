@@ -1,4 +1,4 @@
-
+const total_levels = 30;
 
 /*------------------------------------------------------GREEN BUTTON*/
 
@@ -129,4 +129,30 @@
       playerMove.push(id);
       console.log(id+" "+squareColor);
       buzzerOn(id, squareColor);
+
+    /*-------------------------------------------------------------VALIDATION*/
+    //If player makes an INCORRECT move:
+      if(!validatePlayerMove()) {
+        playerMove = [];
+        error = true;
+        mimicMove = [];
+        level = 1;
+      }
+      
+    //If player makes a CORRECT move:
+      else if(playerMove.length == mimicMove.length && playerMove.length < total_levels){
+        level++;
+        playerMove = [];
+        error = false;
+        mimicMovement();
+      }
+    }
+    
+    function validatePlayerMove(){
+      for(var i=0; i<playerMove.length; i++){
+        if(playerMove[i] !=mimicMove[i]){
+          return false;
+        }
+      }
+      return true;
     }
