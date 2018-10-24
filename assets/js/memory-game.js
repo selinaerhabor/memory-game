@@ -51,11 +51,22 @@ const total_levels = 30;
     function blueInactive(div){
       div.style.backgroundColor = "#094a8f";
   }
+  
+  
       
-/*------------------------------------------------------THEME TUNE*/
-
+  /*------------------------------------------------------NOTIFICATION SOUNDS*/
+    //THEME TUNE:
     var mimicStartThemeTune = new Audio();
     mimicStartThemeTune.src = "assets/sounds/mimicStartThemeTune.wav";
+    
+    //SOUND FOR CORRECT MOVE:
+    var correct = new Audio();
+    correct.src = "assets/sounds/correct.wav";
+    
+    //SOUND FOR INCORRECT MOVE:
+    var incorrect = new Audio();
+    incorrect.src = "assets/sounds/incorrect.wav";
+
 
 
 /*------------------------------------------------------START BUTTON*/
@@ -136,7 +147,7 @@ const total_levels = 30;
         playerMove = [];
         error = true;
         console.log("Incorrect move. Game ended.")
-        mimicMove = [];
+        correct.play();
         level = 1;
       }
       
@@ -146,6 +157,7 @@ const total_levels = 30;
         playerMove = [];
         error = false;
         console.log("Correct! Game continuing...")
+        correct.play();
         mimicMovement();
       }
     }
@@ -158,3 +170,4 @@ const total_levels = 30;
       }
       return true;
     }
+    
