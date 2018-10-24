@@ -158,7 +158,7 @@ const total_levels = 30;
         error = false;
         console.log("Correct! Game continuing...")
         correct.play();
-        mimicMovement();
+        setTimeout(mimicMovement,1500);
       }
     }
     
