@@ -65,7 +65,7 @@
             level++;
             mimicMove=[];
             playerMove=[];
-            mimicMovement();
+            setTimeout(mimicMovement, 4000);
         });
     });
     
