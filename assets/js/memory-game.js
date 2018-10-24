@@ -135,6 +135,7 @@ const total_levels = 30;
       if(!validatePlayerMove()) {
         playerMove = [];
         error = true;
+        console.log("Incorrect move. Game ended.")
         mimicMove = [];
         level = 1;
       }
@@ -144,6 +145,7 @@ const total_levels = 30;
         level++;
         playerMove = [];
         error = false;
+        console.log("Correct! Game continuing...")
         mimicMovement();
       }
     }
