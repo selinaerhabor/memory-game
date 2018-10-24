@@ -75,7 +75,7 @@
     function mimicMovement() {
       console.log("level "+level);
       $(".count").text(level);
-      randomID;
+      randomID();
       var i = 0;
       var myInterval= setInterval(function() {
         id = mimicMove[i];
@@ -91,7 +91,7 @@
     }
     
     
-  /---------------------------------------------------------Buzzer Selection*/
+  /*---------------------------------------------------------Buzzer Selection*/
   
     function randomID() {
       var random = Math.floor(Math.random() * 4);
@@ -117,5 +117,4 @@
       "assets/sounds/noteF.wav", //squareRed
       "assets/sounds/noteC.wav"  //squareBlue
       ];
-    
     
