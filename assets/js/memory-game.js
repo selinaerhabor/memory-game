@@ -1,4 +1,5 @@
 
+
 /*------------------------------------------------------GREEN BUTTON*/
 
     var Green = new Audio();
@@ -59,34 +60,62 @@
 
 /*------------------------------------------------------START BUTTON*/
     $(document).ready(function(){
-        $("#start-btn").click(function(){
-            $(".count").text("00");
-            level = 0;
-            level++;
-            mimicMove=[];
-            playerMove=[];
-            setTimeout(mimicMovement, 4000);
-        });
+      $("#start-btn").click(function(){
+        $(".count").text("00");
+        level = 0;
+        level++;
+        mimicMove = [];
+        playerMove = [];
+        error = false;
+        console.log("Ready Steady Mimic!");
+        setTimeout(mimicMovement, 4000);
+      });
     });
     
     function mimicMovement() {
-        console.log("level "+level);
-        $(".count").text(level);
-        randomID;
-        var i=0;
-        var myInternal= setInterval(function() {
-            id=mimicMove[i];
-            squareColor=$("#"+id).attr("class");
-            squareColor=squareColor.split(" ")[1];
-            console.log("id"+" "+squareColor);
-            i++;
-            if(i== mimicMove.length) {
-                clearInterval(myInterval);
-            }
-        }, 1000);
+      console.log("level "+level);
+      $(".count").text(level);
+      randomID;
+      var i = 0;
+      var myInterval= setInterval(function() {
+        id = mimicMove[i];
+        squareColor = $("#"+id).attr("class");
+        squareColor = squareColor.split(" ")[1];
+        console.log(id+" "+squareColor);
+        buzzerOn(id, squareColor);
+        i++;
+        if(i == mimicMove.length) {
+          clearInterval(myInterval);
+        }
+      }, 1000);
     }
     
+    
+  /---------------------------------------------------------Buzzer Selection*/
+  
     function randomID() {
-        var random = Math.floor(Math.random() * 4);
-        mimicMove.push(random);
+      var random = Math.floor(Math.random() * 4);
+      mimicMove.push(random);
     }
+    
+    function buzzerOn(id, squareColor){
+      $("#"+id).addClass(squareColor+"Active");
+      playBuzzerSound(id);
+      setTimeout(function(){
+        $("#"+id).removeClass(squareColor+"Active");
+      }, 500);
+    }
+    
+    function playBuzzerSound(id) {
+      var sound = new Audio(buzzerSound[id]);
+      sound.play();
+    }
+    
+    var buzzerSound= [
+      "assets/sounds/noteE.wav", //squareGreen
+      "assets/sounds/noteD.wav", //squareYellow
+      "assets/sounds/noteF.wav", //squareRed
+      "assets/sounds/noteC.wav"  //squareBlue
+      ];
+    
+    
