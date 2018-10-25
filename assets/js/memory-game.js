@@ -1,5 +1,5 @@
   /*-------------------------------------------------------------------LEVELS*/
-  const total_levels = 30;
+  const total_levels = 3;
 
   /*-------------------------------------------------------------GREEN BUTTON*/
 
@@ -152,9 +152,10 @@
       if(!validatePlayerMove()) {
         playerMove = [];
         error = true;
-        showErrorMessage();
         console.log("Incorrect move. Game ended.")
         incorrect.play();
+        setTimeout(showErrorMessage, 200);
+        mimicMove = [];
         level = 1;
       }
       
@@ -168,6 +169,7 @@
         setTimeout(mimicMovement,1500);
       }
     }
+      
     
     function validatePlayerMove(){
       for(var i=0; i<playerMove.length; i++){
@@ -180,7 +182,7 @@
     
   /*-------------------------------------------------------------------ALERTS*/
     
+    //For an incorrect move:
     function showErrorMessage(){
-      alert("Unfortunately, that was a wrong move! \nYour game has ended.\nTo begin a new game please click ok and then the start button");
+      alert("Unfortunately, that was a wrong move! \nYour game has ended.\nTo begin a new game please click ok and then press the start button");
     }
-    
