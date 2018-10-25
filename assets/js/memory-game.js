@@ -73,7 +73,9 @@
     var incorrect = new Audio();
     incorrect.src = "assets/sounds/incorrect.wav";
 
-
+    //SOUND FOR GAME COMPLETION:
+    var gameWin = new Audio();
+    gameWin.src = "assets/sounds/allGameLevelsCompleted.wav"; 
 
   /*-------------------------------------------------------------START BUTTON*/
     $(document).ready(function(){
@@ -184,6 +186,8 @@
       return true;
     }
     
+    
+    
   /*-------------------------------------------------------------------ALERTS*/
     
     //For an incorrect move:
@@ -194,6 +198,9 @@
     //For completion of the game:
     function gameCompleted(){
       $(".count").text("🥇");
+      gameWin.play();
       alert("Congratulations! You have completed MiMiC® 2018! \nTo begin a new game please click ok and then press the start button.")
     }
+    
+    
     
