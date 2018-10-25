@@ -1,6 +1,7 @@
-const total_levels = 30;
+  /*-------------------------------------------------------------------LEVELS*/
+  const total_levels = 30;
 
-/*------------------------------------------------------GREEN BUTTON*/
+  /*-------------------------------------------------------------GREEN BUTTON*/
 
     var Green = new Audio();
       Green.src = "assets/sounds/noteE.wav";
@@ -13,7 +14,8 @@ const total_levels = 30;
       div.style.backgroundColor = "#00a74a";
   }
       
-/*------------------------------------------------------YELLOW BUTTON*/
+      
+  /*------------------------------------------------------------YELLOW BUTTON*/
      
     var Yellow = new Audio();
       Yellow.src = "assets/sounds/noteD.wav";
@@ -26,7 +28,9 @@ const total_levels = 30;
       div.style.backgroundColor = "#cca707";
   }
   
-/*------------------------------------------------------RED BUTTON*/
+  
+  
+  /*---------------------------------------------------------------RED BUTTON*/
   
     var Red = new Audio();
       Red.src = "assets/sounds/noteF.wav";
@@ -39,7 +43,9 @@ const total_levels = 30;
       div.style.backgroundColor = "#9f0f17";
   }
       
-/*------------------------------------------------------BLUE BUTTON*/
+      
+      
+  /*--------------------------------------------------------------BLUE BUTTON*/
   
     var Blue = new Audio();
       Blue.src = "assets/sounds/noteC.wav";
@@ -69,7 +75,7 @@ const total_levels = 30;
 
 
 
-/*------------------------------------------------------START BUTTON*/
+  /*-------------------------------------------------------------START BUTTON*/
     $(document).ready(function(){
       $("#start-btn").click(function(){
         $(".count").text("00");
@@ -128,7 +134,7 @@ const total_levels = 30;
       "assets/sounds/noteC.wav"  //squareBlue
       ];
     
-  /*------------------------------------------------MONITOR FOR PLAYER'S MOVES*/
+  /*-----------------------------------------------MONITOR FOR PLAYER'S MOVES*/
   
     $(".buzzer").click(function(){
       id=$(this).attr("id")
@@ -146,8 +152,9 @@ const total_levels = 30;
       if(!validatePlayerMove()) {
         playerMove = [];
         error = true;
+        showErrorMessage();
         console.log("Incorrect move. Game ended.")
-        correct.play();
+        incorrect.play();
         level = 1;
       }
       
@@ -169,5 +176,11 @@ const total_levels = 30;
         }
       }
       return true;
+    }
+    
+  /*-------------------------------------------------------------------ALERTS*/
+    
+    function showErrorMessage(){
+      alert("Unfortunately, that was a wrong move! \nYour game has ended.\nTo begin a new game please click ok and then the start button");
     }
     
