@@ -199,7 +199,11 @@
     function gameCompleted(){
       $(".count").text("🥇");
       gameWin.play();
-      alert("Congratulations! You have completed MiMiC® 2018! \nTo begin a new game please click ok and then press the start button.")
+      setTimeout(mimicWinner, 6000);
+    }
+    
+    function mimicWinner(){
+      alert("Congratulations! You have completed MiMiC® 2018! \nTo begin a new game please click ok and then press the start button.");
     }
     
     
