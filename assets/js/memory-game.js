@@ -168,8 +168,12 @@
         correct.play();
         setTimeout(mimicMovement,1500);
       }
-    }
       
+    //Game completion:
+      if(playerMove.length == total_levels){
+        gameCompleted();
+      }
+    }
     
     function validatePlayerMove(){
       for(var i=0; i<playerMove.length; i++){
@@ -186,3 +190,10 @@
     function showErrorMessage(){
       alert("Unfortunately, that was a wrong move! \nYour game has ended.\nTo begin a new game please click ok and then press the start button");
     }
+    
+    //For completion of the game:
+    function gameCompleted(){
+      $(".count").text("🥇");
+      alert("Congratulations! You have completed MiMiC® 2018! \nTo begin a new game please click ok and then press the start button.")
+    }
+    
