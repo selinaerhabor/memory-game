@@ -62,7 +62,16 @@ body, html {
 }
 
 .btn-success {
+  -webkit-transition: background-color 0.3s; 
+  -moz-transition: background-color 0.3s;
+  -o-transition: background-color 0.3s; 
+  transition: background-color 0.3s;
+  border-radius: 12%;
   width : 70px;
+}
+
+.btn-success:hover {
+  background-color: #008800;
 }
 
 
