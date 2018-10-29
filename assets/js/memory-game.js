@@ -1,62 +1,78 @@
-  /*-------------------------------------------------------------------LEVELS*/
-  const total_levels = 30;
+$(document).ready(function(){ 
+  
+  /*---------------------------------------------------TOTAL NUMBER OF LEVELS*/
+    const total_levels = 30;
 
   /*-------------------------------------------------------------GREEN BUTTON*/
-
+    $("#0").click(function(){
+      Green.play();
+    });
+    
     var Green = new Audio();
-      Green.src = "assets/sounds/noteE.wav";
+    Green.src = "assets/sounds/noteE.wav";
       
     function greenLight(div){
       div.style.backgroundColor = "#13ff7c";
-  }
+    }
   
     function greenInactive(div){
       div.style.backgroundColor = "#00a74a";
-  }
-      
+    }
+    
       
   /*------------------------------------------------------------YELLOW BUTTON*/
-     
+    
+    $("#1").click(function(){
+      Yellow.play();
+    });
+    
     var Yellow = new Audio();
-      Yellow.src = "assets/sounds/noteD.wav";
+    Yellow.src = "assets/sounds/noteD.wav";
   
     function yellowLight(div){
       div.style.backgroundColor = "#ffe54c";
-  }
+    }
   
     function yellowInactive(div){
       div.style.backgroundColor = "#cca707";
-  }
+    }
   
   
   
   /*---------------------------------------------------------------RED BUTTON*/
-  
+    $("#2").click(function(){
+      Red.play();
+    });
+    
     var Red = new Audio();
       Red.src = "assets/sounds/noteF.wav";
    
     function redLight(div){
       div.style.backgroundColor = "#ff6666";
-  }
+    }
   
-    function redInactive(div){
+    function redInactive(){
       div.style.backgroundColor = "#9f0f17";
-  }
+    }
       
       
       
   /*--------------------------------------------------------------BLUE BUTTON*/
-  
+      
+    $("#3").click(function(){
+      Blue.play();
+    });
+    
     var Blue = new Audio();
-      Blue.src = "assets/sounds/noteC.wav";
+    Blue.src = "assets/sounds/noteC.wav";
       
     function blueLight(div){
       div.style.backgroundColor = "#3288ff";
-  }
+    }
   
     function blueInactive(div){
       div.style.backgroundColor = "#094a8f";
-  }
+    }
   
   
       
@@ -77,18 +93,19 @@
     var gameWin = new Audio();
     gameWin.src = "assets/sounds/allGameLevelsCompleted.wav"; 
 
-  /*-------------------------------------------------------------START BUTTON*/
-    $(document).ready(function(){
-      $("#start-btn").click(function(){
-        $(".count").text("00");
-        level = 0;
-        level++;
-        mimicMove = [];
-        playerMove = [];
-        error = false;
-        console.log("Ready Steady Mimic!");
-        setTimeout(mimicMovement, 4000);
-      });
+
+
+  /*--------------------------------------------START BUTTON & GAME INITIATOR*/
+    $("#start-btn").click(function(){
+      $(".count").text("00");
+      mimicStartThemeTune.play();
+      level = 0;
+      level++;
+      mimicMove = [];
+      playerMove = [];
+      error = false;
+      console.log("Ready Steady Mimic!");
+      setTimeout(mimicMovement, 4000);
     });
     
     function mimicMovement() {
@@ -110,7 +127,6 @@
     
     
   /*---------------------------------------------------------BUZZER SELECTION*/
-  
     function randomID() {
       var random = Math.floor(Math.random() * 4);
       mimicMove.push(random);
@@ -136,8 +152,9 @@
       "assets/sounds/noteC.wav"  //squareBlue
       ];
     
+    
+    
   /*-----------------------------------------------MONITOR FOR PLAYER'S MOVES*/
-  
     $(".buzzer").click(function(){
       id=$(this).attr("id")
       squareColor=$(this).attr("class").split(" ")[1];
@@ -148,8 +165,7 @@
       playerMove.push(id);
       console.log(id+" "+squareColor);
       buzzerOn(id, squareColor);
-
-    /*-------------------------------------------------------------VALIDATION*/
+      
     //If player makes an INCORRECT move:
       if(!validatePlayerMove()) {
         playerMove = [];
@@ -171,12 +187,13 @@
         setTimeout(mimicMovement,1500);
       }
       
-    //Game completion:
+    //Game Completion:
       if(playerMove.length == total_levels){
         gameCompleted();
       }
     }
     
+  /*---------------------------------------------------------------VALIDATION*/
     function validatePlayerMove(){
       for(var i=0; i<playerMove.length; i++){
         if(playerMove[i] !=mimicMove[i]){
@@ -188,8 +205,20 @@
     
     
     
-  /*-------------------------------------------------------------------ALERTS*/
+  /*--------------------------------------------------------------HINT BUTTON*/  
+    //Plays the last buzzer selected in the sequence so far
+    $("#hint-btn").click(function(){
+      console.log("Hint for Level "+level);
+      randomID();
+      console.log(id+" "+squareColor);
+      buzzerOn(id, squareColor);
+    });
     
+    
+    
+    
+    
+  /*-------------------------------------------------------------------ALERTS*/
     //For an incorrect move:
     function showErrorMessage(){
       alert("Unfortunately, that was a wrong move! \nYour game has ended.\nTo begin a new game please click ok and then press the start button");
@@ -206,5 +235,5 @@
       alert("Congratulations! You have completed MiMiC® 2018! \nTo begin a new game please click ok and then press the start button.");
     }
     
-    
+});    
     
