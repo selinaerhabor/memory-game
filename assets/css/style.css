@@ -32,7 +32,7 @@ body, html {
 /*------------------------------------------ Navigation / Menu Bar Settings --*/
 
 .navbar {
-  background-color: transparent;
+  background-color: rgba(0, 0, 0, 0.25);
   position: absolute; 
   padding: 0;
   top: 0; 
@@ -40,10 +40,6 @@ body, html {
   width: 100%;
   border-radius: 0;
   border-style: none;
-}
-
-.navbar-default .navbar-collapse {
-    border-color: transparent;
 }
 
 .navbar-default .navbar-toggle {
@@ -55,10 +51,15 @@ body, html {
 }
 
 .menu-link {
+  color: #c0c0c0;
   cursor: pointer;
   text-decoration: none;
-  color: #c0c0c0;
   margin-left: 10px;
+}
+
+.navbar-default .navbar-nav>li>a:focus,
+.navbar-default .navbar-nav>li>a:hover {
+    color: #f0f8ff;
 }
 
 .btn-success {
@@ -72,6 +73,10 @@ body, html {
 
 .btn-success:hover {
   background-color: #008800;
+}
+
+.instructions {
+  font-family: monospace;
 }
 
 
