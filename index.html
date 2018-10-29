@@ -10,7 +10,7 @@
     <title>Mimic® | Single-Player Memory Game Inspired by Simon</title>
 </head>
 <body>
-    <!---Navigation Bar-->
+    <!--Navigation Bar-->
     <header>
         <nav class="navbar navbar-default">
             <div class="container-fluid">
@@ -37,8 +37,9 @@
             </div>
         </nav>
     </header>
-    <!---/Navigation Bar-->
+    <!--/Navigation Bar-->
   
+    <!--Game Body-->
     <div class="container-fluid background-container">
         <div class="row">
             <div class="col-xs-12 game-body">
@@ -89,7 +90,9 @@
             </div>
         </div>
     </div>
+    <!--/Game Body-->
     
+    <!--Data Targets-->
     <div class="modal fade" id="jointloginregisterModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -144,7 +147,38 @@
         </div>
       </div>
     </div>
-    
+    <div class="modal fade" id="instructionModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close" >
+              <span aria-hidden="true">×</span>
+            </button>
+              <h4 class="modal-title" id="myModalLabel">
+                Game Instructions - How to play:
+              </h4>
+              <h5>
+                <p>Mimic® is a single player memory game inspired by the traditional Hasbro game - Simon.
+                
+                The game has 30 levels and the system begins the game by selecting one buzzer. 
+                The user's aim is to correctly repeat(mimic) the buzzers that the system selects, to ensure 
+                they move on to the next level. 
+                
+                For each new level, one extra buzzer is selected and added to the sequence. It could be the same button as previous or a 
+                different button. The user will now have to replay all of the buzzers that have been selected so far in their exact order, 
+                including the newly selected buzzer for that level. 
+                (For example on level 4, the user will have to replay all 4 buzzers in the order of their selection).</p>
+                
+                When a sequence has been correctly repeated by the user, a high-pitched notification sound will be played before the game continues.
+                If a wrong buzzer has been pressed, then the game will release a low-pitched sound notification sound and the game will end. 
+                
+                To begin a new game, the start button will then have to be pressed. 
+              </h5>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--/Data Targets-->
     
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" 
     crossorigin="anonymous"></script>
