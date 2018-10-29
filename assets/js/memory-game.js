@@ -8,6 +8,14 @@ $(document).ready(function(){
       Green.play();
     });
     
+    $("#0").mousedown(function(){
+      greenLight(this);
+    });
+    
+    $("#0").mouseup(function(){
+      greenInactive(this);
+    });
+    
     var Green = new Audio();
     Green.src = "assets/sounds/noteE.wav";
       
@@ -24,6 +32,14 @@ $(document).ready(function(){
     
     $("#1").click(function(){
       Yellow.play();
+    });
+    
+    $("#1").mousedown(function(){
+      yellowLight(this);
+    });
+    
+    $("#1").mouseup(function(){
+      yellowInactive(this);
     });
     
     var Yellow = new Audio();
@@ -44,6 +60,14 @@ $(document).ready(function(){
       Red.play();
     });
     
+    $("#2").mousedown(function(){
+      redLight(this);
+    });
+    
+    $("#2").mouseup(function(){
+      redInactive(this);
+    });
+    
     var Red = new Audio();
       Red.src = "assets/sounds/noteF.wav";
    
@@ -51,7 +75,7 @@ $(document).ready(function(){
       div.style.backgroundColor = "#ff6666";
     }
   
-    function redInactive(){
+    function redInactive(div){
       div.style.backgroundColor = "#9f0f17";
     }
       
@@ -61,6 +85,14 @@ $(document).ready(function(){
       
     $("#3").click(function(){
       Blue.play();
+    });
+    
+    $("#3").mousedown(function(){
+      blueLight(this);
+    });
+    
+    $("#3").mouseup(function(){
+      blueInactive(this);
     });
     
     var Blue = new Audio();
