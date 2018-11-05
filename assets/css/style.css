@@ -40,6 +40,7 @@ body, html {
   width: 100%;
   border-radius: 0;
   border-style: none;
+  z-index: 1;
 }
 
 .navbar-default .navbar-toggle {
@@ -204,17 +205,21 @@ body, html {
 }
 
 .hint {
+  margin-top: 10px;
+  align-items: center;
   -webkit-transition: background-color 0.3s; 
   -moz-transition: background-color 0.3s;
   -o-transition: background-color 0.3s; 
   transition: background-color 0.3s;
 }
 
-.hint:hover{
+.hint:hover {
   background-color: #ff8c00;
 }
 
 .start {
+  margin-top: 10px;
+  align-items: center;
   -webkit-transition: background-color 0.3s; 
   -moz-transition: background-color 0.3s;
   -o-transition: background-color 0.3s; 
@@ -230,15 +235,6 @@ body, html {
   padding-left: 1px;
 }
 
-#start-btn {
-  margin-top: 10px;
-  align-items: center;
-}
-
-#hint-btn {
-  margin-top: 10px;
-  align-items: center;
-}
 
 
 /*------------------------------------------------------- Media Rules --*/
