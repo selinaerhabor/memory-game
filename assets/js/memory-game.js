@@ -1,7 +1,7 @@
 $(document).ready(function(){ 
   
   /*---------------------------------------------------TOTAL NUMBER OF LEVELS*/
-    const total_levels = 30;
+    const maxLevel = 30;
 
   /*-------------------------------------------------------------GREEN BUTTON*/
     $("#0").click(function(){
@@ -128,20 +128,31 @@ $(document).ready(function(){
 
 
   /*--------------------------------------------START BUTTON & GAME INITIATOR*/
-    $("#start-btn").click(function(){
+    $(".start").click(function(){
       $(".count").text("00");
-      mimicStartThemeTune.play();
-      level = 0;
-      level++;
-      mimicMove = [];
-      playerMove = [];
-      error = false;
-      console.log("Ready Steady Mimic!");
-      setTimeout(mimicMovement, 4000);
+        mimicStartThemeTune.play();
+        level = 0;
+        level++;
+        mimicMove = [];
+        playerMove = [];
+        error = false;
+        console.log("Ready Steady Mimic!");
+        setTimeout(mimicMovement, 4000);
     });
+      
+      //Plays the last buzzer selected in the sequence so far
+    
+      $(".hint").click(function(){
+        console.log("Hint for level "+level);
+        randomID();
+        console.log(id+" "+squareColor);
+        buzzerOn(id, squareColor);
+        playerMove = [];
+      });
+
     
     function mimicMovement() {
-      console.log("level "+level);
+      console.log("Level "+level);
       $(".count").text(level);
       randomID();
       var i = 0;
@@ -202,7 +213,7 @@ $(document).ready(function(){
       if(!validatePlayerMove()) {
         playerMove = [];
         error = true;
-        console.log("Incorrect move. Game ended.")
+        console.log("Incorrect move. Game ended.");
         incorrect.play();
         setTimeout(showErrorMessage, 200);
         mimicMove = [];
@@ -210,19 +221,20 @@ $(document).ready(function(){
       }
       
     //If player makes a CORRECT move:
-      else if(playerMove.length == mimicMove.length && playerMove.length < total_levels){
+      else if(playerMove.length == mimicMove.length && playerMove.length < maxLevel){
         level++;
         playerMove = [];
         error = false;
-        console.log("Correct! Game continuing...")
+        console.log("Correct! Game continuing...");
         correct.play();
         setTimeout(mimicMovement,1500);
       }
       
-    //Game Completion:
-      if(playerMove.length == total_levels){
-        gameCompleted();
-      }
+      //Game Completion:
+        if(playerMove.length == maxLevel){
+          gameCompleted();
+        }
+      
     }
     
   /*---------------------------------------------------------------VALIDATION*/
@@ -236,15 +248,6 @@ $(document).ready(function(){
     }
     
     
-    
-  /*--------------------------------------------------------------HINT BUTTON*/  
-    //Plays the last buzzer selected in the sequence so far
-    $("#hint-btn").click(function(){
-      console.log("Hint for Level "+level);
-      randomID();
-      console.log(id+" "+squareColor);
-      buzzerOn(id, squareColor);
-    });
     
     
     
