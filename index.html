@@ -9,152 +9,145 @@
     <link rel="stylesheet" href="assets/css/style.css" type="text/css" />
     <title>Mimic® | Single-Player Memory Game Inspired by Simon</title>
 </head>
-<body>
+  <body>
     <!--Navigation Bar-->
     <header>
-        <nav class="navbar navbar-default">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-xs-12">
-                        <div class="navbar-header">
-                            <a href="index.html" class="navbar-brand uppercase visible-xs">MiMiC®</a>
-                                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar" aria-expanded="true">
-                                    <span class="sr-only">Toggle navigation</span>
-                                    <span class="icon-bar"></span>
-                                    <span class="icon-bar"></span>
-                                    <span class="icon-bar"></span>
-                                </button>
-                        </div>
-                        <div class="navbar-collapse collapse" id="navbar">
-                            <ul class="nav navbar-nav navbar-right">
-                                <li><a class="menu-link" data-toggle='modal' data-target='#instructionModal'>INSTRUCTIONS</a></li>
-                                <li><a class="menu-link hidden-xs" data-toggle='modal' data-target='#jointloginregisterModal'>LOGIN</a></li>
-                                <li><a class="menu-link visible-xs" data-toggle='modal' data-target='#jointloginregisterModal'>LOGIN/REGISTER</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="navbar-header">
+                <a href="index.html" class="navbar-brand uppercase visible-xs">MiMiC®</a>
+                  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar" aria-expanded="true">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                  </button>
+              </div>
+              <div class="navbar-collapse collapse" id="navbar">
+                <ul class="nav navbar-nav navbar-right">
+                  <li><a class="menu-link" data-toggle='modal' data-target='#instructionModal'>INSTRUCTIONS</a></li>
+                  <li><a class="menu-link hidden-xs" data-toggle='modal' data-target='#jointloginregisterModal'>LOGIN</a></li>
+                  <li><a class="menu-link visible-xs" data-toggle='modal' data-target='#jointloginregisterModal'>LOGIN/REGISTER</a></li>
+                </ul>
+              </div>
             </div>
-        </nav>
+          </div>
+        </div>
+      </nav>
     </header>
     <!--/Navigation Bar-->
   
     <!--Game Body-->
     <div class="container-fluid background-container">
-        <div class="row">
-            <div class="col-xs-12 game-body">
-                <div class="row">
-                    <div class="col-xs-12 no-padding">
-                        <div class="buzzer squareGreen" id="0"></div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-xs-12 horizontal">
-                        <div class="col-xs-4 no-padding">
-                            <div class="buzzer squareYellow" id="1"></div>
-                        </div>
-                        <div class="col-xs-4 no-padding">
-                            <div class="main-control">
-                                <h1 class="brand">MiMiC<span class="symbol">®</span></h1>
-                                    <div class="display">
-                                        <h6 class="count">--</h6>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-xs-6">
-                                            <button class="round-btn start">
-                                                <div class="label-btn">
-                                                    START
-                                                </div>
-                                            </button>
-                                        </div>
-                                        <div class="col-xs-6">
-                                            <button class="round-btn hint">
-                                                <div class="label-btn">
-                                                    HINT
-                                                </div>
-                                            </button>
-                                        </div>
-                                    </div>
-                            </div>
-                        </div>
-                        <div class="col-xs-4 no-padding">
-                            <div class="buzzer squareRed" id="2"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-xs-12 no-padding">
-                        <div class="buzzer squareBlue" id="3"></div>
-                    </div>
-                </div>
+      <div class="row">
+        <div class="col-xs-12 game-body">
+          <div class="row">
+            <div class="col-xs-12 no-padding">
+              <div class="buzzer squareGreen" id="0"></div>
             </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12 horizontal">
+              <div class="col-xs-4 no-padding">
+                <div class="buzzer squareYellow" id="1"></div>
+              </div>
+              <div class="col-xs-4 no-padding">
+                <div class="main-control">
+                  <h1 class="brand">MiMiC<span class="symbol">®</span></h1>
+                    <div class="display">
+                      <h6 class="count">--</h6>
+                    </div>
+                    <div class="row">
+                      <div class="col-xs-6">
+                        <button class="round-btn start">
+                          <div class="label-btn">START</div>
+                        </button>
+                      </div>
+                      <div class="col-xs-6">
+                        <button class="round-btn hint">
+                          <div class="label-btn">HINT</div>
+                        </button>
+                      </div>
+                    </div>
+                </div>
+              </div>
+              <div class="col-xs-4 no-padding">
+                <div class="buzzer squareRed" id="2"></div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12 no-padding">
+              <div class="buzzer squareBlue" id="3"></div>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
     <!--/Game Body-->
     
     <!--Data Targets-->
-    <div class="modal fade" id="jointloginregisterModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal fade" id="jointloginregisterModal" tabindex="-1" role="dialog" aria-labelledby="loginModal">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close" >
               <span aria-hidden="true">×</span>
             </button>
-              <h4 class="modal-title" id="myModalLabel">Login to your Mimic® Account
-              </h4>
+            <h4 class="modal-title" id="loginModal">Login to your Mimic® Account</h4>
           </div>
           <div class="modal-body">
             <form>
               <div class="form-group">
                 <label for="userName">User Name</label>
-                  <input type="name" class="form-control" id="userName" placeholder="Your User Name">
+                  <input type="text" class="form-control" id="userName" placeholder="Your User Name" required/>
               </div>
               <div class="form-group">
                 <label for="signInPassword">Password</label>
-                  <input type="password" class="form-control" id="signInPassword" placeholder="Password">
+                  <input type="password" class="form-control" id="signInPassword" placeholder="Password" required/>
               </div>
-                <button type="submit" class="btn-success">Sign In</button>
+              <button type="submit" class="btn-success">Sign In</button>
             </form>
-              <div>
-                <hr class="divider">
-              </div>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close" ></button>
-                  <h4 class="modal-title" id="myModalLabel">Not Registered yet?</h4> 
-                    <div><h5>Create a Mimic® Account to keep track of your scores!</h5></div>
+            <hr class="divider">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
+              <h4 class="modal-title" id="myModalLabel">Not Registered yet?</h4> 
+                <h5>Create a Mimic® Account to keep track of your scores!</h5>
           </div>
           <div class="modal-body">
             <form>
               <div class="form-group">
                 <label for="email">Email address</label>
-                  <input type="email" class="form-control" id="email" placeholder="Email">
+                  <input type="email" class="form-control" id="email" placeholder="Email" required/>
                     <p class="help-block"><h6><i>We will never share your details with anyone</i></h6></p>
               </div>
               <div class="form-group">
                 <label for="userName">User Name</label>
-                  <input type="name" class="form-control" id="signUpUserName" placeholder="User Name">
+                  <input type="name" class="form-control" id="signUpUserName" placeholder="User Name" required/>
               </div>
               <div class="form-group">
                 <label for="signUpPassword">Password</label>
-                  <input type="password" class="form-control" id="signUpPassword" placeholder="Password">
+                  <input type="password" class="form-control" id="signUpPassword" placeholder="Password" required/>
               </div>
               <div class="form-group">
                 <label for="passwordRepeat">Confirm Password</label>
-                  <input type="password" class="form-control" id="passwordRepeat" placeholder="Confirm Password">
+                  <input type="password" class="form-control" id="passwordRepeat" placeholder="Confirm Password" required/>
               </div>
-                  <button type="submit" class="btn-success">Submit</button>
+              <button type="submit" class="btn-success">Submit</button>
             </form>
           </div>
         </div>
       </div>
     </div>
-    <div class="modal fade" id="instructionModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal fade" id="instructionModal" tabindex="-1" role="dialog" aria-labelledby="instructionsModal">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close" >
               <span aria-hidden="true">×</span>
             </button>
-              <h4 class="modal-title" id="myModalLabel">
+              <h4 class="modal-title" id="instructionsModal">
                 Game Instructions - How to play:
               </h4>
               <h5>
@@ -171,12 +164,10 @@
                 (For example on level 4, the user will have to replay the three buzzers selected so far, in their order of selection and the fourth 
                 buzzer selected in that level).
                 </p>
-                
                 <p class="instructions">
                 When a sequence has been correctly repeated by the user, a high-pitched notification sound will be played before the next level begins.
                 If a wrong buzzer has been pressed, then the game will release a low-pitched notification sound and the game will end. 
                 </p>
-                
                 <li class="instructions">Start Button - Begins a new game</li>
                 <li class="instructions">Hint Button - Replays the last buzzer selected in the sequence so far</li>
               </h5>
@@ -192,6 +183,5 @@
     integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="assets/js/memory-game.js"></script>
-    
-</body>
+  </body>
 </html>
