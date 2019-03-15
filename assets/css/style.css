@@ -1,3 +1,4 @@
+/*---------------------------------------------------------Background Settings*/
 body, html {
   font-family: 'Fjalla One', sans-serif;
   overflow-x: hidden;
@@ -10,6 +11,8 @@ body, html {
   z-index: -1;
   justify-content: center;
 }
+
+/*-----------------------------------------------------Game Interface Settings*/
 
 .background-container {
   text-align: center;
@@ -29,7 +32,7 @@ body, html {
   padding-right: 0 !important;
 }
 
-/*------------------------------------------ Navigation / Menu Bar Settings --*/
+/*----------------------------------------------Navigation / Menu Bar Settings*/
 
 .navbar {
   background-color: rgba(0, 0, 0, 0.25);
@@ -64,6 +67,11 @@ body, html {
     color: #f0f8ff;
 }
 
+.instructions {
+  font-family: monospace;
+}
+
+/*----Adjustments I made to Bootstrap's Predefined Styles:*/
 .btn-success {
   -webkit-transition: background-color 0.3s; 
   -moz-transition: background-color 0.3s;
@@ -77,82 +85,82 @@ body, html {
   background-color: #008800;
 }
 
-.instructions {
-  font-family: monospace;
-}
+
+/*--------------------------------------------------------------4 Game Buzzers*/
+
+  /*----------------------------------------Red Buzzer Off & On Appearance*/
+  .squareRed {
+    height: 200px;
+    width: 200px;
+    background-color: #9f0f17;
+    border: 7px solid #333;
+    border-radius: 10%;
+    cursor: pointer;
+    transition: all .2s ease 0s;
+    display: inline-block;
+  }
+  
+  .squareRedActive {
+    background-color: #ff6666 !important;
+  }
+  
+  /*----------------------------------------Blue Buzzer Off & On Appearance*/
+  .squareBlue {
+    height: 200px;
+    width: 200px;
+    background-color: #094a8f;
+    border: 7px solid #333;
+    border-radius: 10%;
+    cursor: pointer;
+    transition: all .2s ease 0s;
+    margin-top: -10px;
+    display: inline-block;
+  }
+  
+  .squareBlueActive {
+    background-color: #3288ff !important;
+  }
+  
+  
+  /*--------------------------------------Yellow Buzzer Off & On Appearance*/
+  .squareYellow {
+    height: 200px;
+    width: 200px;
+    background-color: #cca707;
+    border: 7px solid #333;
+    border-radius: 10%;
+    cursor: pointer;
+    transition: all .2s ease 0s;
+    display: inline-block;
+  }
+  
+  .squareYellowActive {
+    background-color: #ffe54c !important;
+  }
+  
+  
+  /*--------------------------------------Green Buzzer Off & On Appearance*/
+  .squareGreen {
+    height: 200px;
+    width: 200px;
+    background-color: #00a74a;
+    border-width: 7px !important;
+    border-style: solid;
+    border-color: #333;
+    border-radius: 10%;
+    cursor: pointer;
+    transition: all .2s ease 0s;
+    margin-bottom: -10px;
+    display: inline-block;
+  }
+  
+  .squareGreenActive {
+    background-color: #13ff7c !important;
+  }
 
 
-/*------------------------------------------------- 4 Game Coloured Buttons --*/
 
-.squareRed {
-  height: 200px;
-  width: 200px;
-  background-color: #9f0f17;
-  border: 7px solid #333;
-  border-radius: 10%;
-  cursor: pointer;
-  transition: all .2s ease 0s;
-  display: inline-block;
-}
-
-.squareRedActive {
-  background-color: #ff6666 !important;
-}
-
-.squareBlue {
-  height: 200px;
-  width: 200px;
-  background-color: #094a8f;
-  border: 7px solid #333;
-  border-radius: 10%;
-  cursor: pointer;
-  transition: all .2s ease 0s;
-  margin-top: -10px;
-  display: inline-block;
-}
-
-.squareBlueActive {
-  background-color: #3288ff !important;
-}
-
-
-.squareYellow {
-  height: 200px;
-  width: 200px;
-  background-color: #cca707;
-  border: 7px solid #333;
-  border-radius: 10%;
-  cursor: pointer;
-  transition: all .2s ease 0s;
-  display: inline-block;
-}
-
-.squareYellowActive {
-  background-color: #ffe54c !important;
-}
-
-
-.squareGreen {
-  height: 200px;
-  width: 200px;
-  background-color: #00a74a;
-  border-width: 7px !important;
-  border-style: solid;
-  border-color: #333;
-  border-radius: 10%;
-  cursor: pointer;
-  transition: all .2s ease 0s;
-  margin-bottom: -10px;
-  display: inline-block;
-}
-
-.squareGreenActive {
-  background-color: #13ff7c !important;
-}
-
-
-
-/*------------------------------------------------------- Main Control Face --*/
+/*-----------------------------------------------------------Main Control Face*/
 
 .main-control {
   width: 200px;
@@ -161,126 +169,136 @@ body, html {
   background-color: #ece7ee;
   border: 7px solid #333;
 }
-
-.brand {
-  color: #222;
-  font-size: 3.0em;
-  margin-top : 12px;
-}
-
-.brand .symbol {
-  font-size : 0.3em;
-  position : relative;
-  top : -20px;
-}
-
-.count {
-  font-family: 'Fjalla One', monospace;
-  font-size : 2.6em;
-  width : 70px;
-  color : #dc0d28;
-  background-color: #31060d;
-  border : 4px solid #222;
-  border-radius : 10px;
-  margin-left: -7px;
-  margin-top: -7px;
-  padding-top: 2px;
-}
-
-.display {
-  width : 60px;
-  position: relative;
-  text-align: center;
-  display: inline-block;
-}
-
-.round-btn {
-  width: 50px;
-  height: 45px;
-  position: relative;
-  border-radius : 50%;
-  border : 4px solid #444;
-  box-shadow : 0px 2px 3px #222;
-  margin-left: -6px;
-  top : -5px;
-}
-
-.hint {
-  margin-top: 10px;
-  align-items: center;
-  -webkit-transition: background-color 0.3s; 
-  -moz-transition: background-color 0.3s;
-  -o-transition: background-color 0.3s; 
-  transition: background-color 0.3s;
-}
-
-.hint:hover {
-  background-color: #ff8c00;
-}
-
-.start {
-  margin-top: 10px;
-  align-items: center;
-  -webkit-transition: background-color 0.3s; 
-  -moz-transition: background-color 0.3s;
-  -o-transition: background-color 0.3s; 
-  transition: background-color 0.3s;
-}
-
-.start:hover{
-  background-color: #008800;
-}
-
-.label-btn {
-  font-size: 0.9em;
-  padding-left: 1px;
-}
-
-
-
-/*------------------------------------------------------- Media Rules --*/
-@media screen and (max-width: 475px){
   
-  .game-body {
-    top: 100px;
-    left: 140px;
-    width: 625px;
-    margin: 0 auto;
-    -webkit-transform: scale(0.55);
-    -moz-transform: scale(0.55);
-    -ms-transform: scale(0.55);
-    -o-transform: scale(0.55);
-    transform: scale(0.55);
-    -o-transform-origin: 0 0;
-    -ms-transform-origin: 0 0;
-    -webkit-transform-origin: 0 0;
-    -moz-transform-origin: 0 0;
-    transform-origin: 0 0;
+  /*------------------------------------------------MiMiC Brand Name---*/
+  .brand {
+    color: #222;
+    font-size: 3.0em;
+    margin-top : 12px;
   }
-}
-
-@media screen and (min-width:476px) and (max-width:631px){
-  .game-body {
-    top: 100px;
-    left: 110px;
-    width: 625px;
-    margin: 0 auto;
-    -webkit-transform: scale(0.65);
-    -moz-transform: scale(0.65);
-    -ms-transform: scale(0.65);
-    -o-transform: scale(0.65);
-    transform: scale(0.65);
-    -o-transform-origin: 0 0;
-    -ms-transform-origin: 0 0;
-    -webkit-transform-origin: 0 0;
-    -moz-transform-origin: 0 0;
-    transform-origin: 0 0;
+  
+  .brand .symbol {
+    font-size : 0.3em;
+    position : relative;
+    top : -20px;
   }
-}
+  
+  /*-----------------------------------------------------Game Screen---*/
+  .count {
+    font-family: 'Fjalla One', monospace;
+    font-size : 2.6em;
+    width : 70px;
+    color : #dc0d28;
+    background-color: #31060d;
+    border : 4px solid #222;
+    border-radius : 10px;
+    margin-left: -7px;
+    margin-top: -7px;
+    padding-top: 2px;
+  }
+  
+  .display {
+    width : 60px;
+    position: relative;
+    text-align: center;
+    display: inline-block;
+  }
 
-@media screen and (min-width:632px){
-  .game-body {
-    top: 15px;
-    width: 615px;
-}
-}
+  /*------------------------------------------------------------------Buttons*/
+    .round-btn {
+    width: 50px;
+    height: 45px;
+    position: relative;
+    border-radius : 50%;
+    border : 4px solid #444;
+    box-shadow : 0px 2px 3px #222;
+    margin-left: -6px;
+    top : -5px;
+    }
+    
+    /*------------------------------------------------------Hint Button--*/
+    .hint {
+      margin-top: 10px;
+      align-items: center;
+      -webkit-transition: background-color 0.3s; 
+      -moz-transition: background-color 0.3s;
+      -o-transition: background-color 0.3s; 
+      transition: background-color 0.3s;
+    }
+    
+    .hint:hover {
+      background-color: #ff8c00;
+    }
+    
+    /*------------------------------------------------------Start Button--*/
+    .start {
+      margin-top: 10px;
+      align-items: center;
+      -webkit-transition: background-color 0.3s; 
+      -moz-transition: background-color 0.3s;
+      -o-transition: background-color 0.3s; 
+      transition: background-color 0.3s;
+    }
+    
+    .start:hover{
+      background-color: #008800;
+    }
+    
+    /*-----------------------------------------------------Button Labels--*/
+    .label-btn {
+      font-size: 0.9em;
+      padding-left: 1px;
+    }
+
+
+
+/*--------------------------------------------------------------Media Rules---*/
+  
+  /*------------Viewing on screen sizes with up to 475px width (E.g. Phones)--*/
+  @media screen and (max-width: 475px){
+    .game-body {
+      top: 100px;
+      left: 140px;
+      width: 625px;
+      margin: 0 auto;
+      -webkit-transform: scale(0.55);
+      -moz-transform: scale(0.55);
+      -ms-transform: scale(0.55);
+      -o-transform: scale(0.55);
+      transform: scale(0.55);
+      -o-transform-origin: 0 0;
+      -ms-transform-origin: 0 0;
+      -webkit-transform-origin: 0 0;
+      -moz-transform-origin: 0 0;
+      transform-origin: 0 0;
+    }
+  }
+  
+  /*-------------------Viewing on screen sizes between 476px to 631px width---*/
+  @media screen and (min-width:476px) and (max-width:631px){
+    .game-body {
+      top: 100px;
+      left: 110px;
+      width: 625px;
+      margin: 0 auto;
+      -webkit-transform: scale(0.65);
+      -moz-transform: scale(0.65);
+      -ms-transform: scale(0.65);
+      -o-transform: scale(0.65);
+      transform: scale(0.65);
+      -o-transform-origin: 0 0;
+      -ms-transform-origin: 0 0;
+      -webkit-transform-origin: 0 0;
+      -moz-transform-origin: 0 0;
+      transform-origin: 0 0;
+    }
+  }
+  
+  /*-------Viewing on screen sizes with at least 632px width (E.g. Desktops)--*/
+  @media screen and (min-width:632px){
+    .game-body {
+      top: 15px;
+      width: 615px;
+    }
+  }
+  
