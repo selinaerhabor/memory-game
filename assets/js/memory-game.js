@@ -1,7 +1,7 @@
 $(document).ready(function(){ 
   
   /*---------------------------------------------------TOTAL NUMBER OF LEVELS*/
-    const maxLevel = 30;
+    const maxLevel = 40;
 
   /*-------------------------------------------------------------GREEN BUTTON*/
     $("#0").click(function(){
@@ -128,45 +128,44 @@ $(document).ready(function(){
 
 
   /*--------------------------------------------START BUTTON & GAME INITIATOR*/
-    $(".start").click(function(){
-      $(".count").text("00");
-        mimicStartThemeTune.play();
-        level = 0;
-        level++;
-        mimicMove = [];
-        playerMove = [];
-        error = false;
-        console.log("Ready Steady Mimic!");
-        setTimeout(mimicMovement, 4000);
-    });
-      
-      //Plays the last buzzer selected in the sequence so far
+  $(".start").click(function(){
+    $(".count").text("00");
+      mimicStartThemeTune.play();
+      level = 0;
+      level++;
+      mimicMove = [];
+      playerMove = [];
+      error = false;
+      console.log("Ready Steady Mimic!");
+      setTimeout(mimicMovement, 4000);
+  });
     
-      $(".hint").click(function(){
-        console.log("Hint for level "+level);
+      function mimicMovement() {
+        console.log("Level "+level);
+        $(".count").text(level);
         randomID();
-        console.log(id+" "+squareColor);
-        buzzerOn(id, squareColor);
-        playerMove = [];
-      });
-
+        var i = 0;
+        var myInterval= setInterval(function() {
+          id = mimicMove[i];
+          squareColor = $("#"+id).attr("class").split(" ")[1];
+          console.log(id+" "+squareColor);
+          buzzerOn(id, squareColor);
+          i++;
+          if(i == mimicMove.length) {
+            clearInterval(myInterval);
+          }
+        }, 1000);
+      }
+      
+    /*------------------------------------------------------------HINT BUTTON*/
+    $(".hint").mouseup(function(){
+      console.log("Hint for level "+level);
+      console.log(id+" "+squareColor);
+      buzzerOn(id, squareColor);
+      hint;
+      var hint = mimicMovement[mimicMovement.length - 1];
+    });
     
-    function mimicMovement() {
-      console.log("Level "+level);
-      $(".count").text(level);
-      randomID();
-      var i = 0;
-      var myInterval= setInterval(function() {
-        id = mimicMove[i];
-        squareColor = $("#"+id).attr("class").split(" ")[1];
-        console.log(id+" "+squareColor);
-        buzzerOn(id, squareColor);
-        i++;
-        if(i == mimicMove.length) {
-          clearInterval(myInterval);
-        }
-      }, 1000);
-    }
     
     
   /*---------------------------------------------------------BUZZER SELECTION*/
@@ -217,7 +216,6 @@ $(document).ready(function(){
         incorrect.play();
         setTimeout(showErrorMessage, 200);
         mimicMove = [];
-        level = 1;
       }
       
     //If player makes a CORRECT move:
@@ -249,10 +247,6 @@ $(document).ready(function(){
     
     
     
-    
-    
-    
-    
   /*-------------------------------------------------------------------ALERTS*/
     //For an incorrect move:
     function showErrorMessage(){
@@ -267,7 +261,7 @@ $(document).ready(function(){
     }
     
     function mimicWinner(){
-      alert("Congratulations! You have completed MiMiC® 2018! \nTo begin a new game please click ok and then press the start button.");
+      alert("Congratulations! You have completed MiMiC®! \nTo begin a new game please click ok and then press the start button.");
     }
     
 });    
