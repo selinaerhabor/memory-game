@@ -1,3 +1,21 @@
+/*------------------------------------------------------------Global Variables*/
+var $;
+var level = []; //Game Level
+var mimicMove = []; //Game's Move
+var playerMove = [];  // Player's Move
+var id = [0, 1, 2, 3];  // Buzzer IDs
+var error;
+var squareColor;
+var buzzerSound= [
+      "assets/sounds/noteE.wav", //squareGreen sound
+      "assets/sounds/noteD.wav", //squareYellow sound
+      "assets/sounds/noteF.wav", //squareRed sound
+      "assets/sounds/noteC.wav"  //squareBlue sound
+      ]; 
+
+
+
+
 $(document).ready(function(){ 
   
   /*---------------------------------------------------TOTAL NUMBER OF LEVELS*/
@@ -133,9 +151,9 @@ $(document).ready(function(){
       mimicStartThemeTune.play();
       level = 0;
       level++;
+      error = false;
       mimicMove = [];
       playerMove = [];
-      error = false;
       console.log("Ready Steady Mimic!");
       setTimeout(mimicMovement, 4000);
   });
@@ -158,12 +176,19 @@ $(document).ready(function(){
       }
       
     /*------------------------------------------------------------HINT BUTTON*/
-    $(".hint").mouseup(function(){
-      console.log("Hint for level "+level);
-      console.log(id+" "+squareColor);
-      buzzerOn(id, squareColor);
-      hint;
-      var hint = mimicMovement[mimicMovement.length - 1];
+    $(".hint").click(function(){
+      if(playerMove.length > 0){
+        error=true;
+        hintButtonDisabled();
+        console.log("You have started your attempt. Hint button is disabled for the rest of this level");
+        hintButtonDisabled.empty();
+      }
+      else {
+        console.log("Hint for level "+ level);
+        console.log(id+" "+squareColor);
+        buzzerOn(id, squareColor);
+        mimicMovement[mimicMovement.length - 1];
+      }
     });
     
     
@@ -187,18 +212,13 @@ $(document).ready(function(){
       sound.play();
     }
     
-    var buzzerSound= [
-      "assets/sounds/noteE.wav", //squareGreen
-      "assets/sounds/noteD.wav", //squareYellow
-      "assets/sounds/noteF.wav", //squareRed
-      "assets/sounds/noteC.wav"  //squareBlue
-      ];
+    
     
     
     
   /*-----------------------------------------------MONITOR FOR PLAYER'S MOVES*/
     $(".buzzer").click(function(){
-      id=$(this).attr("id")
+      id=$(this).attr("id");
       squareColor=$(this).attr("class").split(" ")[1];
       playerMovement();
     });
@@ -248,6 +268,11 @@ $(document).ready(function(){
     
     
   /*-------------------------------------------------------------------ALERTS*/
+    //For disabled hint button:
+    function hintButtonDisabled(){
+      $(".count").text(" ⃠ ");
+    }
+    
     //For an incorrect move:
     function showErrorMessage(){
       alert("Unfortunately, that was a wrong move! \nYour game has ended.\nTo begin a new game please click ok and then press the start button");
