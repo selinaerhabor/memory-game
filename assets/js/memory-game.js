@@ -7,10 +7,10 @@ var id = [0, 1, 2, 3];  // Buzzer IDs
 var error;
 var squareColor;
 var buzzerSound= [
-      "assets/sounds/noteE.wav", //squareGreen sound
-      "assets/sounds/noteD.wav", //squareYellow sound
-      "assets/sounds/noteF.wav", //squareRed sound
-      "assets/sounds/noteC.wav"  //squareBlue sound
+      "assets/sounds/noteE.wav", //Green Buzzer (squareGreen) sound
+      "assets/sounds/noteD.wav", //Yellow Buzzer (squareYellow) sound
+      "assets/sounds/noteF.wav", //Red Buzzer (squareRed) sound
+      "assets/sounds/noteC.wav"  //Blue Buzzer (squareBlue) sound
       ]; 
 
 
@@ -176,7 +176,7 @@ $(document).ready(function(){
       }
       
     /*------------------------------------------------------------HINT BUTTON*/
-    $(".hint").click(function(){
+    $(".hint").mousedown(function(){
       if(playerMove.length > 0){
         error=true;
         hintButtonDisabled();
@@ -270,7 +270,7 @@ $(document).ready(function(){
   /*-------------------------------------------------------------------ALERTS*/
     //For disabled hint button:
     function hintButtonDisabled(){
-      $(".count").text(" ⃠ ");
+      alert("You have started your attempt. Hint button is disabled for the rest of this level. Press OK to continue the game.");
     }
     
     //For an incorrect move:
