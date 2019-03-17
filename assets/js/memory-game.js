@@ -280,7 +280,7 @@ $(document).ready(function(){
     
     //For completion of the game:
     function gameCompleted(){
-      $(".count").text("🥇");
+      $(".count").text("WIN");
       gameWin.play();
       setTimeout(mimicWinner, 6000);
     }
