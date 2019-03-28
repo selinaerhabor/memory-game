@@ -1,6 +1,5 @@
 /*------------------------------------------------------------Global Variables*/
 
-
 //Game Level
 var level = []; 
 
@@ -37,24 +36,16 @@ $(document).ready(function(){
       Green.play();
     });
     
-    $("#0").mousedown(function(){
-      greenLight(this);
-    });
+    $("#0").on(
+      "mousedown", function(){
+        $("#0").addClass("squareGreenLight");
+      });
     
-    $("#0").mouseup(function(){
-      greenInactive(this);
-    });
     
     var Green = new Audio();
     Green.src = "assets/sounds/noteE.wav";
       
-    function greenLight(div){
-      div.style.backgroundColor = "#13ff7c";
-    }
   
-    function greenInactive(div){
-      div.style.backgroundColor = "#00a74a";
-    }
     
       
   /*------------------------------------------------------------YELLOW BUTTON*/
@@ -63,24 +54,18 @@ $(document).ready(function(){
       Yellow.play();
     });
     
-    $("#1").mousedown(function(){
-      yellowLight(this);
-    });
+    $("#1").on(
+      "mousedown", function(){
+        $("#1").addClass("squareYellowLight");
+      });
     
-    $("#1").mouseup(function(){
-      yellowInactive(this);
-    });
+
     
     var Yellow = new Audio();
     Yellow.src = "assets/sounds/noteD.wav";
   
-    function yellowLight(div){
-      div.style.backgroundColor = "#ffe54c";
-    }
+
   
-    function yellowInactive(div){
-      div.style.backgroundColor = "#cca707";
-    }
   
   
   
@@ -89,24 +74,18 @@ $(document).ready(function(){
       Red.play();
     });
     
-    $("#2").mousedown(function(){
-      redLight(this);
-    });
     
-    $("#2").mouseup(function(){
-      redInactive(this);
-    });
+    $("#2").on(
+      "mousedown", function(){
+        $("#2").addClass("squareRedLight");
+      });
+    
     
     var Red = new Audio();
       Red.src = "assets/sounds/noteF.wav";
    
-    function redLight(div){
-      div.style.backgroundColor = "#ff6666";
-    }
   
-    function redInactive(div){
-      div.style.backgroundColor = "#9f0f17";
-    }
+
       
       
       
@@ -116,24 +95,17 @@ $(document).ready(function(){
       Blue.play();
     });
     
-    $("#3").mousedown(function(){
-      blueLight(this);
-    });
+    $("#3").on(
+      "mousedown", function(){
+        $("#3").addClass("squareBlueLight");
+      });
     
-    $("#3").mouseup(function(){
-      blueInactive(this);
-    });
+
     
     var Blue = new Audio();
     Blue.src = "assets/sounds/noteC.wav";
       
-    function blueLight(div){
-      div.style.backgroundColor = "#3288ff";
-    }
-  
-    function blueInactive(div){
-      div.style.backgroundColor = "#094a8f";
-    }
+
   
   
       
@@ -167,7 +139,7 @@ $(document).ready(function(){
       console.log("Ready Steady Mimic!");
       setTimeout(mimicMovement, 4000);
       
-      /*------------------------------------------------------------HINT BUTTON*/
+      /*--------------------------------------------------------HINT BUTTON*/
     $(".hint").mousedown(function(){
       if(playerMove.length > 0){
         hintButtonDisabled();
@@ -227,6 +199,7 @@ $(document).ready(function(){
     
     
     
+    
   /*-----------------------------------------------MONITOR FOR PLAYER'S MOVES*/
     
     
@@ -277,8 +250,18 @@ $(document).ready(function(){
 
     //For disabled hint button:
     function hintButtonDisabled(){
+      notAllowed();
+      setTimeout(hintButtonErrorAlert, 200);
+    }
+    
+    function hintButtonErrorAlert(){
       alert("You have started your attempt. Hint button is disabled for the rest of this level. Press OK to continue the game.");
     }
+      
+    function notAllowed(){
+      $(".count").text("X");
+    }
+      
     
     //For an incorrect move:
     function showErrorMessage(){
@@ -296,5 +279,6 @@ $(document).ready(function(){
       alert("Congratulations! You have completed MiMiC®! \nTo begin a new game please click ok and then press the start button.");
     }
     
-});    
+});   
+  
     
