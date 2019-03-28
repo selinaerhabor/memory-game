@@ -36,10 +36,13 @@ $(document).ready(function(){
       Green.play();
     });
     
-    $("#0").on(
-      "mousedown", function(){
-        $("#0").addClass("squareGreenLight");
-      });
+    $("#0").on("mousedown", function(){
+      $("#0").addClass("squareGreenLight");
+    });
+    
+    $("#0").mouseup(function(){
+      $("#0").removeClass("squareGreenLight");
+    });
     
     
     var Green = new Audio();
@@ -54,11 +57,13 @@ $(document).ready(function(){
       Yellow.play();
     });
     
-    $("#1").on(
-      "mousedown", function(){
-        $("#1").addClass("squareYellowLight");
-      });
+    $("#1").on("mousedown", function(){
+      $("#1").addClass("squareYellowLight");
+    });
     
+    $("#1").mouseup(function(){
+      $("#1").removeClass("squareYellowLight");
+    });
 
     
     var Yellow = new Audio();
@@ -75,10 +80,13 @@ $(document).ready(function(){
     });
     
     
-    $("#2").on(
-      "mousedown", function(){
-        $("#2").addClass("squareRedLight");
-      });
+    $("#2").on("mousedown", function(){
+      $("#2").addClass("squareRedLight");
+    });
+    
+    $("#2").mouseup(function(){
+      $("#2").removeClass("squareRedLight");
+    });
     
     
     var Red = new Audio();
@@ -95,12 +103,14 @@ $(document).ready(function(){
       Blue.play();
     });
     
-    $("#3").on(
-      "mousedown", function(){
-        $("#3").addClass("squareBlueLight");
-      });
+    $("#3").mousedown(function(){
+      $("#3").addClass("squareBlueLight");
+    });
     
-
+    $("#3").mouseup(function(){
+      $("#3").removeClass("squareBlueLight");
+    });
+    
     
     var Blue = new Audio();
     Blue.src = "assets/sounds/noteC.wav";
@@ -152,7 +162,7 @@ $(document).ready(function(){
         mimicMovement[mimicMovement.length - 1];
       }
     });
-  });
+  
     
       function mimicMovement() {
         console.log("Level "+level);
@@ -279,6 +289,7 @@ $(document).ready(function(){
       alert("Congratulations! You have completed MiMiC®! \nTo begin a new game please click ok and then press the start button.");
     }
     
+  });
 });   
   
     
