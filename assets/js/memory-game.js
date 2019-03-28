@@ -1,25 +1,36 @@
 /*------------------------------------------------------------Global Variables*/
-var $;
-var level = []; //Game Level
-var mimicMove = []; //Game's Move
-var playerMove = [];  // Player's Move
-var id = [0, 1, 2, 3];  // Buzzer IDs
-var error;
-var squareColor;
+
+
+//Game Level
+var level = []; 
+
+//Game's Move
+var mimicMove = []; 
+
+// Player's Move
+var playerMove = [];  
+
+// Buzzer IDs
+var id = [0, 1, 2, 3];
+var squareColor = [
+    "squareGreen",  //Green Buzzer 
+    "squareYellow", //Yellow Buzzer
+    "squareRed",    //Red Buzzer
+    "squareBlue"    //Blue Buzzer
+    ];  
 var buzzerSound= [
-      "assets/sounds/noteE.wav", //Green Buzzer (squareGreen) sound
-      "assets/sounds/noteD.wav", //Yellow Buzzer (squareYellow) sound
-      "assets/sounds/noteF.wav", //Red Buzzer (squareRed) sound
-      "assets/sounds/noteC.wav"  //Blue Buzzer (squareBlue) sound
+    "assets/sounds/noteE.wav", //Green Buzzer (squareGreen) sound
+    "assets/sounds/noteD.wav", //Yellow Buzzer (squareYellow) sound
+    "assets/sounds/noteF.wav", //Red Buzzer (squareRed) sound
+    "assets/sounds/noteC.wav"  //Blue Buzzer (squareBlue) sound
       ]; 
 
 
 
-
+  /*---------------------------------------------------TOTAL NUMBER OF LEVELS*/
 $(document).ready(function(){ 
   
-  /*---------------------------------------------------TOTAL NUMBER OF LEVELS*/
-    const maxLevel = 40;
+    const maxLevel = 30;
 
   /*-------------------------------------------------------------GREEN BUTTON*/
     $("#0").click(function(){
@@ -151,17 +162,30 @@ $(document).ready(function(){
       mimicStartThemeTune.play();
       level = 0;
       level++;
-      error = false;
       mimicMove = [];
       playerMove = [];
       console.log("Ready Steady Mimic!");
       setTimeout(mimicMovement, 4000);
+      
+      /*------------------------------------------------------------HINT BUTTON*/
+    $(".hint").mousedown(function(){
+      if(playerMove.length > 0){
+        hintButtonDisabled();
+        console.log("You have started your attempt. Hint button is disabled for the rest of this level");
+      }
+      else {
+        console.log("Hint for level "+ level);
+        console.log(id+" "+squareColor);
+        buzzerOn(id, squareColor);
+        mimicMovement[mimicMovement.length - 1];
+      }
+    });
   });
     
       function mimicMovement() {
         console.log("Level "+level);
         $(".count").text(level);
-        randomID();
+        selectRandomID();
         var i = 0;
         var myInterval= setInterval(function() {
           id = mimicMove[i];
@@ -175,35 +199,18 @@ $(document).ready(function(){
         }, 1000);
       }
       
-    /*------------------------------------------------------------HINT BUTTON*/
-    $(".hint").mousedown(function(){
-      if(playerMove.length > 0){
-        error=true;
-        hintButtonDisabled();
-        console.log("You have started your attempt. Hint button is disabled for the rest of this level");
-        hintButtonDisabled.empty();
-      }
-      else {
-        console.log("Hint for level "+ level);
-        console.log(id+" "+squareColor);
-        buzzerOn(id, squareColor);
-        mimicMovement[mimicMovement.length - 1];
-      }
-    });
-    
-    
     
   /*---------------------------------------------------------BUZZER SELECTION*/
-    function randomID() {
-      var random = Math.floor(Math.random() * 4);
-      mimicMove.push(random);
+    function selectRandomID() {
+      var selectBuzzer = Math.floor(Math.random() * 4);
+      mimicMove.push(selectBuzzer);
     }
     
     function buzzerOn(id, squareColor){
-      $("#"+id).addClass(squareColor+"Active");
+      $("#"+id).addClass(squareColor+"Light");
       playBuzzerSound(id);
       setTimeout(function(){
-        $("#"+id).removeClass(squareColor+"Active");
+        $("#"+id).removeClass(squareColor+"Light");
       }, 500);
     }
     
@@ -212,16 +219,16 @@ $(document).ready(function(){
       sound.play();
     }
     
-    
-    
-    
-    
-  /*-----------------------------------------------MONITOR FOR PLAYER'S MOVES*/
     $(".buzzer").click(function(){
       id=$(this).attr("id");
       squareColor=$(this).attr("class").split(" ")[1];
       playerMovement();
     });
+    
+    
+    
+  /*-----------------------------------------------MONITOR FOR PLAYER'S MOVES*/
+    
     
     function playerMovement(){
       playerMove.push(id);
@@ -231,7 +238,6 @@ $(document).ready(function(){
     //If player makes an INCORRECT move:
       if(!validatePlayerMove()) {
         playerMove = [];
-        error = true;
         console.log("Incorrect move. Game ended.");
         incorrect.play();
         setTimeout(showErrorMessage, 200);
@@ -242,7 +248,6 @@ $(document).ready(function(){
       else if(playerMove.length == mimicMove.length && playerMove.length < maxLevel){
         level++;
         playerMove = [];
-        error = false;
         console.log("Correct! Game continuing...");
         correct.play();
         setTimeout(mimicMovement,1500);
@@ -257,7 +262,8 @@ $(document).ready(function(){
     
   /*---------------------------------------------------------------VALIDATION*/
     function validatePlayerMove(){
-      for(var i=0; i<playerMove.length; i++){
+      for(var i=0; i< playerMove.length; i++){
+        //If Player's Move is not equal to the game's move
         if(playerMove[i] !=mimicMove[i]){
           return false;
         }
@@ -268,6 +274,7 @@ $(document).ready(function(){
     
     
   /*-------------------------------------------------------------------ALERTS*/
+
     //For disabled hint button:
     function hintButtonDisabled(){
       alert("You have started your attempt. Hint button is disabled for the rest of this level. Press OK to continue the game.");
@@ -275,7 +282,7 @@ $(document).ready(function(){
     
     //For an incorrect move:
     function showErrorMessage(){
-      alert("Unfortunately, that was a wrong move! \nYour game has ended.\nTo begin a new game please click ok and then press the start button");
+      alert("Unfortunately, that was a wrong move! \nYour game has ended.\nTo begin a new game please click ok and then press the start button.");
     }
     
     //For completion of the game:
