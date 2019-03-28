@@ -157,7 +157,7 @@ $(document).ready(function(){
       }
       else {
         console.log("Hint for level "+ level);
-        console.log(id+" "+squareColor);
+        console.log(id, squareColor);
         buzzerOn(id, squareColor);
         mimicMovement[mimicMovement.length - 1];
       }
@@ -172,7 +172,7 @@ $(document).ready(function(){
         var myInterval= setInterval(function() {
           id = mimicMove[i];
           squareColor = $("#"+id).attr("class").split(" ")[1];
-          console.log(id+" "+squareColor);
+          console.log(id, squareColor);
           buzzerOn(id, squareColor);
           i++;
           if(i == mimicMove.length) {
@@ -210,15 +210,13 @@ $(document).ready(function(){
     
     
     
-  /*-----------------------------------------------MONITOR FOR PLAYER'S MOVES*/
-    
-    
+    /*----------------------------------------------MONITOR FOR PLAYER'S MOVES*/
     function playerMovement(){
       playerMove.push(id);
-      console.log(id+" "+squareColor);
+      console.log(id, squareColor);
       buzzerOn(id, squareColor);
       
-    //If player makes an INCORRECT move:
+      //If player makes an INCORRECT move:
       if(!validatePlayerMove()) {
         playerMove = [];
         console.log("Incorrect move. Game ended.");
@@ -227,7 +225,7 @@ $(document).ready(function(){
         mimicMove = [];
       }
       
-    //If player makes a CORRECT move:
+      //If player makes a CORRECT move:
       else if(playerMove.length == mimicMove.length && playerMove.length < maxLevel){
         level++;
         playerMove = [];
@@ -237,17 +235,17 @@ $(document).ready(function(){
       }
       
       //Game Completion:
-        if(playerMove.length == maxLevel){
-          gameCompleted();
-        }
+      if(playerMove.length == maxLevel){
+        gameCompleted();
+      }
       
     }
     
   /*---------------------------------------------------------------VALIDATION*/
     function validatePlayerMove(){
-      for(var i=0; i< playerMove.length; i++){
+      for(var i=0; i < playerMove.length; i++){
         //If Player's Move is not equal to the game's move
-        if(playerMove[i] !=mimicMove[i]){
+        if(playerMove[i] != mimicMove[i]){
           return false;
         }
       }
