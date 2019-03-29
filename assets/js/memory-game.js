@@ -11,130 +11,129 @@ var playerMove = [];
 
 // Buzzer IDs
 var id = [0, 1, 2, 3];
+
 var squareColor = [
-    "squareGreen",  //Green Buzzer 
-    "squareYellow", //Yellow Buzzer
-    "squareRed",    //Red Buzzer
-    "squareBlue"    //Blue Buzzer
-    ];  
+  "squareGreen",  //Green Buzzer 
+  "squareYellow", //Yellow Buzzer
+  "squareRed",    //Red Buzzer
+  "squareBlue"    //Blue Buzzer
+  ];  
+  
 var buzzerSound= [
-    "assets/sounds/noteE.wav", //Green Buzzer (squareGreen) sound
-    "assets/sounds/noteD.wav", //Yellow Buzzer (squareYellow) sound
-    "assets/sounds/noteF.wav", //Red Buzzer (squareRed) sound
-    "assets/sounds/noteC.wav"  //Blue Buzzer (squareBlue) sound
-      ]; 
+  "assets/sounds/noteE.wav", //Green Buzzer (squareGreen) sound
+  "assets/sounds/noteD.wav", //Yellow Buzzer (squareYellow) sound
+  "assets/sounds/noteF.wav", //Red Buzzer (squareRed) sound
+  "assets/sounds/noteC.wav"  //Blue Buzzer (squareBlue) sound
+  ]; 
 
 
 
-  /*---------------------------------------------------TOTAL NUMBER OF LEVELS*/
+/*---------------------------------------------------------MIMIC GAME SETTINGS*/
 $(document).ready(function(){ 
   
-    const maxLevel = 30;
+  /*--------------------------------------------------TOTAL NUMBER OF LEVELS*/
+  const maxLevel = 2;
 
-  /*-------------------------------------------------------------GREEN BUTTON*/
-    $("#0").click(function(){
-      Green.play();
-    });
-    
-    $("#0").on("mousedown", function(){
-      $("#0").addClass("squareGreenLight");
-    });
-    
-    $("#0").mouseup(function(){
-      $("#0").removeClass("squareGreenLight");
-    });
-    
-    
-    var Green = new Audio();
-    Green.src = "assets/sounds/noteE.wav";
+  /*------------------------------------------------------------GREEN BUZZER*/
+  $("#0").click(function(){
+    Green.play();
+  });
+  
+  $("#0").on("mousedown", function(){
+    $("#0").addClass("squareGreenLight");
+  });
+  
+  $("#0").mouseup(function(){
+    $("#0").removeClass("squareGreenLight");
+  });
+  
+  
+  var Green = new Audio();
+  Green.src = "assets/sounds/noteE.wav";
       
-  
-    
+
       
-  /*------------------------------------------------------------YELLOW BUTTON*/
+  /*------------------------------------------------------------YELLOW BUZZER*/
     
-    $("#1").click(function(){
-      Yellow.play();
-    });
-    
-    $("#1").on("mousedown", function(){
-      $("#1").addClass("squareYellowLight");
-    });
-    
-    $("#1").mouseup(function(){
-      $("#1").removeClass("squareYellowLight");
-    });
-
-    
-    var Yellow = new Audio();
-    Yellow.src = "assets/sounds/noteD.wav";
+  $("#1").click(function(){
+    Yellow.play();
+  });
   
+  $("#1").on("mousedown", function(){
+    $("#1").addClass("squareYellowLight");
+  });
+  
+  $("#1").mouseup(function(){
+    $("#1").removeClass("squareYellowLight");
+  });
 
   
+  var Yellow = new Audio();
+  Yellow.src = "assets/sounds/noteD.wav";
+  
+
+  
+  /*---------------------------------------------------------------RED BUZZER*/
+  $("#2").click(function(){
+    Red.play();
+  });
   
   
+  $("#2").on("mousedown", function(){
+    $("#2").addClass("squareRedLight");
+  });
   
-  /*---------------------------------------------------------------RED BUTTON*/
-    $("#2").click(function(){
-      Red.play();
-    });
-    
-    
-    $("#2").on("mousedown", function(){
-      $("#2").addClass("squareRedLight");
-    });
-    
-    $("#2").mouseup(function(){
-      $("#2").removeClass("squareRedLight");
-    });
-    
-    
-    var Red = new Audio();
-      Red.src = "assets/sounds/noteF.wav";
+  $("#2").mouseup(function(){
+    $("#2").removeClass("squareRedLight");
+  });
+  
+  
+  var Red = new Audio();
+    Red.src = "assets/sounds/noteF.wav";
    
   
 
       
       
       
-  /*--------------------------------------------------------------BLUE BUTTON*/
+  /*--------------------------------------------------------------BLUE BUZZER*/
       
-    $("#3").click(function(){
-      Blue.play();
-    });
-    
-    $("#3").mousedown(function(){
-      $("#3").addClass("squareBlueLight");
-    });
-    
-    $("#3").mouseup(function(){
-      $("#3").removeClass("squareBlueLight");
-    });
-    
-    
-    var Blue = new Audio();
-    Blue.src = "assets/sounds/noteC.wav";
+  $("#3").click(function(){
+    Blue.play();
+  });
+  
+  $("#3").mousedown(function(){
+    $("#3").addClass("squareBlueLight");
+  });
+  
+  $("#3").mouseup(function(){
+    $("#3").removeClass("squareBlueLight");
+  });
+  
+  
+  var Blue = new Audio();
+  Blue.src = "assets/sounds/noteC.wav";
       
 
   
   
       
   /*------------------------------------------------------NOTIFICATION SOUNDS*/
-    //THEME TUNE:
-    var mimicStartThemeTune = new Audio();
-    mimicStartThemeTune.src = "assets/sounds/mimicStartThemeTune.wav";
-    
-    //SOUND FOR CORRECT MOVE:
-    var correct = new Audio();
-    correct.src = "assets/sounds/correct.wav";
-    
-    //SOUND FOR INCORRECT MOVE:
-    var incorrect = new Audio();
-    incorrect.src = "assets/sounds/incorrect.wav";
+  //THEME TUNE:
+  var mimicStartThemeTune = new Audio();
+  mimicStartThemeTune.src = "assets/sounds/mimicStartThemeTune.wav";
+  
+  //SOUND FOR CORRECT MOVE:
+  var correct = new Audio();
+  correct.src = "assets/sounds/correct.wav";
+  
+  //SOUND FOR INCORRECT MOVE:
+  var incorrect = new Audio();
+  incorrect.src = "assets/sounds/incorrect.wav";
 
-    //SOUND FOR GAME COMPLETION:
-    var gameWin = new Audio();
-    gameWin.src = "assets/sounds/allGameLevelsCompleted.wav"; 
+  //SOUND FOR GAME COMPLETION:
+  var gameWin = new Audio();
+  gameWin.src = "assets/sounds/allGameLevelsCompleted.wav"; 
 
 
 
@@ -164,22 +163,22 @@ $(document).ready(function(){
     });
   
     
-      function mimicMovement() {
-        console.log("Level "+level);
-        $(".count").text(level);
-        selectRandomID();
-        var i = 0;
-        var myInterval= setInterval(function() {
-          id = mimicMove[i];
-          squareColor = $("#"+id).attr("class").split(" ")[1];
-          console.log(id, squareColor);
-          buzzerOn(id, squareColor);
-          i++;
-          if(i == mimicMove.length) {
-            clearInterval(myInterval);
-          }
-        }, 1000);
-      }
+    function mimicMovement() {
+      console.log("Level "+level);
+      $(".count").text(level);
+      selectRandomID();
+      var i = 0;
+      var myInterval= setInterval(function() {
+        id = mimicMove[i];
+        squareColor = $("#"+id).attr("class").split(" ")[1];
+        console.log(id, squareColor);
+        buzzerOn(id, squareColor);
+        i++;
+        if(i == mimicMove.length) {
+          clearInterval(myInterval);
+        }
+      }, 1000);
+    }
       
     
   /*---------------------------------------------------------BUZZER SELECTION*/
@@ -203,7 +202,10 @@ $(document).ready(function(){
     
     $(".buzzer").click(function(){
       id=$(this).attr("id");
+      
+      //Selects the second class in array "buzzer squareColor":
       squareColor=$(this).attr("class").split(" ")[1];
+      
       playerMovement();
     });
     
@@ -263,7 +265,8 @@ $(document).ready(function(){
     }
     
     function hintButtonErrorAlert(){
-      alert("You have started your attempt. Hint button is disabled for the rest of this level. Press OK to continue the game.");
+      alert(
+        `You have started your attempt. (o_o) \nHint button is disabled for the rest of this level. Press OK to continue the game.`);
     }
       
     function notAllowed(){
@@ -273,7 +276,8 @@ $(document).ready(function(){
     
     //For an incorrect move:
     function showErrorMessage(){
-      alert("Unfortunately, that was a wrong move! \nYour game has ended.\nTo begin a new game please click ok and then press the start button.");
+      alert(
+        `Unfortunately, that was a wrong move! (~_~) \nYour game has ended. To begin a new game please click ok and then press the start button.`);
     }
     
     //For completion of the game:
@@ -284,8 +288,9 @@ $(document).ready(function(){
     }
     
     function mimicWinner(){
-      alert("Congratulations! You have completed MiMiC®! \nTo begin a new game please click ok and then press the start button.");
-    }
+      alert(
+        `Congratulations! (^o^)/ \nYou have completed MiMiC®! To begin a new game please click ok and then press the start button.`);
+      }
     
   });
 });   
