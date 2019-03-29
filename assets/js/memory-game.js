@@ -124,6 +124,7 @@ $(document).ready(function(){
 
   /*--------------------------------------------START BUTTON & GAME INITIATOR*/
   $(".start").click(function(){
+    $(".start").off("click");
     $(".count").text("00");
       mimicStartThemeTune.play();
       level = 0;
@@ -207,7 +208,7 @@ $(document).ready(function(){
       }
       
       //If player makes a CORRECT move:
-      else if(playerMove.length == mimicMove.length && playerMove.length < maxLevel){
+      else if(playerMove.length == mimicMove.length && playerMove.length == level && playerMove.length < maxLevel){
         level++;
         playerMove = [];
         console.log("Correct! Game continuing...");
@@ -216,20 +217,13 @@ $(document).ready(function(){
       }
       
       //Game Completion:
-      else if(playerMove.length == maxLevel){
+      if(playerMove.length == maxLevel){
         gameCompleted();
         setTimeout(reloadGame, 8000);
       }
       
-      // if playerMove.length > mimicMove.length && playerMove.length < maxLevel or any other error
-      else {
-        notAllowed();
-        setTimeout(showErrorMessage2, 100);
-        setTimeout(reloadGame, 300);
-      }
-    }
     
-
+}
   /*---------------------------------------------------------------VALIDATION*/
     function validatePlayerMove(){
       for(var i=0; i < playerMove.length; i++){
@@ -290,6 +284,5 @@ $(document).ready(function(){
     function reloadGame(){
         location.reload(true);
     }
-    
   });
 });     
