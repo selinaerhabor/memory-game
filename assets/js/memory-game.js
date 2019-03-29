@@ -1,7 +1,7 @@
 /*------------------------------------------------------------Global Variables*/
 
 //Game Level
-var level = []; 
+var level = 0; 
 
 //Game's Move
 var mimicMove = []; 
@@ -10,7 +10,7 @@ var mimicMove = [];
 var playerMove = [];  
 
 // Buzzer IDs
-var id = [0, 1, 2, 3];
+var id = 0;
 
 var squareColor = [
   "squareGreen",  //Green Buzzer 
@@ -39,7 +39,7 @@ $(document).ready(function(){
     Green.play();
   });
   
-  $("#0").on("mousedown", function(){
+  $("#0").mousedown(function(){
     $("this").addClass("squareGreenLight");
   });
   
@@ -57,7 +57,7 @@ $(document).ready(function(){
     Yellow.play();
   });
   
-  $("#1").on("mousedown", function(){
+  $("#1").mousedown(function(){
     $("this").addClass("squareYellowLight");
   });
   
@@ -74,7 +74,7 @@ $(document).ready(function(){
     Red.play();
   });
   
-  $("#2").on("mousedown", function(){
+  $("#2").mousedown(function(){
     $("this").addClass("squareRedLight");
   });
   
@@ -203,7 +203,7 @@ $(document).ready(function(){
         console.log("Incorrect move. Game ended.");
         incorrect.play();
         setTimeout(showErrorMessage, 200);
-        mimicMove = [];
+        setTimeout(reloadGame, 300);
       }
       
       //If player makes a CORRECT move:
@@ -212,16 +212,24 @@ $(document).ready(function(){
         playerMove = [];
         console.log("Correct! Game continuing...");
         correct.play();
-        setTimeout(mimicMovement,1500);
+        setTimeout(mimicMovement,1000);
       }
       
       //Game Completion:
-      if(playerMove.length == maxLevel){
+      else if(playerMove.length == maxLevel){
         gameCompleted();
         setTimeout(reloadGame, 8000);
       }
+      
+      // if playerMove.length > mimicMove.length && playerMove.length < maxLevel or any other error
+      else {
+        notAllowed();
+        setTimeout(showErrorMessage2, 100);
+        setTimeout(reloadGame, 300);
+      }
     }
     
+
   /*---------------------------------------------------------------VALIDATION*/
     function validatePlayerMove(){
       for(var i=0; i < playerMove.length; i++){
@@ -259,6 +267,11 @@ $(document).ready(function(){
     function showErrorMessage(){
       alert(
         `Unfortunately, that was a wrong move! (~_~) \nYour game has ended. To begin a new game please click ok and then press the start button.`);
+    }
+    
+    function showErrorMessage2(){
+      alert(
+        `You pressed the buzzer too many times! ("o") \nYour game has ended. To begin a new game please click ok and then press the start button.`)
     }
     
     //For completion of the game:
