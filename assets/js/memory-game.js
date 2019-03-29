@@ -30,8 +30,9 @@ var buzzerSound= [
 /*---------------------------------------------------------MIMIC GAME SETTINGS*/
 $(document).ready(function(){ 
   
+  
   /*--------------------------------------------------TOTAL NUMBER OF LEVELS*/
-  const maxLevel = 2;
+  const maxLevel = 30;
 
   /*------------------------------------------------------------GREEN BUZZER*/
   $("#0").click(function(){
@@ -121,12 +122,12 @@ $(document).ready(function(){
   gameWin.src = "assets/sounds/allGameLevelsCompleted.wav"; 
 
 
-
   /*--------------------------------------------START BUTTON & GAME INITIATOR*/
   $(".start").click(function(){
     $(".count").text("00");
       mimicStartThemeTune.play();
       level = 0;
+      i = 0;
       level++;
       mimicMove = [];
       playerMove = [];
@@ -164,6 +165,7 @@ $(document).ready(function(){
       }
     });
       
+    
     /*------------------------------------------------------BUZZER SELECTION*/
     function selectRandomID() {
       var selectBuzzer = Math.floor(Math.random() * 4);
@@ -216,6 +218,7 @@ $(document).ready(function(){
       //Game Completion:
       if(playerMove.length == maxLevel){
         gameCompleted();
+        setTimeout(reloadGame, 8000);
       }
     }
     
@@ -269,8 +272,11 @@ $(document).ready(function(){
       alert(
         `Congratulations! (^o^)/ \nYou have completed MiMiC®! To begin a new game please click ok and then press the start button.`);
       }
-      
-  });
-});   
   
+  /*-------------------------------------------------------------RELOADS GAME*/
+    function reloadGame(){
+        location.reload(true);
+    }
     
+  });
+});     
