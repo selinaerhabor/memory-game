@@ -27,7 +27,6 @@ var buzzerSound= [
   ]; 
 
 
-
 /*---------------------------------------------------------MIMIC GAME SETTINGS*/
 $(document).ready(function(){ 
   
@@ -40,19 +39,17 @@ $(document).ready(function(){
   });
   
   $("#0").on("mousedown", function(){
-    $("#0").addClass("squareGreenLight");
+    $("this").addClass("squareGreenLight");
   });
   
   $("#0").mouseup(function(){
-    $("#0").removeClass("squareGreenLight");
+    $("this").removeClass("squareGreenLight");
   });
-  
   
   var Green = new Audio();
   Green.src = "assets/sounds/noteE.wav";
       
 
-      
   /*------------------------------------------------------------YELLOW BUZZER*/
     
   $("#1").click(function(){
@@ -60,41 +57,33 @@ $(document).ready(function(){
   });
   
   $("#1").on("mousedown", function(){
-    $("#1").addClass("squareYellowLight");
+    $("this").addClass("squareYellowLight");
   });
   
   $("#1").mouseup(function(){
-    $("#1").removeClass("squareYellowLight");
+    $("this").removeClass("squareYellowLight");
   });
 
-  
   var Yellow = new Audio();
   Yellow.src = "assets/sounds/noteD.wav";
   
 
-  
   /*---------------------------------------------------------------RED BUZZER*/
   $("#2").click(function(){
     Red.play();
   });
   
-  
   $("#2").on("mousedown", function(){
-    $("#2").addClass("squareRedLight");
+    $("this").addClass("squareRedLight");
   });
   
   $("#2").mouseup(function(){
-    $("#2").removeClass("squareRedLight");
+    $("this").removeClass("squareRedLight");
   });
-  
   
   var Red = new Audio();
     Red.src = "assets/sounds/noteF.wav";
    
-  
-
-      
-      
       
   /*--------------------------------------------------------------BLUE BUZZER*/
       
@@ -103,20 +92,16 @@ $(document).ready(function(){
   });
   
   $("#3").mousedown(function(){
-    $("#3").addClass("squareBlueLight");
+    $("this").addClass("squareBlueLight");
   });
   
   $("#3").mouseup(function(){
-    $("#3").removeClass("squareBlueLight");
+    $("this").removeClass("squareBlueLight");
   });
-  
   
   var Blue = new Audio();
   Blue.src = "assets/sounds/noteC.wav";
       
-
-  
-  
       
   /*------------------------------------------------------NOTIFICATION SOUNDS*/
   //THEME TUNE:
@@ -147,8 +132,25 @@ $(document).ready(function(){
       playerMove = [];
       console.log("Ready Steady Mimic!");
       setTimeout(mimicMovement, 4000);
-      
-      /*--------------------------------------------------------HINT BUTTON*/
+  
+    function mimicMovement() {
+      console.log("Level "+level);
+      $(".count").text(level);
+      selectRandomID();
+      var i = 0;
+      var mimicMoveInterval = setInterval(function() {
+        id = mimicMove[i];
+        squareColor = $("#"+id).attr("class").split(" ")[1];
+        console.log(id, squareColor);
+        buzzerOn(id, squareColor);
+        i++;
+        if(i == mimicMove.length) {
+          clearInterval(mimicMoveInterval);
+        }
+      }, 1000);
+    }
+    
+    /*-----------------------------------------------------------HINT BUTTON*/
     $(".hint").mousedown(function(){
       if(playerMove.length > 0){
         hintButtonDisabled();
@@ -161,27 +163,8 @@ $(document).ready(function(){
         mimicMovement[mimicMovement.length - 1];
       }
     });
-  
-    
-    function mimicMovement() {
-      console.log("Level "+level);
-      $(".count").text(level);
-      selectRandomID();
-      var i = 0;
-      var myInterval= setInterval(function() {
-        id = mimicMove[i];
-        squareColor = $("#"+id).attr("class").split(" ")[1];
-        console.log(id, squareColor);
-        buzzerOn(id, squareColor);
-        i++;
-        if(i == mimicMove.length) {
-          clearInterval(myInterval);
-        }
-      }, 1000);
-    }
       
-    
-  /*---------------------------------------------------------BUZZER SELECTION*/
+    /*------------------------------------------------------BUZZER SELECTION*/
     function selectRandomID() {
       var selectBuzzer = Math.floor(Math.random() * 4);
       mimicMove.push(selectBuzzer);
@@ -201,16 +184,10 @@ $(document).ready(function(){
     }
     
     $(".buzzer").click(function(){
-      id=$(this).attr("id");
-      
-      //Selects the second class in array "buzzer squareColor":
-      squareColor=$(this).attr("class").split(" ")[1];
-      
+      id = $(this).attr("id");
+      squareColor = $(this).attr("class").split(" ")[1];
       playerMovement();
     });
-    
-    
-    
     
     /*----------------------------------------------MONITOR FOR PLAYER'S MOVES*/
     function playerMovement(){
@@ -240,7 +217,6 @@ $(document).ready(function(){
       if(playerMove.length == maxLevel){
         gameCompleted();
       }
-      
     }
     
   /*---------------------------------------------------------------VALIDATION*/
@@ -254,14 +230,13 @@ $(document).ready(function(){
       return true;
     }
     
-    
-    
   /*-------------------------------------------------------------------ALERTS*/
 
     //For disabled hint button:
     function hintButtonDisabled(){
       notAllowed();
       setTimeout(hintButtonErrorAlert, 200);
+      setTimeout(levelReturnsOnScreen, 300);
     }
     
     function hintButtonErrorAlert(){
@@ -272,8 +247,11 @@ $(document).ready(function(){
     function notAllowed(){
       $(".count").text("X");
     }
-      
     
+    function levelReturnsOnScreen(){
+      $(".count").text(level);
+    }
+      
     //For an incorrect move:
     function showErrorMessage(){
       alert(
@@ -291,7 +269,7 @@ $(document).ready(function(){
       alert(
         `Congratulations! (^o^)/ \nYou have completed MiMiC®! To begin a new game please click ok and then press the start button.`);
       }
-    
+      
   });
 });   
   
