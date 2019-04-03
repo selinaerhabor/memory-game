@@ -2,6 +2,7 @@
 body, html {
   font-family: 'Fjalla One', sans-serif;
   overflow-x: hidden;
+  overflow-y: hidden;
   background: url("../../assets/images/dark-abstract-background.jpg") no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -28,8 +29,8 @@ body, html {
 }
 
 .no-padding {
-  padding-left: 0 !important;
-  padding-right: 0 !important;
+  padding-left: 0;
+  padding-right: 0;
 }
 
 /*----------------------------------------------Navigation / Menu Bar Settings*/
@@ -100,8 +101,8 @@ body, html {
     display: inline-block;
   }
   
-  .squareRedActive {
-    background-color: #ff6666 !important;
+  .squareRedLight {
+    background-color: #ff6666;
   }
   
   /*----------------------------------------Blue Buzzer Off & On Appearance*/
@@ -117,8 +118,8 @@ body, html {
     display: inline-block;
   }
   
-  .squareBlueActive {
-    background-color: #3288ff !important;
+  .squareBlueLight {
+    background-color: #3288ff;
   }
   
   
@@ -134,8 +135,8 @@ body, html {
     display: inline-block;
   }
   
-  .squareYellowActive {
-    background-color: #ffe54c !important;
+  .squareYellowLight {
+    background-color: #ffe54c;
   }
   
   
@@ -144,9 +145,7 @@ body, html {
     height: 200px;
     width: 200px;
     background-color: #00a74a;
-    border-width: 7px !important;
-    border-style: solid;
-    border-color: #333;
+    border: 7px solid #333;
     border-radius: 10%;
     cursor: pointer;
     transition: all .2s ease 0s;
@@ -154,8 +153,8 @@ body, html {
     display: inline-block;
   }
   
-  .squareGreenActive {
-    background-color: #13ff7c !important;
+  .squareGreenLight {
+    background-color: #13ff7c;
   }
 
 
@@ -170,7 +169,7 @@ body, html {
   border: 7px solid #333;
 }
   
-  /*------------------------------------------------MiMiC Brand Name---*/
+  /*---------------------------------------------------MiMiC Brand Name*/
   .brand {
     color: #222;
     font-size: 3.0em;
@@ -183,7 +182,7 @@ body, html {
     top : -20px;
   }
   
-  /*-----------------------------------------------------Game Screen---*/
+  /*--------------------------------------------------------Game Screen*/
   .count {
     font-family: 'Fjalla One', monospace;
     font-size : 2.6em;
@@ -206,17 +205,17 @@ body, html {
 
   /*------------------------------------------------------------------Buttons*/
     .round-btn {
-    width: 50px;
-    height: 45px;
-    position: relative;
-    border-radius : 50%;
-    border : 4px solid #444;
-    box-shadow : 0px 2px 3px #222;
-    margin-left: -6px;
-    top : -5px;
+      width: 50px;
+      height: 45px;
+      position: relative;
+      border-radius : 50%;
+      border : 4px solid #444;
+      box-shadow : 0px 2px 3px #222;
+      margin-left: -6px;
+      top : -5px;
     }
     
-    /*------------------------------------------------------Hint Button--*/
+    /*--------------------------------------------------------Hint Button*/
     .hint {
       margin-top: 10px;
       align-items: center;
@@ -230,7 +229,11 @@ body, html {
       background-color: #ff8c00;
     }
     
-    /*------------------------------------------------------Start Button--*/
+    .hint:focus {
+      outline: none;
+    }
+    
+    /*-------------------------------------------------------Start Button*/
     .start {
       margin-top: 10px;
       align-items: center;
@@ -240,21 +243,31 @@ body, html {
       transition: background-color 0.3s;
     }
     
-    .start:hover{
+    .start:hover {
       background-color: #008800;
     }
     
-    /*-----------------------------------------------------Button Labels--*/
+    .start:focus {
+      outline: none;
+    }
+    
+    /*------------------------------------------------------Button Labels*/
     .label-btn {
       font-size: 0.9em;
       padding-left: 1px;
     }
 
+  /*---------------------------------------------------------Footer*/
+  .footer-info {
+    padding-top: 15px;
+    font-size: 12px;
+    color: #bdb76b;
+    margin-bottom: 0;
+  }
 
-
-/*--------------------------------------------------------------Media Rules---*/
+/*-----------------------------------------------------------------Media Rules*/
   
-  /*------------Viewing on screen sizes with up to 475px width (E.g. Phones)--*/
+  /*------------Viewing on screen sizes with up to 475px width (E.g. Phones)*/
   @media screen and (max-width: 475px){
     .game-body {
       top: 100px;
@@ -274,7 +287,7 @@ body, html {
     }
   }
   
-  /*-------------------Viewing on screen sizes between 476px to 631px width---*/
+  /*-------------------Viewing on screen sizes between 476px to 631px width*/
   @media screen and (min-width:476px) and (max-width:631px){
     .game-body {
       top: 100px;
@@ -294,7 +307,7 @@ body, html {
     }
   }
   
-  /*-------Viewing on screen sizes with at least 632px width (E.g. Desktops)--*/
+  /*-------Viewing on screen sizes with at least 632px width (E.g. Desktops)*/
   @media screen and (min-width:632px){
     .game-body {
       top: 15px;
