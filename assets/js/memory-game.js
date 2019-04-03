@@ -208,7 +208,7 @@ $(document).ready(function(){
       }
       
       //If player makes a CORRECT move:
-      else if(playerMove.length == mimicMove.length && playerMove.length == level && playerMove.length < maxLevel){
+      else if(playerMove.length == mimicMove.length && playerMove.length < maxLevel){
         level++;
         playerMove = [];
         console.log("Correct! Game continuing...");
@@ -221,9 +221,8 @@ $(document).ready(function(){
         gameCompleted();
         setTimeout(reloadGame, 8000);
       }
-      
+    }
     
-}
   /*---------------------------------------------------------------VALIDATION*/
     function validatePlayerMove(){
       for(var i=0; i < playerMove.length; i++){
@@ -265,7 +264,7 @@ $(document).ready(function(){
     
     function showErrorMessage2(){
       alert(
-        `You pressed the buzzer too many times! ("o") \nYour game has ended. To begin a new game please click ok and then press the start button.`)
+        `It seems you have pressed the buzzer too many times! ("o") \nYour game has ended. To begin a new game please click ok and then press the start button.`)
     }
     
     //For completion of the game:
