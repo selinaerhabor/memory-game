@@ -7,7 +7,7 @@ This game application is open to all ages and may be of particular interest to p
 Main Requirements for the Memory Game: 
 * Must be single-player. 
 * Should be inspired by Hasbro’s Simon game, which involves the device lighting up one or more buttons in a random order, after which the player must reproduce that order by pressing the buttons.
-* Should be responsive as possible to allow the user to play the game on different devices (desktops, mobiles etc.).
+* Should be as responsive as possible to allow the user to play the game on different devices (desktops, mobiles etc.).
 * Provide links or buttons to allow users to navigate the site and reset/control the site functionality.
 
 ## 1.1 User Stories
@@ -37,9 +37,9 @@ My project focused on meeting the needs of users’ for the memory game, so the 
 
 
 ### 2.1.1 Game Body:
-*	**Navigation Bar** - allows users to navigate through the website. This navigation bar is available on all the pages of the website and also on all forms of screen sizes. On smaller screen sizes the navigation bar is collapsed/minimised to save space on smaller screen sizes. When clicked, the burger icon on the right top end of the screen will then expand the list of the different pages of the website vertically downwards. Login link to display form for the user to enter their account credentials for login. Instructions link which allows users to view the game instructions for the user
-*  **Start Button** - allows players to begin a new game, the game’s start theme tune is played
-*	* **Hint Button** - allows users to make the game replay the last buzzer added to the sequence. If the hint button is pressed before the user begins their move, the last buzzer selected by the game will be played. Users are allowed to press the hint button as many times as needed before they begin attempting that level. Once the user has begun their attempt (i.e. pressed a buzzer), the hint button is disabled. This is to ensure that the code to replay the last selected buzzer in the sequence does not interfere which the last selected buzzer by the user (For more details see 4.5 Interesting bugs or problems discovered during testing). When the user hovers the cursor over the "Hint" button, the button changes gradually from light silver background to a light orange background and returns back to the original state when cursor is removed from button. Orange colour was used as it was suitable for its function of reminding users of the  
+* **Navigation Bar** - allows users to navigate through the website. This navigation bar is available on all the pages of the website and also on all forms of screen sizes. On smaller screen sizes the navigation bar is collapsed/minimised to save space on smaller screen sizes. When clicked, the burger icon on the right top end of the screen will then expand the list of the different pages of the website vertically downwards. Login link to display form for the user to enter their account credentials for login. Instructions link which allows users to view the game instructions for the user
+* **Start Button** - allows players to begin a new game, the game’s start theme tune is played
+* **Hint Button** - allows users to make the game replay the last buzzer added to the sequence. If the hint button is pressed before the user begins their move, the last buzzer selected by the game will be played. Users are allowed to press the hint button as many times as needed before they begin attempting that level. Once the user has begun their attempt (i.e. pressed a buzzer), the hint button is disabled. This is to ensure that the code to replay the last selected buzzer in the sequence does not interfere which the last selected buzzer by the user (For more details see 4.5 Interesting bugs or problems discovered during testing). When the user hovers the cursor over the "Hint" button, the button changes gradually from light silver background to a light orange background and returns back to the original state when cursor is removed from button. Orange colour was used as it was suitable for its function of reminding users of the  
 
 * **Game Screen** – displays the level that the game is on
 * **Green Buzzer** – plays Piano (Gospel Shuffle sound) Note E
@@ -47,17 +47,17 @@ My project focused on meeting the needs of users’ for the memory game, so the 
 * **Red Buzzer** - plays Piano (Gospel Shuffle sound) Note F
 * **Blue Buzzer** - plays Piano (Gospel Shuffle sound) Note C
 
-*   **Website Icon** - the chosen website icon is the interface of the memory game, which includes the game’s features and the black background. The features of this memory game make the game unique from other memory games and the uniqueness of the interface makes it a suitable choice as the website icon.
-*   **Font** - The Google font style [Fjalla One], makes letters appear tall and thin especially when in uppercase. This font style works well for the memory game and has been used as the chosen font to add to the user experience across the single page game application.
+* **Website Icon** - the chosen website icon is the interface of the memory game, which includes the game’s features and the black background. The features of this memory game make the game unique from other memory games and the uniqueness of the interface makes it a suitable choice as the website icon.
+* **Font** - The Google font style [Fjalla One], makes letters appear tall and thin especially when in uppercase. This font style works well for the memory game and has been used as the chosen font to add to the user experience across the single page game application.
 
 
 ## 2.2 Potential Features to implement in the future:
-* Currently, the login modal is just a mock for user account login and registration. In the future, the interface of the memory game application when the user creates an account via the Login link will be explored to create differences in the interface for users who have not made an account (playing the game as a guest) and users who have created an account. With the main difference being that users with an account will have the functionality to save their scores in their user account. 
+Currently, the login modal page is just a mock for users to log in to their account or register it does not actually store the data input from the form. In the future, the login modal will allow users to create an account. Those who have registered to login to their account will have an additional feature to save their scores from the game in their account. The login tab will then be hidden and the log out link appears when a user has successfully logged in to their account. These features will not be available for users who have not made an account (playing the game as a guest), which is the current user interface when playing Mimic the memory game as the additional features have not yet been implemented. 
 
 
 
 ## 3. Technologies Used
-*   [Cloud 9] - The Integrated Development Environment (IDE) for building the website.
+* [Cloud 9] - The Integrated Development Environment (IDE) used for building the website.
 *	[HTML] - Used for the structure and format of the entire website.
 *	[CSS] - For styling the website and maintaining its responsiveness across various screen sizes.
 *	[Bootstrap (3.3.7)] - Used for grid form and assistance in styling.
@@ -65,9 +65,9 @@ My project focused on meeting the needs of users’ for the memory game, so the 
 *	[Tube2mp3] - Used for converting YouTube videos into MP3 audio files which were easily imported into the website.
 *	[Font Awesome] - Used for displaying the social logos and vector icons present on the website.
 *	[Browsershots.org] - For checking browser compatibility and cross platform browser testing.
-*   [Jasmine CDNJS] – For testing key sections of jQuery code for the game.
-*   [Yamaha PSR-175 Keyboard] – Used for creating and recording the sounds for each buzzer and the game’s start theme tune.
-* 	[Audacity] – Used for editing the sounds for the game (Start theme tune, buzzer sounds, correct sounds, incorrect sounds and game completion sound.)
+* [Jasmine CDNJS] – For testing key sections of jQuery code for the game.
+* [Yamaha PSR-175 Keyboard] – Used for creating and recording the sounds for each buzzer and the game’s start theme tune.
+* [Audacity] – Used for editing the sounds for the game (Start theme tune, buzzer sounds, correct sounds, incorrect sounds and game completion sound.)
 *	[W3C HTML Validator] - Used to check that no errors were present in the HTML code before final deployment.
 *	[W3C CSS Validator] - Used to check that no errors were present in the CSS code before final deployment.
 
@@ -129,8 +129,8 @@ Users tried playing the memory game and none reported issues with the game backg
 ## 4.2 HTML and CSS Validation Results:
 Below are the links to the result pages for HTML and CSS Validator for the code. 
 
-* HTML code for the website has passed with no errors returned. (See screenshot in Browser Tests folder)
-* CSS code for the website has passed with no errors returned. (See screenshot in Browser Tests folder)
+* HTML code for the website has passed with no errors returned. (See screenshot in Tests folder)
+* CSS code for the website has passed with no errors returned. (See screenshot in Tests folder)
 
 ## 4.3 Jasmine Tests Results: 
 
@@ -158,7 +158,7 @@ iPad Pro | 1024 x 1366 | ✓ |
 Sony Bravia Television 4K |5280 width (55")|✓ | 
 
 
-* Below are the test results of the website deployed on GitHub pages when tested on Browsershots.org on various browsers. Key screenshots of the Browser Test results can be found in a folder called `Browser Tests` under the `assets` folder.
+* Below are the test results of the website deployed on GitHub pages when tested on Browsershots.org on various browsers. Key screenshots of the Browser Test results can be found in a folder called `browser-tests` under the `Tests` folder.
 * Key: ✓ - Website loads successfully
 
 Operating System | Browser | Mimic Game 
@@ -227,13 +227,18 @@ function reloadGame(){
     
     function hintButtonErrorAlert(){
       alert(
-        `You have started your attempt. (o_o) \nHint button is disabled for the rest of this level. Press OK to continue the game.`);
+        'You have started your attempt. (o_o) \nHint button is disabled for 
+        the rest of this level. Press OK to continue the game.');
     }
       
     function notAllowed(){
       $(".count").text("X");
     } 
-//To bring back the current level of the game on the screen after alert
+```
+
+To bring back the current level of the game on the screen after alert
+
+```sh
 function levelReturnsOnScreen(){
       $(".count").text(level);
     }
@@ -256,6 +261,7 @@ $("#0").click(function(){
 ```
 
 * Placeholders for the input forms and required input error messages were not appearing when viewing the website using Internet Explorer 11, so I had to state the color of the placeholder on the main browser types in the style.css file.
+
 ```sh
 :-webkit-input-placeholder {color: #4a4a4a; }
 :-moz-placeholder {color: #4a4a4a; }
@@ -266,15 +272,17 @@ $("#0").click(function(){
 ## 5. Deployment
 
 ## 5.1 Deployment Process:
-The hosting platform for The Kinks’ website is GitHub Pages, which publishes the master branch containing the most updated version of code for the website.
+The hosting platform for Mimic the Memory Game is GitHub Pages, which publishes the master branch containing the most updated version of code for the website.
 To deploy the website to GitHub pages, I created a Repository where the code will be stored via the GitHub website.
 I connected the GitHub repository to my Cloud9 workspace via terminal by clicking on the `Clone or Download` button which appears on the GitHub repository `Code` tab and copied the HTTPS link of the repository to paste it in my Cloud9 workspace terminal by typing the below:
+
 ```sh
 $ git init
 $ git remote add origin https://github.com/selinaerhabor/memory-game.git
 ```
 
 I adjusted my GitHub Repository settings for this website by changing the source under GitHub pages from `None` to `master branch`. I then copied my GitHub Pages link `https://selinaerhabor.github.io/memory-game/` into my README.md file to allow easy access to the live website. In order to push the latest code from Cloud 9 IDE to display on GitHub pages, I used the below code:
+
 ```sh
 $ git status
 $ git add (placed file name here) OR $ git add .
@@ -285,22 +293,17 @@ This project has two branches which were merged as the Wireframes were initially
 
 ## 5.2  Running the code locally:
 The repository for this website can be cloned using the command below in Cloud 9 workspace terminal:
+
 ```sh
 $ git clone https://selinaerhabor.github.io/memory-game.git
 ```
 
 ## 5.3 Discussion on the differences between the development code and the deployed Code Version:
 
-*  Addition of browser alerts to keep users informed of why a feature is inactive or why their game ended. These alerts occur for incorrect play, when the hint button is pressed when level is being attempted and when game is completed.
+* Addition of browser alerts to keep users informed of why a feature is inactive or why their game ended. These alerts occur for incorrect play, when the hint button is pressed when level is being attempted and when game is completed. The browser alerts are also useful for not blocking the game's interface completely something that came in handy for the hintButtonDisabled function.
 
-* Made redundant the use of ` div.style.backgroundColor` for the buzzers in order to remove the need for using `!important` to ensure the background color changes to its active state when pressed.
-`function greenLight(div){
-      div.style.backgroundColor = "#13ff7c";
-    }
-  
-    function greenInactive(div){
-      div.style.backgroundColor = "#00a74a";
-    }`
+* Made redundant the use of `div.style.backgroundColor` for the buzzers in order to remove the need for using `!important` to ensure the background color changes to its active state when pressed.
+
 
 
 ## 6. Credits
@@ -312,7 +315,7 @@ $ git clone https://selinaerhabor.github.io/memory-game.git
 ## 6.2 Media:
 ### Game Background
 **Sources**:
-* The background photo used in this site was obtained from ...
+* The background photo used in this site was obtained from https://wallpapercave.com/carbon-wallpaper-hd
 
 ### Game Main Control Face
 **Sources**: 
@@ -324,6 +327,8 @@ $ git clone https://selinaerhabor.github.io/memory-game.git
 * The sound of all the buzzers and the game theme tune were recorded using Yamaha PSR-175 Keyboard.
 * The notes of the buzzer sounds are the same as the Simon game, but a Gospel Shuffle music style has been used instead to modify the sound effects for the notes. (Buzzer sounds: squareGreen - Note E, squareYellow - Note F, squareRed – Note G and squareBlue – Note C).
 
+## 6.3 Acknowledgements:
+Useful resources for building this app include YouTube and Stack Overflow. I received inspiration for the logic and user experience of the memory game from this video - https://www.youtube.com/watch?v=1Yqj76Q4jJ4
 
 [//]: # (Below are the reference links used in the body of the README file)
 [here]: <https://selinaerhabor.github.io/memory-game/>
@@ -332,15 +337,14 @@ $ git clone https://selinaerhabor.github.io/memory-game.git
 [Bootstrap (3.3.7)]: <https://getbootstrap.com/docs/3.3/components/> 
 [Cloud 9]: <https://docs.c9.io/docs>
 [Browsershots.org]: <http://browsershots.org/>
-[Home]: <https://selinaerhabor.github.io/ucfd-milestone-project/index.html>
 [Tube2mp3]: <https://www.tube2mp3.com/>
 [Audacity]: <https://www.audacityteam.org/>
 [Font Awesome]: <https://fontawesome.com/>
 [Jasmine CDNJS]: <https://cdnjs.com/libraries/jasmine>
 [Fjalla One]: <https://fonts.google.com/specimen/Fjalla+One?selection.family=Fjalla+One>
 [JQuery]: <https://jquery.com/download/>
-[Simon Game]: < https://en.wikipedia.org/wiki/Simon_(game)>
-[Yamaha PSR-175 Keyboard]: < https://www.yamaha-keyboard-guide.com/yamaha-psr-175.html>
+[Simon Game]: <https://en.wikipedia.org/wiki/Simon_(game)>
+[Yamaha PSR-175 Keyboard]: <https://www.yamaha-keyboard-guide.com/yamaha-psr-175.html>
 [W3C HTML Validator]: <https://validator.w3.org/>
 [W3C CSS Validator]: <http://jigsaw.w3.org/css-validator/>
 
