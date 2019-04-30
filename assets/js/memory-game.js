@@ -237,6 +237,7 @@ $(document).ready(function(){
     else if (playerMove.length == maxLevel) {
       gameCompleted();
       deactivateBuzzers();
+      setTimeout(gameWinMessage, 4500);
     }
     
     else {
@@ -291,7 +292,14 @@ $(document).ready(function(){
     deactivateBuzzers();
   }
   
+  function gameWinMessage(){
+    $("#gameWinModal").modal("show");
+    $("#gameWinModal").modal({backdrop: 'static', keyboard: false});
+  }
   
+  $(".closeModal").click(function(){
+    reloadGame();
+  });
       
 /*-------------------------------------------------------------RELOADS GAME*/
   function reloadGame(){
