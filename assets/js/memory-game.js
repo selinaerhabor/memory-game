@@ -147,7 +147,7 @@ $(document).ready(function(){
     /*-----------------------------------------------------------HINT BUTTON*/
     $(".hint").mousedown(function(){
       if (playerMove.length > 0){
-        hintButtonDisabled();
+        deactivateHintButton();
         console.log("You have started your attempt. Hint button is disabled for the rest of this level");
       }
       else {
@@ -157,7 +157,7 @@ $(document).ready(function(){
         mimicMovement[mimicMovement.length - 1];
       }
     });
-  });  
+    
   
   
   /*----------------------------------------------------------GAME INITIATOR*/
@@ -219,7 +219,6 @@ $(document).ready(function(){
       console.log("Incorrect move. Game ended.");
       incorrect.play();
       setTimeout(showErrorMessage, 200);
-      setTimeout(reloadGame, 300);
     }
     
     //If player makes a CORRECT move:
@@ -237,7 +236,7 @@ $(document).ready(function(){
     else if (playerMove.length == maxLevel) {
       gameCompleted();
       deactivateBuzzers();
-      setTimeout(gameWinMessage, 4500);
+      setTimeout(gameWinMessage, 4000);
     }
     
     else {
@@ -260,15 +259,14 @@ $(document).ready(function(){
 
 /*-------------------------------------------------------------------ALERTS*/
   //For disabled hint button:
-  function hintButtonDisabled(){
+  function deactivateHintButton(){
     notAllowed();
-    setTimeout(hintButtonErrorAlert, 200);
+    setTimeout(hintButtonErrorMessage, 200);
     setTimeout(levelReturnsOnScreen, 300);
   }
   
-  function hintButtonErrorAlert(){
-    alert(
-      `You have started your attempt. (o_o) \nHint button is disabled for the rest of this level. Press OK to continue the game.`);
+  function hintButtonErrorMessage(){
+    $("#hintButtonErrorModal").modal("show");
   }
     
   function notAllowed(){
@@ -281,8 +279,8 @@ $(document).ready(function(){
   
   //For an incorrect move:
   function showErrorMessage(){
-    alert(
-      `Unfortunately, that was a wrong move! (~_~) \nYour game has ended. To begin a new game please click ok and then press the start button.`);
+    $("#showErrorModal").modal("show");
+    $("#showErrorModal").modal({backdrop: 'static', keyboard: false});
   }
   
   //For completion of the game:
@@ -305,5 +303,5 @@ $(document).ready(function(){
   function reloadGame(){
       location.reload(true);
   }
-  
+  });
 });
