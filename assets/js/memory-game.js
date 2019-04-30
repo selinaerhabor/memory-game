@@ -1,7 +1,7 @@
-/*------------------------------------------------------------Global Variables*/
-
-//Game Level
-var level = 0; 
+/*-------------------------------------------------------------------VARIABLES*/
+//Total number of levels
+const maxLevel = 3;
+var level;
 
 //Game's Move
 var mimicMove = []; 
@@ -10,8 +10,9 @@ var mimicMove = [];
 var playerMove = [];  
 
 // Buzzer IDs
-var id = 0;
+var id = [0, 1, 2, 3];
 
+// Buzzer Classes
 var squareColor = [
   "squareGreen",  //Green Buzzer 
   "squareYellow", //Yellow Buzzer
@@ -19,6 +20,7 @@ var squareColor = [
   "squareBlue"    //Blue Buzzer
   ];  
   
+// Buzzer Sounds
 var buzzerSound= [
   "assets/sounds/noteE.wav", //Green Buzzer (squareGreen) sound
   "assets/sounds/noteD.wav", //Yellow Buzzer (squareYellow) sound
@@ -26,13 +28,37 @@ var buzzerSound= [
   "assets/sounds/noteC.wav"  //Blue Buzzer (squareBlue) sound
   ]; 
 
+var Green = new Audio();
+  Green.src = "assets/sounds/noteE.wav";
+  
+var Yellow = new Audio();
+  Yellow.src = "assets/sounds/noteD.wav";
+  
+var Red = new Audio();
+  Red.src = "assets/sounds/noteF.wav";
+    
+var Blue = new Audio();
+  Blue.src = "assets/sounds/noteC.wav";
+  
+  
+//Notification Sounds - Theme Song:
+var mimicStartThemeTune = new Audio();
+  mimicStartThemeTune.src = "assets/sounds/mimicStartThemeTune.wav";
 
-/*---------------------------------------------------------MIMIC GAME SETTINGS*/
+//Notification Sounds - Sound for correct move:
+var correct = new Audio();
+  correct.src = "assets/sounds/correct.wav";
+
+//Notification Sounds - Sound for incorrect move:
+var incorrect = new Audio();
+  incorrect.src = "assets/sounds/incorrect.wav";
+
+//Notification Sounds - Sound for game completed:
+var gameWin = new Audio();
+  gameWin.src = "assets/sounds/allGameLevelsCompleted.wav"; 
+
+
 $(document).ready(function(){ 
-  
-  
-  /*--------------------------------------------------TOTAL NUMBER OF LEVELS*/
-  const maxLevel = 30;
 
   /*------------------------------------------------------------GREEN BUZZER*/
   $("#0").click(function(){
@@ -47,12 +73,8 @@ $(document).ready(function(){
     $("this").removeClass("squareGreenLight");
   });
   
-  var Green = new Audio();
-  Green.src = "assets/sounds/noteE.wav";
-      
 
   /*------------------------------------------------------------YELLOW BUZZER*/
-    
   $("#1").click(function(){
     Yellow.play();
   });
@@ -65,10 +87,7 @@ $(document).ready(function(){
     $("this").removeClass("squareYellowLight");
   });
 
-  var Yellow = new Audio();
-  Yellow.src = "assets/sounds/noteD.wav";
   
-
   /*---------------------------------------------------------------RED BUZZER*/
   $("#2").click(function(){
     Red.play();
@@ -82,12 +101,8 @@ $(document).ready(function(){
     $("this").removeClass("squareRedLight");
   });
   
-  var Red = new Audio();
-    Red.src = "assets/sounds/noteF.wav";
    
-      
   /*--------------------------------------------------------------BLUE BUZZER*/
-      
   $("#3").click(function(){
     Blue.play();
   });
@@ -100,61 +115,38 @@ $(document).ready(function(){
     $("this").removeClass("squareBlueLight");
   });
   
-  var Blue = new Audio();
-  Blue.src = "assets/sounds/noteC.wav";
-      
-      
-  /*------------------------------------------------------NOTIFICATION SOUNDS*/
-  //THEME TUNE:
-  var mimicStartThemeTune = new Audio();
-  mimicStartThemeTune.src = "assets/sounds/mimicStartThemeTune.wav";
   
-  //SOUND FOR CORRECT MOVE:
-  var correct = new Audio();
-  correct.src = "assets/sounds/correct.wav";
+  /*---------------------------------------------DEACTIVATE/REACTIVATE BUZZERS*/
+  function deactivateBuzzers(){
+    document.getElementById('0').style.pointerEvents = 'none';
+    document.getElementById('1').style.pointerEvents = 'none';
+    document.getElementById('2').style.pointerEvents = 'none';
+    document.getElementById('3').style.pointerEvents = 'none';
+  }
   
-  //SOUND FOR INCORRECT MOVE:
-  var incorrect = new Audio();
-  incorrect.src = "assets/sounds/incorrect.wav";
+  function reactivateBuzzers(){
+    document.getElementById('0').style.pointerEvents = 'auto';
+    document.getElementById('1').style.pointerEvents = 'auto';
+    document.getElementById('2').style.pointerEvents = 'auto';
+    document.getElementById('3').style.pointerEvents = 'auto';
+  }
+  
 
-  //SOUND FOR GAME COMPLETION:
-  var gameWin = new Audio();
-  gameWin.src = "assets/sounds/allGameLevelsCompleted.wav"; 
-
-
-  /*--------------------------------------------START BUTTON & GAME INITIATOR*/
+  /*--------------------------------------------------------------START BUTTON*/
   $(".start").click(function(){
     $(".start").off("click");
     $(".count").text("00");
-      mimicStartThemeTune.play();
-      level = 0;
-      i = 0;
-      level++;
-      mimicMove = [];
-      playerMove = [];
-      console.log("Ready Steady Mimic!");
-      setTimeout(mimicMovement, 4000);
-  
-    function mimicMovement() {
-      console.log("Level "+level);
-      $(".count").text(level);
-      selectRandomID();
-      var i = 0;
-      var mimicMoveInterval = setInterval(function() {
-        id = mimicMove[i];
-        squareColor = $("#"+id).attr("class").split(" ")[1];
-        console.log(id, squareColor);
-        buzzerOn(id, squareColor);
-        i++;
-        if(i == mimicMove.length) {
-          clearInterval(mimicMoveInterval);
-        }
-      }, 1000);
-    }
+    mimicStartThemeTune.play();
+    level = 0;
+    level++;
+    mimicMove = [];
+    playerMove = [];
+    console.log("Ready Steady Mimic!");
+    setTimeout(mimicMovement, 4000);
     
     /*-----------------------------------------------------------HINT BUTTON*/
     $(".hint").mousedown(function(){
-      if(playerMove.length > 0){
+      if (playerMove.length > 0){
         hintButtonDisabled();
         console.log("You have started your attempt. Hint button is disabled for the rest of this level");
       }
@@ -165,123 +157,145 @@ $(document).ready(function(){
         mimicMovement[mimicMovement.length - 1];
       }
     });
-      
-    
-    /*------------------------------------------------------BUZZER SELECTION*/
-    function selectRandomID() {
-      var selectBuzzer = Math.floor(Math.random() * 4);
-      mimicMove.push(selectBuzzer);
-    }
-    
-    function buzzerOn(id, squareColor){
-      $("#"+id).addClass(squareColor+"Light");
-      playBuzzerSound(id);
-      setTimeout(function(){
-        $("#"+id).removeClass(squareColor+"Light");
-      }, 500);
-    }
-    
-    function playBuzzerSound(id) {
-      var sound = new Audio(buzzerSound[id]);
-      sound.play();
-    }
-    
-    $(".buzzer").click(function(){
-      id = $(this).attr("id");
-      squareColor = $(this).attr("class").split(" ")[1];
-      playerMovement();
-    });
-    
-    /*----------------------------------------------MONITOR FOR PLAYER'S MOVES*/
-    function playerMovement(){
-      playerMove.push(id);
+  });  
+  
+  
+  /*----------------------------------------------------------GAME INITIATOR*/
+  function mimicMovement(){
+    console.log("Level "+level);
+    $(".count").text(level);
+    $(".buzzer").on();
+    selectRandomID();
+    var i = 0;
+    var mimicMoveInterval = setInterval(function() {
+      id = mimicMove[i];
+      squareColor = $("#"+id).attr("class").split(" ")[1];
       console.log(id, squareColor);
       buzzerOn(id, squareColor);
-      
-      //If player makes an INCORRECT move:
-      if(!validatePlayerMove()) {
-        playerMove = [];
-        console.log("Incorrect move. Game ended.");
-        incorrect.play();
-        setTimeout(showErrorMessage, 200);
-        setTimeout(reloadGame, 300);
+      i++;
+      if (i == mimicMove.length) {
+        clearInterval(mimicMoveInterval);
       }
-      
-      //If player makes a CORRECT move:
-      else if(playerMove.length == mimicMove.length && playerMove.length < maxLevel){
-        level++;
-        playerMove = [];
-        console.log("Correct! Game continuing...");
-        correct.play();
-        setTimeout(mimicMovement,1000);
-      }
-      
-      //Game Completion:
-      if(playerMove.length == maxLevel){
-        gameCompleted();
-        setTimeout(reloadGame, 8000);
-      }
+    }, 1000);
+  }
+  
+  
+    
+  
+  /*------------------------------------------------------BUZZER SELECTION*/
+  function selectRandomID(){
+    var selectBuzzer = Math.floor(Math.random() * 4);
+    mimicMove.push(selectBuzzer);
+  }
+  
+  function buzzerOn(id, squareColor){
+    $("#"+id).addClass(squareColor+"Light");
+    playBuzzerSound(id);
+    setTimeout(function(){
+      $("#"+id).removeClass(squareColor+"Light");
+    }, 500);
+  }
+  
+  function playBuzzerSound(id) {
+    var sound = new Audio(buzzerSound[id]);
+    sound.play();
+  }
+  
+  $(".buzzer").click(function(){
+    id = $(this).attr("id");
+    squareColor = $(this).attr("class").split(" ")[1];
+    playerMovement();
+  });
+  
+  /*----------------------------------------------MONITOR FOR PLAYER'S MOVES*/
+  function playerMovement(){
+    playerMove.push(id);
+    console.log(id, squareColor);
+    buzzerOn(id, squareColor);
+    
+    //If player makes an INCORRECT move:
+    if (!validPlayerMove()){
+      playerMove = [];
+      console.log("Incorrect move. Game ended.");
+      incorrect.play();
+      setTimeout(showErrorMessage, 200);
+      setTimeout(reloadGame, 300);
     }
     
-  /*---------------------------------------------------------------VALIDATION*/
-    function validatePlayerMove(){
-      for(var i=0; i < playerMove.length; i++){
-        //If Player's Move is not equal to the game's move
-        if(playerMove[i] != mimicMove[i]){
-          return false;
-        }
-      }
+    //If player makes a CORRECT move:
+    else if (playerMove.length == mimicMove.length && playerMove.length < maxLevel){
+      level++;
+      playerMove = [];
+      console.log("Correct! Game continuing...");
+      correct.play();
+      deactivateBuzzers();
+      setTimeout(mimicMovement, 1000);
+      setTimeout(reactivateBuzzers, 1500);
+    }
+    
+    //Game Completion:
+    else if (playerMove.length == maxLevel) {
+      gameCompleted();
+      deactivateBuzzers();
+    }
+    
+    else {
       return true;
     }
+  }
     
-  /*-------------------------------------------------------------------ALERTS*/
-
-    //For disabled hint button:
-    function hintButtonDisabled(){
-      notAllowed();
-      setTimeout(hintButtonErrorAlert, 200);
-      setTimeout(levelReturnsOnScreen, 300);
-    }
-    
-    function hintButtonErrorAlert(){
-      alert(
-        `You have started your attempt. (o_o) \nHint button is disabled for the rest of this level. Press OK to continue the game.`);
-    }
-      
-    function notAllowed(){
-      $(".count").text("X");
-    }
-    
-    function levelReturnsOnScreen(){
-      $(".count").text(level);
-    }
-      
-    //For an incorrect move:
-    function showErrorMessage(){
-      alert(
-        `Unfortunately, that was a wrong move! (~_~) \nYour game has ended. To begin a new game please click ok and then press the start button.`);
-    }
-    
-    function showErrorMessage2(){
-      alert(
-        `It seems you have pressed the buzzer too many times! ("o") \nYour game has ended. To begin a new game please click ok and then press the start button.`)
-    }
-    
-    //For completion of the game:
-    function gameCompleted(){
-      $(".count").text("WIN");
-      gameWin.play();
-      setTimeout(mimicWinner, 6000);
-    }
-    
-    function mimicWinner(){
-      alert(
-        `Congratulations! (^o^)/ \nYou have completed MiMiC®! To begin a new game please click ok and then press the start button.`);
-      }
   
-  /*-------------------------------------------------------------RELOADS GAME*/
-    function reloadGame(){
-        location.reload(true);
+/*---------------------------------------------------------------VALIDATION*/
+  function validPlayerMove(){
+    for (var i = 0; i < playerMove.length; i++){
+      //If Player's Move is not equal to the game's move
+      if(playerMove[i] != mimicMove[i]){
+        return false;
+      }
     }
-  });
-});     
+    return true;
+  }
+
+
+/*-------------------------------------------------------------------ALERTS*/
+  //For disabled hint button:
+  function hintButtonDisabled(){
+    notAllowed();
+    setTimeout(hintButtonErrorAlert, 200);
+    setTimeout(levelReturnsOnScreen, 300);
+  }
+  
+  function hintButtonErrorAlert(){
+    alert(
+      `You have started your attempt. (o_o) \nHint button is disabled for the rest of this level. Press OK to continue the game.`);
+  }
+    
+  function notAllowed(){
+    $(".count").text("X");
+  }
+  
+  function levelReturnsOnScreen(){
+    $(".count").text(level);
+  }
+  
+  //For an incorrect move:
+  function showErrorMessage(){
+    alert(
+      `Unfortunately, that was a wrong move! (~_~) \nYour game has ended. To begin a new game please click ok and then press the start button.`);
+  }
+  
+  //For completion of the game:
+  function gameCompleted(){
+    $(".count").text("WIN");
+    gameWin.play();
+    deactivateBuzzers();
+  }
+  
+  
+      
+/*-------------------------------------------------------------RELOADS GAME*/
+  function reloadGame(){
+      location.reload(true);
+  }
+  
+});
