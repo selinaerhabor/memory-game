@@ -70,6 +70,31 @@ body, html {
 
 .instructions {
   font-family: monospace;
+  padding: 10px;
+}
+
+.modal-title {
+  align-items: center;
+  text-align: center;
+}
+
+.modal-content {
+  background-color: #0f0f0a;
+  color: #fff;
+  border-color: #fff;
+}
+
+.close {
+  color: #708090;
+  font-size: 40px;
+  -webkit-transition: color 0.3s; 
+  -moz-transition: color 0.3s;
+  -o-transition: color 0.3s; 
+  transition: color 0.3s;
+}
+
+.close:hover {
+  color: #fff;
 }
 
 /*----Adjustments I made to Bootstrap's Predefined Styles:*/
