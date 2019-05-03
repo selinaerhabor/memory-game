@@ -1,6 +1,6 @@
 /*-------------------------------------------------------------------VARIABLES*/
 //Total number of levels
-const maxLevel = 3;
+const maxLevel = 30;
 var level;
 
 //Game's Move
@@ -158,6 +158,14 @@ $(document).ready(function(){
       }
     });
     
+    /*-----------------------------------------------PLAYER'S CLICK SETTINGS*/
+    $(".buzzer").click(function(){
+      id = $(this).attr("id");
+      squareColor = $(this).attr("class").split(" ")[1];
+      playerMovement();
+    });
+    
+  });
   
   
   /*----------------------------------------------------------GAME INITIATOR*/
@@ -179,15 +187,13 @@ $(document).ready(function(){
     }, 1000);
   }
   
-  
-    
-  
-  /*------------------------------------------------------BUZZER SELECTION*/
+  /*---------------------------------------------MIMIC'S RANDOM BUZZER SELECTION*/
   function selectRandomID(){
     var selectBuzzer = Math.floor(Math.random() * 4);
     mimicMove.push(selectBuzzer);
   }
   
+  /*-----------------------------------------------MIMIC'S BUZZER SELECTION*/
   function buzzerOn(id, squareColor){
     $("#"+id).addClass(squareColor+"Light");
     playBuzzerSound(id);
@@ -196,16 +202,12 @@ $(document).ready(function(){
     }, 500);
   }
   
+  /*---------------------------------------------------PLAY BUZZER'S SOUND*/
   function playBuzzerSound(id) {
     var sound = new Audio(buzzerSound[id]);
     sound.play();
   }
   
-  $(".buzzer").click(function(){
-    id = $(this).attr("id");
-    squareColor = $(this).attr("class").split(" ")[1];
-    playerMovement();
-  });
   
   /*----------------------------------------------MONITOR FOR PLAYER'S MOVES*/
   function playerMovement(){
@@ -257,7 +259,7 @@ $(document).ready(function(){
   }
 
 
-/*-------------------------------------------------------------------ALERTS*/
+/*--------------------------------------------------------------------MODALS*/
   //For disabled hint button:
   function deactivateHintButton(){
     notAllowed();
@@ -296,12 +298,16 @@ $(document).ready(function(){
   }
   
   $(".closeModal").click(function(){
-    reloadGame();
+    resetGame();
+  });
+  
+  $("#resetGameNow").click(function(){
+    resetGame();
   });
       
-/*-------------------------------------------------------------RELOADS GAME*/
-  function reloadGame(){
+/*-------------------------------------------------------------RESETS GAME*/
+  function resetGame(){
       location.reload(true);
   }
-  });
+  
 });
