@@ -34,11 +34,14 @@ My project focused on meeting the needs of users’ for the memory game, so the 
 
 ## 2.1 Existing Features
 * **Notification Features** - When a sequence has been correctly repeated by the user, a high-pitched notification sound will be played before the next level begins. If a wrong buzzer has been pressed, then the game will release a low-pitched notification sound and the game will end.
-
+* **MiMiC Tab** -
+* **Reset Game Tab** -
+* **Instructions Tab** -
+* **Login/Register Tab** -
 
 ### 2.1.1 Game Body:
 * **Navigation Bar** - allows users to navigate through the website. This navigation bar is available on all the pages of the website and also on all forms of screen sizes. On smaller screen sizes the navigation bar is collapsed/minimised to save space on smaller screen sizes. When clicked, the burger icon on the right top end of the screen will then expand the list of the different pages of the website vertically downwards. Login link to display form for the user to enter their account credentials for login. Instructions link which allows users to view the game instructions for the user
-* **Start Button** - allows players to begin a new game, the game’s start theme tune is played
+* **Start Button** - allows users to begin a new game, the game’s start theme tune is played and the game begins makes the first buzzer selection.
 * **Hint Button** - allows users to make the game replay the last buzzer added to the sequence. If the hint button is pressed before the user begins their move, the last buzzer selected by the game will be played. Users are allowed to press the hint button as many times as needed before they begin attempting that level. Once the user has begun their attempt (i.e. pressed a buzzer), the hint button is disabled. This is to ensure that the code to replay the last selected buzzer in the sequence does not interfere which the last selected buzzer by the user (For more details see 4.5 Interesting bugs or problems discovered during testing). When the user hovers the cursor over the "Hint" button, the button changes gradually from light silver background to a light orange background and returns back to the original state when cursor is removed from button. Orange colour was used as it was suitable for its function of reminding users of the  
 
 * **Game Screen** – displays the level that the game is on
@@ -52,7 +55,7 @@ My project focused on meeting the needs of users’ for the memory game, so the 
 
 
 ## 2.2 Potential Features to implement in the future:
-Currently, the login modal page is just a mock for users to log in to their account or register it does not actually store the data input from the form. In the future, the login modal will allow users to create an account. Those who have registered to login to their account will have an additional feature to save their scores from the game in their account. The login tab will then be hidden and the log out link appears when a user has successfully logged in to their account. These features will not be available for users who have not made an account (playing the game as a guest), which is the current user interface when playing Mimic the memory game as the additional features have not yet been implemented. 
+The game has been built with a focus on how the game would be played by a user (playing as a guest) and has not created an account for the game. Currently, the login modal page is just a mock describing how users would log in to their account or register and does not actually store the data input from the form. In the future, the login modal will allow users to actually create an account to unlock additional features to the game including saving their daily scores from the game in their account. The login tab will then be hidden and the log out link appears when a user has successfully logged in to their account. The current user interface when playing Mimic the memory game is 'playing as a guest', as the additional features mentioned have not yet been implemented. 
 
 
 
@@ -67,7 +70,7 @@ Currently, the login modal page is just a mock for users to log in to their acco
 *	[Browsershots.org] - For checking browser compatibility and cross platform browser testing.
 * [Jasmine CDNJS] – For testing key sections of jQuery code for the game.
 * [Yamaha PSR-175 Keyboard] – Used for creating and recording the sounds for each buzzer and the game’s start theme tune.
-* [Audacity] – Used for editing the sounds for the game (Start theme tune, buzzer sounds, correct sounds, incorrect sounds and game completion sound.)
+* [Audacity] – Used for editing the sounds for the game (Start theme tune, buzzer sounds, correct notification sound, incorrect notification sound and game completion sound.)
 *	[W3C HTML Validator] - Used to check that no errors were present in the HTML code before final deployment.
 *	[W3C CSS Validator] - Used to check that no errors were present in the CSS code before final deployment.
 
@@ -87,7 +90,12 @@ This section discusses the results from testing the features of Mimic – the me
 * This process was also tested for login modal.
 
 **Hint Button**
-> "You can include the option for hints to be provide help during the game"
+> "You can include the option for hints to provide help during the game"
+
+*Clicked the “Hint” Button. 
+*When the Hint button was pressed, the game repeated the last selected buzzer in the sequence so far.
+*For level 3, I pressed the first buzzer in sequence and then pressed the hint button.
+*An 'X' appeared on the game screen and an error modal message appeared, explaining that the hint button is only available before the user has started their attempt for a level.
 
 
 **Start Button**
@@ -95,6 +103,7 @@ This section discusses the results from testing the features of Mimic – the me
 
 *Clicked the “Start” Button. 
 *When the Start button was pressed, the game’s theme song played and the game count screen was activated.
+*The Game selects first buzzer selection.
 
 
 **Game Count Screen**
@@ -127,10 +136,10 @@ Users tried playing the memory game and none reported issues with the game backg
 
 
 ## 4.2 HTML and CSS Validation Results:
-Below are the links to the result pages for HTML and CSS Validator for the code. 
+Please see `Tests` folder for the screenshots for the below validation results:
 
-* HTML code for the website has passed with no errors returned. (See screenshot in Tests folder)
-* CSS code for the website has passed with no errors returned. (See screenshot in Tests folder)
+* HTML code for the website has passed with no errors returned.
+* CSS code for the website has passed with no errors returned. 
 
 ## 4.3 Jasmine Tests Results: 
 
@@ -308,11 +317,7 @@ $ git clone https://selinaerhabor.github.io/memory-game.git
 
 ## 6. Credits
 
-#### Software Developer: Selina Erhabor
-
-## 6.1 Content:
-
-## 6.2 Media:
+## 6.1 Content/ Media:
 ### Game Background
 **Sources**:
 * The background photo used in this site was obtained from https://wallpapercave.com/carbon-wallpaper-hd
@@ -327,8 +332,8 @@ $ git clone https://selinaerhabor.github.io/memory-game.git
 * The sound of all the buzzers and the game theme tune were recorded using Yamaha PSR-175 Keyboard.
 * The notes of the buzzer sounds are the same as the Simon game, but a Gospel Shuffle music style has been used instead to modify the sound effects for the notes. (Buzzer sounds: squareGreen - Note E, squareYellow - Note F, squareRed – Note G and squareBlue – Note C).
 
-## 6.3 Acknowledgements:
-Useful resources for building this app include YouTube and Stack Overflow. I received inspiration for the logic and user experience of the memory game from this video - https://www.youtube.com/watch?v=1Yqj76Q4jJ4
+## 6.2 Acknowledgements:
+Useful resources for building this app include YouTube and Stack Overflow after receiving inspiration for the logic and user experience of the memory game from https://www.youtube.com/watch?v=1Yqj76Q4jJ4
 
 [//]: # (Below are the reference links used in the body of the README file)
 [here]: <https://selinaerhabor.github.io/memory-game/>
