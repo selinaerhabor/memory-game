@@ -1,18 +1,18 @@
-/*-------------------------------------------------------------------VARIABLES*/
-//Total number of levels
-const maxLevel = 30;
+/*-----------------------------------------------------------------VARIABLES*/
+//Total number of levels:
+const maxLevel = 3;
 var level;
 
-//Game's Move
+//Game's Move:
 var mimicMove = []; 
 
-// Player's Move
+// Player's Move:
 var playerMove = [];  
 
-// Buzzer IDs
+// Buzzer IDs:
 var id = [0, 1, 2, 3];
 
-// Buzzer Classes
+// Buzzer Classes:
 var squareColor = [
   "squareGreen",  //Green Buzzer 
   "squareYellow", //Yellow Buzzer
@@ -20,7 +20,7 @@ var squareColor = [
   "squareBlue"    //Blue Buzzer
   ];  
   
-// Buzzer Sounds
+// Buzzer Sounds:
 var buzzerSound= [
   "assets/sounds/noteE.wav", //Green Buzzer (squareGreen) sound
   "assets/sounds/noteD.wav", //Yellow Buzzer (squareYellow) sound
@@ -61,62 +61,74 @@ var gameWin = new Audio();
 $(document).ready(function(){ 
 
   /*------------------------------------------------------------GREEN BUZZER*/
+  //Green Buzzer Sound:
   $("#0").click(function(){
     Green.play();
   });
   
+  //Green Buzzer Light On:
   $("#0").mousedown(function(){
     $("this").addClass("squareGreenLight");
   });
   
+  //Green Buzzer Light Off:
   $("#0").mouseup(function(){
     $("this").removeClass("squareGreenLight");
   });
   
 
-  /*------------------------------------------------------------YELLOW BUZZER*/
+  /*-----------------------------------------------------------YELLOW BUZZER*/
+  //Yellow Buzzer Sound:
   $("#1").click(function(){
     Yellow.play();
   });
   
+  //Yellow Buzzer Light On:
   $("#1").mousedown(function(){
     $("this").addClass("squareYellowLight");
   });
   
+  //Yellow Buzzer Light Off:
   $("#1").mouseup(function(){
     $("this").removeClass("squareYellowLight");
   });
 
   
-  /*---------------------------------------------------------------RED BUZZER*/
+  /*--------------------------------------------------------------RED BUZZER*/
+  //Red Buzzer Sound:
   $("#2").click(function(){
     Red.play();
   });
   
+  //Red Buzzer Light On:
   $("#2").mousedown(function(){
     $("this").addClass("squareRedLight");
   });
   
+  //Red Buzzer Light Off:
   $("#2").mouseup(function(){
     $("this").removeClass("squareRedLight");
   });
   
    
-  /*--------------------------------------------------------------BLUE BUZZER*/
+  /*-------------------------------------------------------------BLUE BUZZER*/
+  //Blue Buzzer Sound:
   $("#3").click(function(){
     Blue.play();
   });
   
+  //Blue Buzzer Light On:
   $("#3").mousedown(function(){
     $("this").addClass("squareBlueLight");
   });
   
+  //Blue Buzzer Light Off:
   $("#3").mouseup(function(){
     $("this").removeClass("squareBlueLight");
   });
   
   
-  /*---------------------------------------------DEACTIVATE/REACTIVATE BUZZERS*/
+  /*-------------------------------------------DEACTIVATE/REACTIVATE BUZZERS*/
   function deactivateBuzzers(){
     document.getElementById('0').style.pointerEvents = 'none';
     document.getElementById('1').style.pointerEvents = 'none';
@@ -132,7 +144,7 @@ $(document).ready(function(){
   }
   
 
-  /*--------------------------------------------------------------START BUTTON*/
+  /*------------------------------------------------------------START BUTTON*/
   $(".start").click(function(){
     $(".start").off("click");
     $(".count").text("00");
@@ -146,10 +158,12 @@ $(document).ready(function(){
     
     /*-----------------------------------------------------------HINT BUTTON*/
     $(".hint").mousedown(function(){
+      //If player has already started attempting a level, deactivate hint button
       if (playerMove.length > 0){
         deactivateHintButton();
         console.log("You have started your attempt. Hint button is disabled for the rest of this level");
       }
+      //If not, keep hint button activated
       else {
         console.log("Hint for level "+ level);
         console.log(id, squareColor);
@@ -158,7 +172,7 @@ $(document).ready(function(){
       }
     });
     
-    /*-----------------------------------------------PLAYER'S CLICK SETTINGS*/
+    /*--------------------------BUZZER SELECTION SETTINGS FOR PLAYER'S MOVES*/
     $(".buzzer").click(function(){
       id = $(this).attr("id");
       squareColor = $(this).attr("class").split(" ")[1];
@@ -187,13 +201,13 @@ $(document).ready(function(){
     }, 1000);
   }
   
-  /*---------------------------------------------MIMIC'S RANDOM BUZZER SELECTION*/
+  /*-----------------------------------------MIMIC'S RANDOM BUZZER SELECTION*/
   function selectRandomID(){
     var selectBuzzer = Math.floor(Math.random() * 4);
     mimicMove.push(selectBuzzer);
   }
   
-  /*-----------------------------------------------MIMIC'S BUZZER SELECTION*/
+  /*------------------------------------------------MIMIC'S BUZZER SELECTION*/
   function buzzerOn(id, squareColor){
     $("#"+id).addClass(squareColor+"Light");
     playBuzzerSound(id);
@@ -202,7 +216,7 @@ $(document).ready(function(){
     }, 500);
   }
   
-  /*---------------------------------------------------PLAY BUZZER'S SOUND*/
+  /*-----------------------------------------------------PLAY BUZZER'S SOUND*/
   function playBuzzerSound(id) {
     var sound = new Audio(buzzerSound[id]);
     sound.play();
@@ -234,11 +248,12 @@ $(document).ready(function(){
       setTimeout(reactivateBuzzers, 1500);
     }
     
-    //Game Completion:
+    //If player successfully completes the game:
     else if (playerMove.length == maxLevel) {
       gameCompleted();
       deactivateBuzzers();
       setTimeout(gameWinMessage, 4000);
+      gameWin.play();
     }
     
     else {
@@ -247,7 +262,7 @@ $(document).ready(function(){
   }
     
   
-/*---------------------------------------------------------------VALIDATION*/
+/*---------------------------------------------------PLAYER'S MOVE VALIDATION*/
   function validPlayerMove(){
     for (var i = 0; i < playerMove.length; i++){
       //If Player's Move is not equal to the game's move
@@ -259,7 +274,7 @@ $(document).ready(function(){
   }
 
 
-/*--------------------------------------------------------------------MODALS*/
+/*-------------------------------------------------------------------MODALS*/
   //For disabled hint button:
   function deactivateHintButton(){
     notAllowed();
@@ -267,47 +282,51 @@ $(document).ready(function(){
     setTimeout(levelReturnsOnScreen, 300);
   }
   
+  //Error message for disabled hint button is pressed:
   function hintButtonErrorMessage(){
     $("#hintButtonErrorModal").modal("show");
   }
-    
+  
+  //Not allowed (game screen notification):
   function notAllowed(){
     $(".count").text("X");
   }
   
+  //Returns level back to game screen after displaying the 'Not allowed' notification:
   function levelReturnsOnScreen(){
     $(".count").text(level);
   }
   
-  //For an incorrect move:
+  //Error message for user's incorrect move:
   function showErrorMessage(){
     $("#showErrorModal").modal("show");
     $("#showErrorModal").modal({backdrop: 'static', keyboard: false});
   }
   
-  //For completion of the game:
+  //Win (game screen notification):
   function gameCompleted(){
     $(".count").text("WIN");
-    gameWin.play();
-    deactivateBuzzers();
   }
   
+  //Congratulations message for completing the game:
   function gameWinMessage(){
     $("#gameWinModal").modal("show");
     $("#gameWinModal").modal({backdrop: 'static', keyboard: false});
   }
   
+  /*----------------------------------------------------RESET GAME FUNCTION*/
+  function resetGame(){
+    location.reload(true);
+  }
+  
+  //Modal 'X' button resets game:  
   $(".closeModal").click(function(){
     resetGame();
   });
   
+  //'RESET GAME' Tab - (yes selection):
   $("#resetGameNow").click(function(){
     resetGame();
   });
-      
-/*-------------------------------------------------------------RESETS GAME*/
-  function resetGame(){
-      location.reload(true);
-  }
   
 });
