@@ -26,29 +26,25 @@
     <header>
       <nav class="navbar navbar-default">
         <div class="container-fluid">
-          <div class="row">
-            <div class="col-xs-12">
-              <div class="navbar-header">
-                <!--Brand Name (remains in place on smaller screens)-->
-                <a class="navbar-brand uppercase menu-link" data-toggle='modal' data-target='#aboutMimicModal'>MiMiC</a>
-                  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar" aria-expanded="true">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                  </button>
-              </div>
-              <!--Left Navigation tabs (collapsed on smaller screens)-->
-              <div class="navbar-collapse collapse" id="navbar">
-                <ul class="nav navbar-nav navbar-right">
-                  <li id="forceResetGame"><a class="menu-link" data-toggle='modal' data-target='#resetGameModal'>RESET GAME</a></li>
-                  <li id="gameInstructions"><a class="menu-link" data-toggle='modal' data-target='#instructionsModal'>INSTRUCTIONS</a></li>
-                  <li id="loginRegister"><a class="menu-link" data-toggle='modal' data-target='#jointLoginRegisterModal'>LOGIN/REGISTER</a></li>
-                </ul>
-              </div>
-              <!--/Left Navigation tabs (collapsed on smaller screens)-->
-            </div>
+          <div class="navbar-header">
+            <!--Brand Name (remains in position on smaller screens)-->
+            <a class="navbar-brand menu-link" data-toggle='modal' data-target='#aboutMimicModal'>MiMiC</a>
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar" aria-expanded="true">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
           </div>
+          <!--Left Navigation tabs (collapsed dropdown on smaller screens)-->
+          <div class="navbar-collapse collapse" id="navbar">
+            <ul class="nav navbar-nav navbar-right">
+              <li id="forceResetGame"><a class="menu-link" data-toggle='modal' data-target='#resetGameModal'>RESET GAME</a></li>
+              <li id="gameInstructions"><a class="menu-link" data-toggle='modal' data-target='#instructionsModal'>INSTRUCTIONS</a></li>
+              <li id="loginRegister"><a class="menu-link" data-toggle='modal' data-target='#jointLoginRegisterModal'>LOGIN/REGISTER</a></li>
+            </ul>
+          </div>
+          <!--/Left Navigation tabs (collapsed on smaller screens)-->
         </div>
       </nav>
     </header>
@@ -123,8 +119,9 @@
             </h3>
           </div>
           <p class="instructions align">
-            MiMiC is a single-player, memory game inspired by the traditional 1978 Hasbro game - <a href="https://en.wikipedia.org/wiki/Simon_(game)" target="_blank">Simon</a>. To check out
-            the deployed code for MiMiC the memory game (2019) <a href="https://github.com/selinaerhabor/memory-game" target="_blank">click here</a>.
+            MiMiC is a single-player, memory game inspired by the traditional 1978 Hasbro game - <a href="https://en.wikipedia.org/wiki/Simon_(game)" target="_blank">Simon</a>. 
+            MiMiC the memory game shares similar rules and also consists of four coloured buzzers, which each light up and play a sound when pressed. 
+            To check out the deployed code for MiMiC the memory game (2019) <a href="https://github.com/selinaerhabor/memory-game" target="_blank">click here</a>.
           </p>
           <p class="instructions align">
             Designed and developed by Selina Erhabor.
@@ -290,7 +287,7 @@
               <h2 class="modal-title" id="gameWin">Congratulations!</h2>
               <h3 class="modal-title">\ (^o^) /</h3>
           </div>
-          <h4 class="instructions modal-title">You have completed MiMiC®!</h4>
+          <h4 class="instructions modal-title">You have completed MiMiC!</h4>
           <p class="instructions modal-title">
             To begin a new game, please exit this window then press the Start button on the game control.
           </p>
