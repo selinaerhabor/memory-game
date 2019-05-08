@@ -68,12 +68,12 @@ $(document).ready(function(){
   
   //Green Buzzer Light On:
   $("#0").mousedown(function(){
-    $("this").addClass("squareGreenLight");
+    $("#0").addClass("squareGreenLight");
   });
   
   //Green Buzzer Light Off:
   $("#0").mouseup(function(){
-    $("this").removeClass("squareGreenLight");
+    $("#0").removeClass("squareGreenLight");
   });
   
 
@@ -85,12 +85,12 @@ $(document).ready(function(){
   
   //Yellow Buzzer Light On:
   $("#1").mousedown(function(){
-    $("this").addClass("squareYellowLight");
+    $("#1").addClass("squareYellowLight");
   });
   
   //Yellow Buzzer Light Off:
   $("#1").mouseup(function(){
-    $("this").removeClass("squareYellowLight");
+    $("#1").removeClass("squareYellowLight");
   });
 
   
@@ -102,12 +102,12 @@ $(document).ready(function(){
   
   //Red Buzzer Light On:
   $("#2").mousedown(function(){
-    $("this").addClass("squareRedLight");
+    $("#2").addClass("squareRedLight");
   });
   
   //Red Buzzer Light Off:
   $("#2").mouseup(function(){
-    $("this").removeClass("squareRedLight");
+    $("#2").removeClass("squareRedLight");
   });
   
    
@@ -119,16 +119,16 @@ $(document).ready(function(){
   
   //Blue Buzzer Light On:
   $("#3").mousedown(function(){
-    $("this").addClass("squareBlueLight");
+    $("#3").addClass("squareBlueLight");
   });
   
   //Blue Buzzer Light Off:
   $("#3").mouseup(function(){
-    $("this").removeClass("squareBlueLight");
+    $("#3").removeClass("squareBlueLight");
   });
   
   
-  /*-------------------------------------------DEACTIVATE/REACTIVATE BUZZERS*/
+  /*-------------------------------------------------------DEACTIVATE BUZZERS*/
   function deactivateBuzzers(){
     document.getElementById('0').style.pointerEvents = 'none';
     document.getElementById('1').style.pointerEvents = 'none';
@@ -136,6 +136,7 @@ $(document).ready(function(){
     document.getElementById('3').style.pointerEvents = 'none';
   }
   
+  /*-------------------------------------------------------REACTIVATE BUZZERS*/
   function reactivateBuzzers(){
     document.getElementById('0').style.pointerEvents = 'auto';
     document.getElementById('1').style.pointerEvents = 'auto';
@@ -184,21 +185,40 @@ $(document).ready(function(){
   
   /*----------------------------------------------------------GAME INITIATOR*/
   function mimicMovement(){
+    
+    //Level display in console:
     console.log("Level "+level);
+    
+    //Shows game level:
     $(".count").text(level);
-    $(".buzzer").on();
-    selectRandomID();
+    
     var i = 0;
+    
+    //Selects a buzzer ID at random:
+    selectRandomID();
     var mimicMoveInterval = setInterval(function() {
+      
+      //ID selected by game:
       id = mimicMove[i];
+      
+      //Second value in array of classes for each buzzer selected (buzzer, squareColor):
       squareColor = $("#"+id).attr("class").split(" ")[1];
+      
+      //Selected Buzzer Colors and IDs displayed in console:
       console.log(id, squareColor);
+      
+      //Selected Buzzer attributes activated:
       buzzerOn(id, squareColor);
+      
+      //Increases mimicMove by increments of 1:
       i++;
+      
+      //If the game has completed its move:
       if (i == mimicMove.length) {
         clearInterval(mimicMoveInterval);
       }
     }, 1000);
+    
   }
   
   /*-----------------------------------------MIMIC'S RANDOM BUZZER SELECTION*/
@@ -211,6 +231,7 @@ $(document).ready(function(){
   function buzzerOn(id, squareColor){
     $("#"+id).addClass(squareColor+"Light");
     playBuzzerSound(id);
+    //Buzzer Light turns off after 500ms:
     setTimeout(function(){
       $("#"+id).removeClass(squareColor+"Light");
     }, 500);
@@ -308,7 +329,7 @@ $(document).ready(function(){
     $(".count").text("WIN");
   }
   
-  //Congratulations message for completing the game:
+  //Congratulations message for game win:
   function gameWinMessage(){
     $("#gameWinModal").modal("show");
     $("#gameWinModal").modal({backdrop: 'static', keyboard: false});
