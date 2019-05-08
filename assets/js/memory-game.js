@@ -1,6 +1,6 @@
 /*-----------------------------------------------------------------VARIABLES*/
 //Total number of levels:
-const maxLevel = 3;
+const maxLevel = 30;
 var level;
 
 //Game's Move:
@@ -147,23 +147,42 @@ $(document).ready(function(){
 
   /*------------------------------------------------------------START BUTTON*/
   $(".start").click(function(){
+    
+    //Deactivate Start Button after one click:
     $(".start").off("click");
+    
+    //Game Screen displays '00':
     $(".count").text("00");
+    
+    //Mimic Theme Tune plays:
     mimicStartThemeTune.play();
+    
+    //Level begins and increments by 1:
     level = 0;
     level++;
+    
+    //Game's Move array:
     mimicMove = [];
+    
+    //Player's Move array:
     playerMove = [];
+    
+    //Game loading message in console:
     console.log("Ready Steady Mimic!");
+    
+    //Game makes first move 4 seconds (4000ms) after start button clicked:
     setTimeout(mimicMovement, 4000);
+    
     
     /*-----------------------------------------------------------HINT BUTTON*/
     $(".hint").mousedown(function(){
+      
       //If player has already started attempting a level, deactivate hint button
       if (playerMove.length > 0){
         deactivateHintButton();
         console.log("You have started your attempt. Hint button is disabled for the rest of this level");
       }
+      
       //If not, keep hint button activated
       else {
         console.log("Hint for level "+ level);
@@ -173,10 +192,17 @@ $(document).ready(function(){
       }
     });
     
+    
     /*--------------------------BUZZER SELECTION SETTINGS FOR PLAYER'S MOVES*/
     $(".buzzer").click(function(){
+      
+      //ID selected by game:
       id = $(this).attr("id");
+      
+      //Second value in array of classes for each buzzer selected (buzzer, squareColor):
       squareColor = $(this).attr("class").split(" ")[1];
+      
+      //Monitor Player's Move
       playerMovement();
     });
     
@@ -197,11 +223,7 @@ $(document).ready(function(){
     //Game selects a buzzer ID at random to grow sequence:
     selectRandomID();
     var mimicMoveInterval = setInterval(function() {
-      
-      //ID selected by game:
       id = mimicMove[i];
-      
-      //Second value in array of classes for each buzzer selected (buzzer, squareColor):
       squareColor = $("#"+id).attr("class").split(" ")[1];
       
       //Selected Buzzer Colors and IDs displayed in console:
@@ -221,20 +243,24 @@ $(document).ready(function(){
     
   }
   
+  
   /*-----------------------------------------MIMIC'S RANDOM BUZZER SELECTION*/
   function selectRandomID(){
     var selectBuzzer = Math.floor(Math.random() * 4);
     mimicMove.push(selectBuzzer);
   }
   
+  
   /*------------------------------------------------MIMIC'S BUZZER SELECTION*/
   function buzzerOn(id, squareColor){
+    
     $("#"+id).addClass(squareColor+"Light");
     playBuzzerSound(id);
-    //Buzzer Light turns off after 500ms:
+    
+    //Buzzer Light turns off after 0.75 seconds (750ms):
     setTimeout(function(){
       $("#"+id).removeClass(squareColor+"Light");
-    }, 500);
+    }, 750);
   }
   
   /*-----------------------------------------------------PLAY BUZZER'S SOUND*/
@@ -283,9 +309,10 @@ $(document).ready(function(){
   }
     
   
-/*---------------------------------------------------PLAYER'S MOVE VALIDATION*/
+  /*--------------------------------------------------PLAYER'S MOVE VALIDATION*/
   function validPlayerMove(){
     for (var i = 0; i < playerMove.length; i++){
+      
       //If Player's Move is not equal to the game's move
       if(playerMove[i] != mimicMove[i]){
         return false;
@@ -295,7 +322,7 @@ $(document).ready(function(){
   }
 
 
-/*-------------------------------------------------------------------MODALS*/
+  /*-------------------------------------------------------------------MODALS*/
   //For disabled hint button:
   function deactivateHintButton(){
     notAllowed();
