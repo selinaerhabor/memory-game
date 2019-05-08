@@ -6,13 +6,13 @@ var level;
 //Game's Move:
 var mimicMove = []; 
 
-// Player's Move:
+//Player's Move:
 var playerMove = [];  
 
-// Buzzer IDs:
+//Buzzer IDs:
 var id = [0, 1, 2, 3];
 
-// Buzzer Classes:
+//Buzzer Classes:
 var squareColor = [
   "squareGreen",  //Green Buzzer 
   "squareYellow", //Yellow Buzzer
@@ -194,7 +194,7 @@ $(document).ready(function(){
     
     var i = 0;
     
-    //Selects a buzzer ID at random:
+    //Game selects a buzzer ID at random to grow sequence:
     selectRandomID();
     var mimicMoveInterval = setInterval(function() {
       
