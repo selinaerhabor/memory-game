@@ -10,7 +10,7 @@
           expect(exampleHint).toEqual(1);
       });
       
-    })
+    });
     
     
     
@@ -31,4 +31,25 @@
       it("selected the last item in an array of classes for a game buzzer", function() {
           expect(buzzerLastClass).toEqual("squareColor");
       });
-    })
+    });
+    
+    
+    
+    //HOW THE MEMORY GAME COULD SELECT AUDIO FILES:
+    describe("Test for Audio file selection using Arrays", function(){
+      
+      //Variables
+      var exampleSound = [
+        "zero.mp3",
+        "one.mp3",
+        "two.mp3",
+        "three.mp3"
+        ];
+      var id = [0, 1, 2, 3];
+      var sound = new Audio(exampleSound[id]);
+      sound.play();
+      
+      it("selected the correct audio file variable via indexing", function() {
+            expect(exampleSound[0]).toEqual("zero.mp3");
+        });
+    });
