@@ -8,8 +8,11 @@ mapping them with audio sounds using JavaScript arrays and used this concept for
 game can be accessed [here].
 
 ## 1. User Experience Design (UX)
-The suggested age range for this application is 8 years and up and may be of particular interest to people who are interested in playing 
-memory games or have previously played Hasbro’s Simon game or similar.
+
+The aim of MiMiC the memory game is to provide users with a creative and reasonably, challenging memory game to captivate and inspire players 
+through it's unique interface and well responsive application. The suggested age range for this application is 8 years and up which 
+has also been inspired from the target audience of Simon game. This memory game is likely to be of particular interest to people who 
+are interested in playing memory games or have previously played Hasbro’s Simon game or similar.
 
 Main Requirements for the Memory Game: 
 * Must be single-player. 
@@ -36,9 +39,10 @@ building the memory game:
 
 > "Nice and calm background for the game"
 
-I created sketches of different design ideas that would be suitable for the game interface (see Initial Ideas - Wireframes folder). 
-These sketches were based on meeting the project requirements and the needs of users. The sketches were developed further to produce 
-wireframes focusing on the main aspects of the game to give an idea of the key features that will be included.
+I created sketches of different design ideas that would be suitable for the game interface of the memory game. 
+The sketches of my initial ideas were based on meeting the project's requirements and the needs of users. The most favoured idea was then 
+developed further to produce wireframes, focusing on the main aspects of the game to give an idea of the key features that will be included 
+(taking into account the user stories). My initial ideas and wireframes are available in this folder: [Initial Ideas - Wireframes].
 
 
 ## 2. Features
@@ -80,7 +84,7 @@ user (For more details see 4.5 Interesting bugs or problems discovered during te
 the button changes gradually from light silver background to a light orange background and returns back to the original state when cursor is 
 removed from button. Orange colour was used as it was suitable for its function of helping users.  
 * **Game Screen** – displays the level that the game is on. The game screen has a black screen, with red text giving it an electronic game 
-effect.
+effect. 
 * **Green Buzzer** – (also known as Buzzer ID 0) plays Keyboard (Gospel Shuffle sound) Note E and lights up to a lighter green colour when 
 pressed.
 * **Yellow Buzzer** - (also known as Buzzer ID 1) plays Keyboard (Gospel Shuffle sound) Note D and lights up to a lighter yellow colour when 
@@ -182,19 +186,17 @@ button has been pressed and the game is about to begin.
 * Users believe that the background complements the memory game interface.
 
 
-
-
 ## 4.2 HTML and CSS Validation Results:
 Please see `Tests` folder for the screenshots for the below validation results:
 
-* HTML code for the website has passed with no errors returned.
-* CSS code for the website has passed with no errors returned. 
+* HTML code for the website has [passed](https://github.com/selinaerhabor/memory-game/tree/master/Tests/browser-tests/Result%20-%20HTML%20Validator.png) with no errors returned.
+* CSS code for the website has [passed](https://github.com/selinaerhabor/memory-game/tree/master/Tests/browser-tests/Result%20-%20CSS%20Validator.png) with no errors returned. 
 
 
 ## 4.3 Jasmine Tests Results: 
 The Jasmine tests were carried out for the Hint function, how the memory game selects items in an array and for the selection of audio files. 
 The results show that the correct variables are being called in the tested stages of the game. 
-Screenshot of the [jasmine-tests.html] page.
+Screenshot of the [Jasmine Test Result Page].
 
 
 ## 4.4 Device Screen Size and Browser Compatibility Test Results:
@@ -268,10 +270,7 @@ As modal windows can also be exited by clicking outside the modal, I deactivated
 `{backdrop: 'static', keyboard: false}` so that players are guided to press the 'X' button to exit the 
 modal windows for Incorrect Move ('#showErrorModal') and Game Win ('#gameWinModal').
 
-
-<div align="center">
-<img src="assets/images/game-instructions.jpg" alt="Modal Window 'X' Close button" >
-</div>
+![Modal Window 'X' Close Button](/assets/images/screenshots-features/modal-window-close-button.png)
 
 * Function for modal to display when user makes an incorrect move:
 ```sh
@@ -385,10 +384,13 @@ for the hintButtonDisabled function so that the user can easily return back to p
 * Made redundant the use of `div.style.backgroundColor` for the buzzers in order to remove the need for using `!important` to ensure the 
 background color changes to its active state when pressed.
 
-* The buzzerSounds were taking some time to play when pressed. In order to reduce the time it takes for the audio files to load, I removed the 
+* The buzzer sounds were taking some time to play when pressed. In order to reduce the time it takes for the audio files to load, I removed the 
 variables calling buzzerSounds based on indexing `new Audio(buzzerSound[1])` and instead set audio files as global variables (from player's end) 
 for example: var yellow = new Audio('assets/sounds/noteD.mp3').
 
+* The Reset Game function in the navigation bar
+
+* The Mimic tab on the left of the navigation bar
 
 ## 6. Credits
 
@@ -410,8 +412,8 @@ standard keyboard notes. (Buzzer sounds: squareGreen - Note E, squareYellow - No
 
 ## 6.2 Code:
 **Sources**:
-* For making the game select buzzers in a sequence, code tailored from [StackOverflow - Solution1]
-* For checking if the elements in an array match, code tailored from [StackOverflow - Solution2]
+* For making the game select all of the buzzers in the sequence one after the other, code tailored from [StackOverflow - Solution1]
+* For checking if the elements in player's selection array matches the game's selection array, code tailored from [StackOverflow - Solution2]
 
 ## 6.3 Acknowledgements:
 Useful resources for building this app include YouTube and Stack Overflow after receiving inspiration for the logic and user experience of 
@@ -438,4 +440,5 @@ the memory game from https://www.youtube.com/watch?v=1Yqj76Q4jJ4
 [StackOverflow - Solution2]: <https://stackoverflow.com/questions/6120931/how-to-count-the-number-of-certain-element-in-an-array>
 [Dropbox]: <https://www.dropbox.com/sh/z49xw5kvydjaem3/AABvWeLA1JTnCTqTNKjpEJZPa?dl=0>
 [Wallpapercave]: <https://wallpapercave.com/carbon-wallpaper-hd>
-[jasmine-tests.html]: <>
+[Initial Ideas - Wireframes]: <https://github.com/selinaerhabor/memory-game/tree/master/Initial%20Ideas%20-%20Wireframes>
+[Jasmine Test Result Page]: <>
