@@ -192,7 +192,9 @@ Please see `Tests` folder for the screenshots for the below validation results:
 
 
 ## 4.3 Jasmine Tests Results: 
-The Jasmine test results show that the correct classes are being called at each stage of the game. 
+The Jasmine tests were carried out for the Hint function, how the memory game selects items in an array and for the selection of audio files. 
+The results show that the correct variables are being called in the tested stages of the game. 
+Screenshot of the [jasmine-tests.html] page.
 
 
 ## 4.4 Device Screen Size and Browser Compatibility Test Results:
@@ -340,15 +342,6 @@ $("#0").click(function(){
   });
 ```
 
-* Placeholders for the input forms and required input error messages were not appearing when viewing the website using 
-Internet Explorer 11, so I had to state the color of the placeholder on the main browser types in the style.css file.
-
-```sh
-:-webkit-input-placeholder {color: #4a4a4a; }
-:-moz-placeholder {color: #4a4a4a; }
-:-o-placeholder {color: #4a4a4a;}
-:-ms-input-placeholder {color: #4a4a4a; }
-```
 
 ## 5. Deployment
 
@@ -384,13 +377,17 @@ $ git clone https://selinaerhabor.github.io/memory-game.git
 
 ## 5.3 Discussion on the differences between the development code and the deployed Code Version:
 
-* Addition of browser alerts to keep users informed of why a feature is inactive or why their game ended. These alerts occur for incorrect 
-play, when the hint button is pressed when level is being attempted and when game is completed. The browser alerts are also useful for not 
-blocking the game's interface completely something that came in handy for the hintButtonDisabled function.
+* The addition of modal windows instead of browser alerts to keep users informed of why a feature is inactive or why their game ended in an 
+aesthetically pleasing way. These modal windows appear for incorrect play, when the hint button is pressed when level is being attempted and 
+when the game has been completed. The modal windows are also useful for not blocking the game's interface completely something that came in handy 
+for the hintButtonDisabled function so that the user can easily return back to playing current game.
 
 * Made redundant the use of `div.style.backgroundColor` for the buzzers in order to remove the need for using `!important` to ensure the 
 background color changes to its active state when pressed.
 
+* The buzzerSounds were taking some time to play when pressed. In order to reduce the time it takes for the audio files to load, I removed the 
+variables calling buzzerSounds based on indexing `new Audio(buzzerSound[1])` and instead set audio files as global variables (from player's end) 
+for example: var yellow = new Audio('assets/sounds/noteD.mp3').
 
 
 ## 6. Credits
@@ -414,7 +411,7 @@ standard keyboard notes. (Buzzer sounds: squareGreen - Note E, squareYellow - No
 ## 6.2 Code:
 **Sources**:
 * For making the game select buzzers in a sequence, code tailored from [StackOverflow - Solution1]
-* For checking the element in an array match, code tailored from [StackOverflow - Solution2]
+* For checking if the elements in an array match, code tailored from [StackOverflow - Solution2]
 
 ## 6.3 Acknowledgements:
 Useful resources for building this app include YouTube and Stack Overflow after receiving inspiration for the logic and user experience of 
@@ -441,3 +438,4 @@ the memory game from https://www.youtube.com/watch?v=1Yqj76Q4jJ4
 [StackOverflow - Solution2]: <https://stackoverflow.com/questions/6120931/how-to-count-the-number-of-certain-element-in-an-array>
 [Dropbox]: <https://www.dropbox.com/sh/z49xw5kvydjaem3/AABvWeLA1JTnCTqTNKjpEJZPa?dl=0>
 [Wallpapercave]: <https://wallpapercave.com/carbon-wallpaper-hd>
+[jasmine-tests.html]: <>
