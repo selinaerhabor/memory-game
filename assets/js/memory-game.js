@@ -13,41 +13,37 @@ var playerMove = [];
 var id = [0, 1, 2, 3];
 
 //Buzzer Classes:
-var squareColor = [
-  "squareGreen",  //Green Buzzer 
-  "squareYellow", //Yellow Buzzer
-  "squareRed",    //Red Buzzer
-  "squareBlue"    //Blue Buzzer
-  ];  
-  
+var squareColor = [squareGreen, squareYellow, squareRed, squareBlue];
+
+//Game Sounds:
+var squareGreen = new Audio('assets/sounds/noteE.mp3'); //Green Buzzer (squareGreen) sound
+var squareYellow = new Audio('assets/sounds/noteD.mp3'); //Yellow Buzzer (squareYellow) sound
+var squareRed = new Audio('assets/sounds/noteF.mp3'); //Red Buzzer (squareRed) sound
+var squareBlue = new Audio('assets/sounds/noteC.mp3'); //Blue Buzzer (squareBlue) sound
+var mimicStartThemeTune = new Audio('assets/sounds/mimicStartThemeTune.mp3'); //Game Starting Theme sound
+var correct = new Audio('assets/sounds/correct.mp3'); //Sound for correct move
+var incorrect = new Audio('assets/sounds/incorrect.mp3'); //Sound for incorrect move
+var gameWin = new Audio('assets/sounds/allGameLevelsCompleted.mp3'); //Sound for game completion
+
 //Application page:
 var location;
 
 
 $(document).ready(function(){ 
   
-  //Buzzer Sounds:
+  //Auto Game Select Buzzer Sounds:
   var buzzerSound = [
     'assets/sounds/noteE.mp3', //Green Buzzer (squareGreen) sound
     'assets/sounds/noteD.mp3', //Yellow Buzzer (squareYellow) sound
     'assets/sounds/noteF.mp3', //Red Buzzer (squareRed) sound
     'assets/sounds/noteC.mp3'  //Blue Buzzer (squareBlue) sound
     ]; 
-  
-  //Notification Sounds:
-  var notificationSound = [
-    'assets/sounds/mimicStartThemeTune.mp3', //Game Starting Theme sound
-    'assets/sounds/correct.mp3', //Sound for correct move
-    'assets/sounds/incorrect.mp3', //Sound for incorrect move
-    'assets/sounds/allGameLevelsCompleted.mp3' //Sound for game completion
-    ]; 
 
 
   /*------------------------------------------------------------GREEN BUZZER*/
   //Green Buzzer Sound:
   $('#0').click(function(){
-    var green = new Audio(buzzerSound[0]);
-    green.play();
+    squareGreen.play();
   });
   
   //Green Buzzer Light On:
@@ -64,8 +60,7 @@ $(document).ready(function(){
   /*-----------------------------------------------------------YELLOW BUZZER*/
   //Yellow Buzzer Sound:
   $('#1').click(function(){
-    var yellow = new Audio(buzzerSound[1]);
-    yellow.play();
+    squareYellow.play();
   });
   
   //Yellow Buzzer Light On:
@@ -82,8 +77,7 @@ $(document).ready(function(){
   /*--------------------------------------------------------------RED BUZZER*/
   //Red Buzzer Sound:
   $('#2').click(function(){
-    var red = new Audio(buzzerSound[2]);
-    red.play();
+    squareRed.play();
   });
   
   //Red Buzzer Light On:
@@ -100,8 +94,7 @@ $(document).ready(function(){
   /*-------------------------------------------------------------BLUE BUZZER*/
   //Blue Buzzer Sound:
   $('#3').click(function(){
-    var blue = new Audio(buzzerSound[3]);
-    blue.play();
+    squareBlue.play();
   });
   
   //Blue Buzzer Light On:
@@ -135,16 +128,6 @@ $(document).ready(function(){
     document.getElementById('3').style.pointerEvents = 'auto';
     
   }
-  
-  
-  /*-----------------------------------------------------NOTIFICATION SOUNDS*/
-  var mimicStartThemeTune = new Audio(notificationSound[0]);
-  
-  var correct = new Audio(notificationSound[1]);
-    
-  var incorrect = new Audio(notificationSound[2]);
-    
-  var gameWin = new Audio(notificationSound[3]);
   
 
   /*------------------------------------------------------------START BUTTON*/
@@ -222,11 +205,7 @@ $(document).ready(function(){
       id = mimicMove[i];
       squareColor = $('#' + id).attr('class').split(' ')[1];
       console.log(id, squareColor);
-      
-      //Attributes of selected buzzer activated:
       buzzerOn();
-      
-      //Increases mimicMove by increments of 1:
       i++;
       
       //If game has finished playing its turn, waits for player's moves:
