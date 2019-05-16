@@ -8,40 +8,46 @@ mapping them with audio sounds using JavaScript arrays and used this concept for
 game can be accessed [here].
 
 ## Contents
-1. [**User Experience Design (UX)**](#ux)
+1. [**User Experience Design (UX)**](https://github.com/selinaerhabor/memory-game/blob/master/README.md#1-user-experience-design-ux)
       
-      1.1 [User Stories]()
+      1.1 [User Stories](https://github.com/selinaerhabor/memory-game/blob/master/README.md#11-user-stories)
 
-2. [**Features**](#features)
+2. [**Features**](https://github.com/selinaerhabor/memory-game/blob/master/README.md#2-features)
       
-      2.1 [Existing Features]
+      2.1 [Existing Features](https://github.com/selinaerhabor/memory-game/blob/master/README.md#21-existing-features)
+      2.1.1 [Game Body](https://github.com/selinaerhabor/memory-game/blob/master/README.md#211-game-body)
 
-         2.1.1 [Game Body]
+      2.2 [Potential Features to Implement](https://github.com/selinaerhabor/memory-game/blob/master/README.md#22-potential-features-to-implement-in-the-future)
 
-      2.2 [Potential Features to Implement]
+3. [**Technologies used**](https://github.com/selinaerhabor/memory-game/blob/master/README.md#3-technologies-used)
 
-3. [**Technologies used**](#technologies-used)
-
-4. [**Testing**](#testing)
+4. [**Testing**](https://github.com/selinaerhabor/memory-game/blob/master/README.md#4-testing)
       
-      4.1 [Process of Testing Features]
-      4.2 [HTML and CSS Validation]
-      4.3 [Jasmine Test Results]
-      4.4 [Device Screen Size and Browser Compatibility Test Results]
-      4.5 [Responses from users who tried out the memory game]
-      4.6 [Interesting bugs or problems discovered during testing]
+      4.1 [Process of Testing Features](https://github.com/selinaerhabor/memory-game/blob/master/README.md#41-process-of-testing-features)
 
-5. [**Deployment**](#deployment)
+      4.2 [HTML and CSS Validation](https://github.com/selinaerhabor/memory-game/blob/master/README.md#42-html-and-css-validation-results)
       
-      5.1 [Deployment Process]
-      5.2 [Running the code locally]
-      5.3 [Discussion on the differences between the development code and the deployed Code Version]
+      4.3 [Jasmine Test Results](https://github.com/selinaerhabor/memory-game/blob/master/README.md#43-jasmine-tests-results)
+      
+      4.4 [Device Screen Size and Browser Compatibility Test Results](https://github.com/selinaerhabor/memory-game/blob/master/README.md#44-device-screen-size-and-browser-compatibility-test-results)
+      
+      4.5 [Responses from users who tried out the memory game](https://github.com/selinaerhabor/memory-game/blob/master/README.md#45-responses-from-users-who-tried-out-the-memory-game)
+      
+      4.6 [Interesting bugs or problems discovered during testing](https://github.com/selinaerhabor/memory-game/blob/master/README.md#45-interesting-bugs-or-problems-discovered-during-testing)
 
-6. [**Credits**](#credits)
+5. [**Deployment**](https://github.com/selinaerhabor/memory-game/blob/master/README.md#5-deployment)
       
-      6.1 [Content/Media](#content-media)
-      6.2 [Code](#code)
-      6.3 [Acknowledgements](#acknowledgements)
+      5.1 [Deployment Process](https://github.com/selinaerhabor/memory-game/blob/master/README.md#51-deployment-process)
+
+      5.2 [Running the code locally](https://github.com/selinaerhabor/memory-game/blob/master/README.md#52--running-the-code-locally)
+      
+      5.3 [Discussion on the differences between the development code and the deployed Code Version](https://github.com/selinaerhabor/memory-game/blob/master/README.md#53-discussion-on-the-differences-between-the-development-code-and-the-deployed-code-version)
+
+6. [**Credits**](https://github.com/selinaerhabor/memory-game/blob/master/README.md#6-credits)
+      
+      6.1 [Content/Media](https://github.com/selinaerhabor/memory-game/blob/master/README.md#61-content-media)
+
+      6.2 [Acknowledgements](https://github.com/selinaerhabor/memory-game/blob/master/README.md#62-acknowledgements)
 
 
 ## 1. User Experience Design (UX)
@@ -481,6 +487,8 @@ standard keyboard notes. (Buzzer sounds: squareGreen - Note E, squareYellow - No
 Useful resources for building this app include YouTube and Stack Overflow after receiving inspiration for the logic and user experience of 
 the memory game from https://www.youtube.com/watch?v=1Yqj76Q4jJ4
 
+[Return to top]()
+
 [//]: # (Below are the reference links used in the body of the README file)
 [here]: <https://selinaerhabor.github.io/memory-game/>
 [HTML]: <https://html.com/> 
@@ -504,7 +512,6 @@ the memory game from https://www.youtube.com/watch?v=1Yqj76Q4jJ4
 [Wallpapercave]: <https://wallpapercave.com/carbon-wallpaper-hd>
 [Jasmine Test Results Page]: <(https://github.com/selinaerhabor/memory-game/tree/master/Tests/browser-tests/Result%20-%20Jasmine%20Tests.png)>
 [Initial Ideas - Wireframes]: <https://github.com/selinaerhabor/memory-game/tree/master/Initial%20Ideas%20-%20Wireframes>
-
 
 
 
