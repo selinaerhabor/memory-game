@@ -7,9 +7,46 @@ selected buzzer for that level. I chose to number the IDs for the four buzzers f
 mapping them with audio sounds using JavaScript arrays and used this concept for mapping the game notification sounds. Mimic the memory 
 game can be accessed [here].
 
+## Contents
+1. [**User Experience Design (UX)**](#ux)
+      
+      1.1 [User Stories]()
+
+2. [**Features**](#features)
+      
+      2.1 [Existing Features]
+
+         2.1.1 [Game Body]
+
+      2.2 [Potential Features to Implement]
+
+3. [**Technologies used**](#technologies-used)
+
+4. [**Testing**](#testing)
+      
+      4.1 [Process of Testing Features]
+      4.2 [HTML and CSS Validation]
+      4.3 [Jasmine Test Results]
+      4.4 [Device Screen Size and Browser Compatibility Test Results]
+      4.5 [Responses from users who tried out the memory game]
+      4.6 [Interesting bugs or problems discovered during testing]
+
+5. [**Deployment**](#deployment)
+      
+      5.1 [Deployment Process]
+      5.2 [Running the code locally]
+      5.3 [Discussion on the differences between the development code and the deployed Code Version]
+
+6. [**Credits**](#credits)
+      
+      6.1 [Content/Media](#content-media)
+      6.2 [Code](#code)
+      6.3 [Acknowledgements](#acknowledgements)
+
+
 ## 1. User Experience Design (UX)
 
-The aim of MiMiC the memory game is to provide users with a creative and reasonably, challenging memory game to captivate and inspire players 
+The aim of Mimic the Memory Game is to provide users with a creative and reasonably, challenging memory game to captivate and inspire players 
 through it's unique interface and well responsive application. The suggested age range for this application is 8 years and up which 
 has also been inspired from the target audience of Simon game. This memory game is likely to be of particular interest to people who 
 are interested in playing memory games or have previously played Hasbro’s Simon game or similar.
@@ -187,24 +224,45 @@ button has been pressed and the game is about to begin.
 
 
 ## 4.2 HTML and CSS Validation Results:
-Please see `Tests` folder for the screenshots for the below validation results:
+The HTML and CSS code for the Memory Game has been tested using official validators, screenshots of the Browser Test results are available via the links below and can also be found in a folder called `browser-tests` under the `Tests` folder.
 
-* HTML code for the website has [passed](https://github.com/selinaerhabor/memory-game/tree/master/Tests/browser-tests/Result%20-%20HTML%20Validator.png) with no errors returned.
-* CSS code for the website has [passed](https://github.com/selinaerhabor/memory-game/tree/master/Tests/browser-tests/Result%20-%20CSS%20Validator.png) with no errors returned. 
+**HTML code**
+* Mimic the Memory Game has [passed](https://github.com/selinaerhabor/memory-game/tree/master/Tests/browser-tests/Result%20-%20HTML%20Validator.png) with no errors returned.
+
+**CSS Code**
+* Mimic the Memory Game has [passed](https://github.com/selinaerhabor/memory-game/tree/master/Tests/browser-tests/Result%20-%20CSS%20Validator.png) with no errors returned. 
 
 
 ## 4.3 Jasmine Tests Results: 
-The Jasmine tests were carried out for the Hint function, how the memory game selects items in an array and for the selection of audio files. 
-The results show that the correct variables are being called in the tested stages of the game. 
-Screenshot of the [Jasmine Test Result Page].
+The Jasmine tests were carried out for the Hint function, how the memory game selects items in an array and for the selection of audio files which make up the logic of the game. 
+
+**Hint Function:** 
+* This test demonstrated whether the hint function correctly recalls the last selected buzzer ID. For this test, I declared 
+an example selection of buzzers up to level 6. The buzzers are symbolised by ID numbers (0, 1, 2 and 3).
+
+**Selection of items in an Array:**
+* This test was made up of two parts to demonstrate whether the game correctly selects a buzzer ID and can select the squareColor class from
+the array of classes in html. 
+* For the first test, I declared the variable for the game's moves and another variable to select a buzzer ID at random. The test 
+checked that the buzzer ID selected at random by the game is between 0 and 3.
+* For the second test, I declared a variable which is a representation of having multiple classes in a `<div>`. This test checked that the 
+game correctly reads the squareColor class using the `.split()` method and therefore assign the right style properties to the buzzer.
+
+**Selection of Audio Files:**
+* This test demonstrated whether the game can correctly select the corresponding audio file from a buzzer ID. For this test, I declared 
+the buzzer IDs, four example audio files in an array and a sound player variable which uses the index of an array to map it to each buzzer. 
+This test checked that the game correctly selects a buzzer's matching audio file so the right buzzer sound plays upon selection.
+
+Overall, the results from the tested stages of the game show that the correct variables are being selected. 
+Screenshot of the [Jasmine Test Results Page].
 
 
 ## 4.4 Device Screen Size and Browser Compatibility Test Results:
-The website has been tested on various browsers including Internet Explorer, Safari, Firefox and Google Chrome at the various 
+The website has been tested on various browsers including Safari, Firefox and Google Chrome at the various 
 screen sizes using [Browsershots.org]. This allowed me to test the memory game application on Linux, Windows and Mac operating systems.
 * The below screen size tests were carried out assessing performance of all pages of the website using Google Chrome 74.0 (Windows):
 
-Device | Screen Size (Width x Height) | Mimic the Game
+Device | Screen Size (Width x Height) | Mimic the Memory Game
 ---- | ---- | ---- | 
 Galaxy S5 | 360 x 640 | ✓ | 
 Pixel 2 | 411 x 731 | ✓ |
@@ -222,7 +280,7 @@ Sony Bravia Television 4K |5280 width (55")|✓ |
 Key screenshots of the Browser Test results can be found in a folder called `browser-tests` under the `Tests` folder.
 * Key: ✓ - Application loads successfully
 
-Operating System | Browser | Mimic the Game 
+Operating System | Browser | Mimic the Memory Game 
 ---- | ---- | ---- | 
 Linux | Chrome 71.0 | ✓ |
 Linux | Firefox 3.0 |  ✓ |
@@ -378,8 +436,8 @@ $ git clone https://selinaerhabor.github.io/memory-game.git
 
 * The addition of modal windows instead of browser alerts to keep users informed of why a feature is inactive or why their game ended in an 
 aesthetically pleasing way. These modal windows appear for incorrect play, when the hint button is pressed when level is being attempted and 
-when the game has been completed. The modal windows are also useful for not blocking the game's interface completely something that came in handy 
-for the hintButtonDisabled function so that the user can easily return back to playing current game.
+when the game has been completed. The modal windows are also useful for not blocking the game's interface completely something that came in 
+handy for the hintButtonDisabled function so that the user can easily return back to playing current game.
 
 * Made redundant the use of `div.style.backgroundColor` for the buzzers in order to remove the need for using `!important` to ensure the 
 background color changes to its active state when pressed.
@@ -388,9 +446,13 @@ background color changes to its active state when pressed.
 variables calling buzzerSounds based on indexing `new Audio(buzzerSound[1])` and instead set audio files as global variables (from player's end) 
 for example: var yellow = new Audio('assets/sounds/noteD.mp3').
 
-* The Reset Game function in the navigation bar
+* The Reset Game tab in the navigation bar is a modal that has been introduced to allow the user to reset the game if they wish to. The start 
+button becomes inactive after the game begins and will only be reactivated again if the player wins the game or makes an incorrect move in 
+which the game will be reloaded. This was done to prevent the start button being pressed multiple times accidently and as a fix to the errors 
+caused in buzzer selection, when the application is not reloaded first before the start button is pressed.
 
-* The Mimic tab on the left of the navigation bar
+* The Mimic tab on the left of the navigation bar now displays brief information about Mimic the Memory Game and link to the game's deployed 
+code.
 
 ## 6. Credits
 
@@ -401,7 +463,7 @@ for example: var yellow = new Audio('assets/sounds/noteD.mp3').
 
 ### Game Main Control Face
 **Sources**: 
-* Google Fonts , Fjalla One – used as game screen display font and for game brand name
+* Google Fonts (Fjalla One) – used as game screen display font and for game brand name
 * The notification sound for incorrect and correct moves were obtained from [Dropbox]
 
 ### Buzzers
@@ -440,5 +502,10 @@ the memory game from https://www.youtube.com/watch?v=1Yqj76Q4jJ4
 [StackOverflow - Solution2]: <https://stackoverflow.com/questions/6120931/how-to-count-the-number-of-certain-element-in-an-array>
 [Dropbox]: <https://www.dropbox.com/sh/z49xw5kvydjaem3/AABvWeLA1JTnCTqTNKjpEJZPa?dl=0>
 [Wallpapercave]: <https://wallpapercave.com/carbon-wallpaper-hd>
+[Jasmine Test Results Page]: <(https://github.com/selinaerhabor/memory-game/tree/master/Tests/browser-tests/Result%20-%20Jasmine%20Tests.png)>
 [Initial Ideas - Wireframes]: <https://github.com/selinaerhabor/memory-game/tree/master/Initial%20Ideas%20-%20Wireframes>
-[Jasmine Test Result Page]: <>
+
+
+
+
+

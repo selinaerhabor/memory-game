@@ -13,7 +13,6 @@
     });
     
     
-    
     // 2. HOW THE MEMORY GAME SELECTS BUZZERS AND CLASSES IN ARRAY:
     describe("Test for buzzer and class selections", function() {
     
@@ -32,8 +31,8 @@
         buzzerLastClass = buzzerClasses.split(" ")[1];
         expect(buzzerLastClass).toEqual("squareColor");
       });
+      
     });
-    
     
     
     // 3. HOW THE MEMORY GAME COULD SELECT AUDIO FILES:
@@ -51,6 +50,7 @@
       sound.play();
       
       it("selected the correct audio file variable via indexing", function() {
-            expect(exampleSound[0]).toEqual("zero.mp3");
+            expect(exampleSound[2]).toEqual("two.mp3");
         });
+        
     });
