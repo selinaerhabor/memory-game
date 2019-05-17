@@ -13,7 +13,7 @@ body, html {
   justify-content: center;
 }
 
-/*-----------------------------------------------------Game Interface Settings*/
+/*----------------------------------------------------Game Interface Structure*/
 
 .background-container {
   text-align: center;
@@ -101,15 +101,15 @@ body, html {
       outline: none;
     }
     
-.form-control{
+.form-control {
   background-color: #c0c0c0;
 }
     
-.align{
+.align {
   text-align: center;
 }
 
-#instructionsImage{
+#instructionsImage {
   padding: 10px;
 }
 
@@ -157,7 +157,7 @@ body, html {
 
 /*--------------------------------------------------------------4 Game Buzzers*/
 
-  /*----------------------------------------Red Buzzer Off & On Appearance*/
+  /*Red Buzzer Off & On Appearance*/
   .squareRed {
     height: 200px;
     width: 200px;
@@ -173,7 +173,7 @@ body, html {
     background-color: #ff6666;
   }
   
-  /*----------------------------------------Blue Buzzer Off & On Appearance*/
+  /*Blue Buzzer Off & On Appearance*/
   .squareBlue {
     height: 200px;
     width: 200px;
@@ -191,7 +191,7 @@ body, html {
   }
   
   
-  /*--------------------------------------Yellow Buzzer Off & On Appearance*/
+  /*Yellow Buzzer Off & On Appearance*/
   .squareYellow {
     height: 200px;
     width: 200px;
@@ -208,7 +208,7 @@ body, html {
   }
   
   
-  /*--------------------------------------Green Buzzer Off & On Appearance*/
+  /*Green Buzzer Off & On Appearance*/
   .squareGreen {
     height: 200px;
     width: 200px;
@@ -237,7 +237,7 @@ body, html {
   border: 7px solid #333;
 }
   
-  /*-----------------------------MiMiC Brand Name (Displayed on Game Body)*/
+  /*MiMiC Brand Name (Displayed on Game Body)*/
   .brand {
     color: #222;
     font-size: 3.0em;
@@ -251,7 +251,7 @@ body, html {
   }
   
   
-  /*--------------------------------------------------------Game Screen*/
+  /*Game Screen*/
   .count {
     font-family: 'Fjalla One', monospace;
     font-size : 2.6em;
@@ -284,7 +284,7 @@ body, html {
       top : -5px;
     }
     
-    /*--------------------------------------------------------Hint Button*/
+    /*Hint Button*/
     .hint {
       margin-top: 10px;
       align-items: center;
@@ -302,7 +302,7 @@ body, html {
       outline: none;
     }
     
-    /*-------------------------------------------------------Start Button*/
+    /*Start Button*/
     .start {
       margin-top: 10px;
       align-items: center;
@@ -320,7 +320,7 @@ body, html {
       outline: none;
     }
     
-    /*------------------------------------------------------Button Labels*/
+    /*Button Labels*/
     .label-btn {
       font-size: 0.9em;
       padding-left: 1px;
@@ -336,8 +336,9 @@ body, html {
 
 /*-----------------------------------------------------------------Media Rules*/
   
-  /*------------Viewing on screen sizes with up to 475px width (E.g. Phones)*/
+  /*Viewing on screen sizes with up to 475px width (E.g. Phones)*/
   @media screen and (max-width: 475px){
+    
     .game-body {
       top: 100px;
       left: 140px;
@@ -354,10 +355,12 @@ body, html {
       -moz-transform-origin: 0 0;
       transform-origin: 0 0;
     }
+    
   }
   
-  /*-------------------Viewing on screen sizes between 476px to 631px width*/
+  /*Viewing on screen sizes between 476px to 631px width*/
   @media screen and (min-width:476px) and (max-width:631px){
+    
     .game-body {
       top: 100px;
       left: 110px;
@@ -374,13 +377,16 @@ body, html {
       -moz-transform-origin: 0 0;
       transform-origin: 0 0;
     }
+    
   }
   
-  /*-------Viewing on screen sizes with at least 632px width (E.g. Desktops)*/
+  /*Viewing on screen sizes with at least 632px width (E.g. Desktops)*/
   @media screen and (min-width:632px){
+    
     .game-body {
       top: 15px;
       width: 615px;
     }
+    
   }
   

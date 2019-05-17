@@ -1,13 +1,14 @@
 # Interactive Frontend Development Project: Mimic – The Memory Game
 This is a simple, single-player memory game inspired by Hasbro’s [Simon Game]. The aim of this game is for the user to replay (mimic) the 
-sequence of buzzers that the game selects in order to move on to the next level. Mimic the Memory game is currently set to 30 levels. 
+sequence of buzzers that the game selects, in order to move on to the next level. Mimic the Memory game is currently set to 30 levels. 
 For each new level, one extra buzzer is selected and added to the sequence. It could be the same buzzer as the previous selection or a 
 different buzzer. The user has to replay all of the buzzers that have been selected so far in their exact order, including the newly 
 selected buzzer for that level. I chose to number the IDs for the four buzzers from 0 to 3 and this was advantageous in successfully 
-mapping them with audio sounds using JavaScript arrays and used this concept for mapping the game notification sounds. Mimic the memory 
-game can be accessed [here].
+mapping them with audio sounds using JavaScript arrays. 
 
-## Contents
+Mimic the Memory Game can be accessed [here].
+
+## List of Contents
 1. [**User Experience Design (UX)**](https://github.com/selinaerhabor/memory-game/blob/master/README.md#1-user-experience-design-ux)
       
       1.1 [User Stories](https://github.com/selinaerhabor/memory-game/blob/master/README.md#11-user-stories)
@@ -15,8 +16,9 @@ game can be accessed [here].
 2. [**Features**](https://github.com/selinaerhabor/memory-game/blob/master/README.md#2-features)
       
       2.1 [Existing Features](https://github.com/selinaerhabor/memory-game/blob/master/README.md#21-existing-features)
-      2.1.1 [Game Body](https://github.com/selinaerhabor/memory-game/blob/master/README.md#211-game-body)
 
+      2.1.1 [Game Body](https://github.com/selinaerhabor/memory-game/blob/master/README.md#211-game-body)
+      
       2.2 [Potential Features to Implement](https://github.com/selinaerhabor/memory-game/blob/master/README.md#22-potential-features-to-implement-in-the-future)
 
 3. [**Technologies used**](https://github.com/selinaerhabor/memory-game/blob/master/README.md#3-technologies-used)
@@ -94,8 +96,15 @@ features and components of the website. I have chosen a contrasting colour effec
 text and images displayed on the application. 
 
 ## 2.1 Existing Features
-* **Notification Features** - When a sequence has been correctly repeated by the user, a high-pitched notification sound will be played before 
-the next level begins. If a wrong buzzer has been pressed, then the game will release a low-pitched notification sound and the game will end.
+* **Notification Sounds** - When a sequence has been correctly repeated by the user, a high-pitched notification sound will be played before 
+the next level begins. If a wrong buzzer has been pressed, then the game will release a low-pitched notification sound and the game will end. 
+This feature was programmed by declaring the notification sound files as variable and calling them to play after correct or incorrect moves by
+the user. This helps keep users well informed of their progress in the game.
+* **Notification Modals** - When a sequence has been incorrectly repeated by the user, a modal appears telling the user they have made an 
+incorrect move. When the user completes the game, a modal appears telling the user that they have won the game. When the hint button has been 
+pressed after the user has begun their attempt for a level, a modal appears telling the user that the hint button is unavailable for the level. 
+These three modals have been set to display at their respective times of the game to provide adequate information to help keep users well 
+informed of their progress hence enhancing UX.
 * **Navigation Bar** - allows users to navigate through the application. On smaller screen sizes the navigation bar is collapsed/minimised to 
 save space. When clicked, the burger icon on the right top end of the screen will then expand the list of the different information links 
 for the application vertically downwards (Reset Game, Instructions and Login/Register). 
@@ -139,7 +148,7 @@ pressed.
 
 ## 2.2 Potential Features to implement in the future:
 The game has been built with a focus on how the game would be played by a user (playing as a guest) and has not created an account for 
-the game. Currently, the login modal page is just a mock describing how users would log in to their account or register and does not 
+the game. Currently the login modal page is just a mock, describing how users would register/log in to their account and does not 
 store the data input from the form. In the future, the login modal will allow users to actually create an account to unlock additional 
 features to the game including saving their daily scores from the game in their account. The login tab will then be hidden and the log out 
 link appears when a user has successfully logged in to their account. The current user interface when playing Mimic the memory game is 
@@ -167,7 +176,7 @@ notification sound and game completion sound.)
 
 
 ## 4. Testing
-This section discusses the results from testing the features of Mimic – the memory game. Tests were carried out on the different 
+This section discusses the results from testing the features of Mimic the Memory Game. Tests were carried out on the different 
 components of the memory game and on various device screen sizes and browsers to ensure the application is responsive.
 
 ## 4.1 Process of Testing Features:
@@ -199,6 +208,20 @@ user has started their attempt for a level.
 * When the Start button was pressed, the game’s theme song played and the game count screen was activated.
 * The Game selects first buzzer selection.
 
+**Modal Display**
+> "Should be interactive and stylish"
+
+* Inactive Hint Button Modal:
+
+![Hint Button Error Modal](/assets/images/screenshots-features/modal-window-hint-button-error.png)
+
+* Tncorrect Move Modal:
+
+![Incorrect Move Modal](/assets/images/screenshots-features/modal-window-incorrect-move.png)
+
+* Win Modal:
+
+![Win Modal](/assets/images/screenshots-features/modal-window-win.png)
 
 **Game Count Screen**
 > "Game screen would be nice, to monitor the level you are on"
@@ -296,15 +319,15 @@ Mac | Chrome 48.0 | ✓ |
 Mac | Safari 9.1 |  ✓ |
 
 Overall, the results of the tests documented in this chapter and feedback from users suggests that the memory game works very well across key 
-operating system browsers and various screen sizes with column arrangement adjusting correctly. Mimic the memory game should therefore be 
-reliable and easy for users to load the game and play. 
+operating system browsers and various screen sizes with the game body adjusting correctly. Mimic the memory game should therefore be reliable 
+and easy for users to load the game and play. 
 
 
 ## 4.5 Responses from users who tried out the memory game:
-I asked a group of people to play mimic memory game during the development process and again after the application had been built. 
+I asked a group of people to play Mimic the Memory game during the development process and again after the application had been built. 
 In order for users to get an idea of the logic of the game, I reduced the maximum level of the game from level 30 to level 3 so that users 
 also experienced what happened when they win the game. The initial response from users was that the game should be challenging and should 
-start from the beginning when the user makes a wrong move rather than the sequence for that level just being repeated until the user gets it 
+end when the user makes a wrong move rather than the sequence for that level just being repeated until the user gets it 
 right. So the game logic was adjusted to ensure this was the case. After the application had been built, users were pleased with the 
 application’s visual appearance and the game’s logic. The responses show success in meeting the user requirements initially set out in the 
 design brief and discussed in the user stories (see 1.1 User Stories). Below are a few of the feedback received from the users:
@@ -320,12 +343,11 @@ design brief and discussed in the user stories (see 1.1 User Stories). Below are
 > "I actually enjoy playing this!"
 
 
-## 4.5 Interesting bugs or problems discovered during testing:
-The start button could be pressed more than once after a game has already started. 
+## 4.6 Interesting bugs or problems discovered during testing:
+1. The start button could be pressed more than once after a game has already started. 
 Although, the count screen displays the two zeros “00” to indicate a new game is beginning, the game started skipping levels. 
 In order to fix this issue, I used `$(".start").off("click");` which turns off the start button functionality inside of the start 
 click function when a new game is in session and only brings back that functionality when the user makes an incorrect move or wins the game.
-
 However, this issue was still occurring even when the start button was pressed after the game ended. 
 I noticed that it was only when I had refreshed the page and then clicked the start button that the game worked correctly. 
 So, I created a function that reloads the page after an incorrect play and added it to the modal window 'X' close button. 
@@ -335,6 +357,7 @@ As modal windows can also be exited by clicking outside the modal, I deactivated
 modal windows for Incorrect Move ('#showErrorModal') and Game Win ('#gameWinModal').
 
 ![Modal Window 'X' Close Button](/assets/images/screenshots-features/modal-window-close-button.png)
+
 
 * Function for modal to display when user makes an incorrect move:
 ```sh
@@ -357,7 +380,7 @@ modal windows for Incorrect Move ('#showErrorModal') and Game Win ('#gameWinModa
   
 ```
 
-The hint button could be pressed whilst the user had already started their attempt for a level. 
+2. The hint button could be pressed whilst the user had already started their attempt for a level. 
 As the hint button replays the last selected sequence in the game, when the user has begun attempting a level and then presses the 
 hint button it replays the buzzer the player has selected last rather than the game's. In order to fix this, I created a function 
 that disables the hint button and a function that makes 'X' to appear on the game screen when the user has already started 
@@ -386,7 +409,7 @@ attempting a level and clicked the hint button.
     }
 ```
 
-* When the buzzers were pressed, the class for the buzzers’ active background colours would remain on even when user is 
+3. When the buzzers were pressed, the class for the buzzers’ active background colours would remain on even when user is 
 pressing other buttons. In order to fix this issue, I used mousedown and mouseup methods to toggle between the active and inactive 
 background colours for the buzzers and I used the click method for the sound for the buzzers.
 
@@ -409,9 +432,10 @@ $("#0").click(function(){
 ## 5. Deployment
 
 ## 5.1 Deployment Process:
-The hosting platform for Mimic the Memory Game is GitHub Pages, which publishes the master branch containing the most updated version of code for the website.
-To deploy the website to GitHub pages, I created a Repository where the code will be stored via the GitHub website.
-I connected the GitHub repository to my Cloud9 workspace via terminal by clicking on the `Clone or Download` button which appears on the GitHub repository `Code` tab and copied the HTTPS link of the repository to paste it in my Cloud9 workspace terminal by typing the below:
+The hosting platform for Mimic the Memory Game is GitHub Pages, which publishes the master branch containing the most updated version of code 
+for the website. To deploy the website to GitHub pages, I created a Repository where the code will be stored via the GitHub website.
+I connected the GitHub repository to my Cloud9 workspace via terminal by clicking on the `Clone or Download` button which appears on the 
+GitHub repository `Code` tab and copied the HTTPS link of the repository to paste it in my Cloud9 workspace terminal by typing the below:
 
 ```sh
 $ git init
@@ -478,16 +502,16 @@ code.
 * The notes of the buzzer sounds have been achieved using a Gospel Shuffle music style to modify the sound effects for the 
 standard keyboard notes. (Buzzer sounds: squareGreen - Note E, squareYellow - Note F, squareRed – Note G and squareBlue – Note C).
 
-## 6.2 Code:
+### Code:
 **Sources**:
-* For making the game select all of the buzzers in the sequence one after the other, code tailored from [StackOverflow - Solution1]
-* For checking if the elements in player's selection array matches the game's selection array, code tailored from [StackOverflow - Solution2]
+* For making the game select all of the buzzers in the sequence one after the other, code inspired from [StackOverflow - Solution1]
+* For checking if the elements in player's selection array matches the game's selection array, code inspired from [StackOverflow - Solution2]
 
-## 6.3 Acknowledgements:
+## 6.2 Acknowledgements:
 Useful resources for building this app include YouTube and Stack Overflow after receiving inspiration for the logic and user experience of 
 the memory game from https://www.youtube.com/watch?v=1Yqj76Q4jJ4
 
-[Return to top]()
+[Return to top](https://github.com/selinaerhabor/memory-game/blob/master/README.md#interactive-frontend-development-project-mimic--the-memory-game)
 
 [//]: # (Below are the reference links used in the body of the README file)
 [here]: <https://selinaerhabor.github.io/memory-game/>
@@ -510,7 +534,7 @@ the memory game from https://www.youtube.com/watch?v=1Yqj76Q4jJ4
 [StackOverflow - Solution2]: <https://stackoverflow.com/questions/6120931/how-to-count-the-number-of-certain-element-in-an-array>
 [Dropbox]: <https://www.dropbox.com/sh/z49xw5kvydjaem3/AABvWeLA1JTnCTqTNKjpEJZPa?dl=0>
 [Wallpapercave]: <https://wallpapercave.com/carbon-wallpaper-hd>
-[Jasmine Test Results Page]: <(https://github.com/selinaerhabor/memory-game/tree/master/Tests/browser-tests/Result%20-%20Jasmine%20Tests.png)>
+[Jasmine Test Results Page]: <https://github.com/selinaerhabor/memory-game/tree/master/Tests/browser-tests/Result%20-%20Jasmine%20Tests.png>
 [Initial Ideas - Wireframes]: <https://github.com/selinaerhabor/memory-game/tree/master/Initial%20Ideas%20-%20Wireframes>
 
 
