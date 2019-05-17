@@ -47,7 +47,7 @@ Mimic the Memory Game can be accessed [here].
 
 6. [**Credits**](https://github.com/selinaerhabor/memory-game/blob/master/README.md#6-credits)
       
-      6.1 [Content/Media](https://github.com/selinaerhabor/memory-game/blob/master/README.md#61-content-media)
+      6.1 [Content/Media](https://github.com/selinaerhabor/memory-game/blob/master/README.md#61-contentmedia)
 
       6.2 [Acknowledgements](https://github.com/selinaerhabor/memory-game/blob/master/README.md#62-acknowledgements)
 
@@ -211,17 +211,27 @@ user has started their attempt for a level.
 **Modal Display**
 > "Should be interactive and stylish"
 
+* Played the game through the different situations to allow the different modals to appear.
+* Text Emoticons were used to make modals more engaging to users to match the information appearing.
+
 * Inactive Hint Button Modal:
 
 ![Hint Button Error Modal](/assets/images/screenshots-features/modal-window-hint-button-error.png)
+
 
 * Tncorrect Move Modal:
 
 ![Incorrect Move Modal](/assets/images/screenshots-features/modal-window-incorrect-move.png)
 
+
 * Win Modal:
 
 ![Win Modal](/assets/images/screenshots-features/modal-window-win.png)
+
+
+* Reset Game Modal:
+
+![Reset Game Modal](/assets/images/screenshots-features/modal-window-reset-game.png)
 
 **Game Count Screen**
 > "Game screen would be nice, to monitor the level you are on"
