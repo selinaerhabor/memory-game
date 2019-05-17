@@ -35,7 +35,7 @@ Mimic the Memory Game can be accessed [here].
       
       4.5 [Responses from users who tried out the memory game](https://github.com/selinaerhabor/memory-game/blob/master/README.md#45-responses-from-users-who-tried-out-the-memory-game)
       
-      4.6 [Interesting bugs or problems discovered during testing](https://github.com/selinaerhabor/memory-game/blob/master/README.md#45-interesting-bugs-or-problems-discovered-during-testing)
+      4.6 [Interesting bugs or problems discovered during testing](https://github.com/selinaerhabor/memory-game/blob/master/README.md#46-interesting-bugs-or-problems-discovered-during-testing)
 
 5. [**Deployment**](https://github.com/selinaerhabor/memory-game/blob/master/README.md#5-deployment)
       
@@ -211,7 +211,7 @@ user has started their attempt for a level.
 **Modal Display**
 > "Should be interactive and stylish"
 
-* Played the game through the different situations to allow the different modals to appear.
+* Played the game through the different user situations to allow the different modals to appear.
 * Text Emoticons were used to make modals more engaging to users to match the information appearing.
 
 * Inactive Hint Button Modal:
