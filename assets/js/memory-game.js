@@ -211,7 +211,7 @@ $(document).ready(function(){
       //If game has finished playing its turn, waits for player's moves:
       if (i == mimicMove.length) {
         clearInterval(mimicMoveInterval);
-        reactivateBuzzers();
+        setTimeout(reactivateBuzzers, 200);
       }
     }, 1000);
     
