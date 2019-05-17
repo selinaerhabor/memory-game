@@ -495,6 +495,7 @@ caused in buzzer selection, when the application is not reloaded first before th
 code.
 
 ## 6. Credits
+Software Developer: Selina Erhabor
 
 ## 6.1 Content/Media:
 ### Game Background
