@@ -31,7 +31,7 @@ var location;
 
 $(document).ready(function(){ 
   
-  //Auto Game Select Buzzer Sounds:
+  /*---------------------------------------AUTO GAME SELECTION BUZZER SOUNDS*/
   var buzzerSound = [
     'assets/sounds/noteE.mp3', //Green Buzzer (squareGreen) sound
     'assets/sounds/noteD.mp3', //Yellow Buzzer (squareYellow) sound
@@ -109,6 +109,10 @@ $(document).ready(function(){
   
   
   /*-------------------------------------------------------DEACTIVATE BUZZERS*/
+  /*This function deactivates all game buzzers when the game is making its move
+    in order to stop the hint button misreading the last selected buzzer by the
+    game from the player's moves.*/
+    
   function deactivateBuzzers(){
     
     document.getElementById('0').style.pointerEvents = 'none';
@@ -120,6 +124,9 @@ $(document).ready(function(){
   
   
   /*-------------------------------------------------------REACTIVATE BUZZERS*/
+  /*This function reactivates all game buzzers in time for the player to make 
+    their selection in the game.*/
+    
   function reactivateBuzzers(){
     
     document.getElementById('0').style.pointerEvents = 'auto';
@@ -131,6 +138,12 @@ $(document).ready(function(){
   
 
   /*------------------------------------------------------------START BUTTON*/
+  /* After the start button has been clicked, the buzzers are deactivated until 
+  the game makes its moves. The Hint and Buzzer click functions have been stored 
+  inside the Start click function as a bug fix, to allow the buzzers to be 
+  played with freely before the start button has been pressed for a game to
+  begin. */
+  
   $('.start').click(function(){
     
     $('.count').text('00');
@@ -244,6 +257,11 @@ $(document).ready(function(){
   
   
   /*-----------------------------------------------MONITOR FOR PLAYER'S MOVES*/
+  /* This monitors whether a player's move is incorrect, correct or if they have
+     completed all levels. This is to ensure game does not continue forward 
+     if the player's selection is incorrect and does not exceed the set number
+     of levels (30).*/
+  
   function checkPlayerMovement(){
     
     playerMove.push(id);
@@ -300,6 +318,11 @@ $(document).ready(function(){
 
 
   /*-------------------------------------------------------------------MODALS*/
+  /* From the Hint Button Error message to reset game, the various modals 
+     created for the game help keep players well informed of their progress 
+     in the game and ensure they enjoy an interactive and engaging gaming
+     experience.*/
+     
   //For disabled hint button:
   function deactivateHintButton(){
     notAllowed();
@@ -307,7 +330,7 @@ $(document).ready(function(){
     setTimeout(levelReturnsOnScreen, 300);
   }
   
-  //Error message for disabled hint button is pressed:
+  //Trigger Error message for when deactivated hint button is pressed:
   function hintButtonErrorMessage(){
     $('#hintButtonErrorModal').modal('show');
   }
@@ -340,6 +363,12 @@ $(document).ready(function(){
   }
   
   /*----------------------------------------------------RESET GAME FUNCTION*/
+  /* The Reset Game function reloads the game to its idle state acting as a 
+     refresh button that is triggered: (a)when a player decides to reset the 
+     game, (b)when the player makes an incorrect move and closes the modal that 
+     displays for incorrect moves or (c)when the player completes the game and 
+     exits the game win modal.*/
+     
   function resetGame(){
     location.reload(true);
   }
