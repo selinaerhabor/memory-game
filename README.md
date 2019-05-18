@@ -172,6 +172,7 @@ when the buttons are clicked.
 notification sound and game completion sound.)
 *	[W3C HTML Validator] - Used to check that no errors were present in the HTML code before final deployment.
 *	[W3C CSS Validator] - Used to check that no errors were present in the CSS code before final deployment.
+*	[JSHint] - Used to check code quality of JavaScript code.
 
 
 
@@ -216,22 +217,22 @@ user has started their attempt for a level.
 
 * Inactive Hint Button Modal:
 
-![Hint Button Error Modal](/assets/images/screenshots-features/modal-window-hint-button-error.png)
+![Hint Button Error Modal](/assets/images/tests/browser-tests/modal-window-hint-button-error.png)
 
 
 * Tncorrect Move Modal:
 
-![Incorrect Move Modal](/assets/images/screenshots-features/modal-window-incorrect-move.png)
+![Incorrect Move Modal](/assets/images/tests/browser-tests/modal-window-incorrect-move.png)
 
 
 * Win Modal:
 
-![Win Modal](/assets/images/screenshots-features/modal-window-win.png)
+![Win Modal](/assets/images/tests/browser-tests/modal-window-win.png)
 
 
 * Reset Game Modal:
 
-![Reset Game Modal](/assets/images/screenshots-features/modal-window-reset-game.png)
+![Reset Game Modal](/assets/images/tests/browser-tests/modal-window-reset-game.png)
 
 **Game Count Screen**
 > "Game screen would be nice, to monitor the level you are on"
@@ -263,13 +264,13 @@ button has been pressed and the game is about to begin.
 
 
 ## 4.2 HTML and CSS Validation Results:
-The HTML and CSS code for the Memory Game has been tested using official validators, screenshots of the Browser Test results are available via the links below and can also be found in a folder called `browser-tests` under the `Tests` folder.
+The HTML and CSS code for the Memory Game has been tested using official validators, screenshots of the Browser Test results are available via the links below and can also be found in a folder called `browser-tests` under the `tests` folder.
 
 **HTML code**
-* Mimic the Memory Game has [passed](https://github.com/selinaerhabor/memory-game/tree/master/Tests/browser-tests/Result%20-%20HTML%20Validator.png) with no errors returned.
+* Mimic the Memory Game has [passed](https://github.com/selinaerhabor/memory-game/tree/master/tests/browser-tests/result-html-validator.png) with no errors returned.
 
 **CSS Code**
-* Mimic the Memory Game has [passed](https://github.com/selinaerhabor/memory-game/tree/master/Tests/browser-tests/Result%20-%20CSS%20Validator.png) with no errors returned. 
+* Mimic the Memory Game has [passed](https://github.com/selinaerhabor/memory-game/tree/master/tests/browser-tests/result-css-validator.png) with no errors returned. 
 
 
 ## 4.3 Jasmine Tests Results: 
@@ -293,7 +294,8 @@ the buzzer IDs, four example audio files in an array and a sound player variable
 This test checked that the game correctly selects a buzzer's matching audio file so the right buzzer sound plays upon selection.
 
 Overall, the results from the tested stages of the game show that the correct variables are being selected. 
-Screenshot of the [Jasmine Test Results Page].
+Screenshot of the [Jasmine Test Results Page] and the script for the main JavaScript code (mimic.js) had no major issues appear in JSHint 
+Quality tool.
 
 
 ## 4.4 Device Screen Size and Browser Compatibility Test Results:
@@ -316,7 +318,7 @@ Sony Bravia Television 4K |5280 width (55")|✓ |
 
 
 * Below are the test results of the website deployed on GitHub pages when tested on Browsershots.org on various browsers. 
-Key screenshots of the Browser Test results can be found in a folder called `browser-tests` under the `Tests` folder.
+Key screenshots of the Browser Test results can be found in a folder called `browser-tests` under the `tests` folder.
 * Key: ✓ - Application loads successfully
 
 Operating System | Browser | Mimic the Memory Game 
@@ -366,7 +368,7 @@ As modal windows can also be exited by clicking outside the modal, I deactivated
 `{backdrop: 'static', keyboard: false}` so that players are guided to press the 'X' button to exit the 
 modal windows for Incorrect Move ('#showErrorModal') and Game Win ('#gameWinModal').
 
-![Modal Window 'X' Close Button](/assets/images/screenshots-features/modal-window-close-button.png)
+![Modal Window 'X' Close Button](/assets/images/tests/browser-tests/modal-window-close-button.png)
 
 
 * Function for modal to display when user makes an incorrect move:
@@ -483,7 +485,7 @@ handy for the hintButtonDisabled function so that the user can easily return bac
 background color changes to its active state when pressed.
 
 * The buzzer sounds were taking some time to play when pressed. In order to reduce the time it takes for the audio files to load, I removed the 
-variables calling buzzerSounds based on indexing `new Audio(buzzerSound[1])` and instead set audio files as global variables (from player's end) 
+variables calling buzzerSounds based on indexing `new Audio(buzzerSound[1])` and instead I set the audio files as global variables (from player's end) 
 for example: var yellow = new Audio('assets/sounds/noteD.mp3').
 
 * The Reset Game tab in the navigation bar is a modal that has been introduced to allow the user to reset the game if they wish to. The start 
@@ -545,8 +547,9 @@ the memory game from https://www.youtube.com/watch?v=1Yqj76Q4jJ4
 [StackOverflow - Solution2]: <https://stackoverflow.com/questions/6120931/how-to-count-the-number-of-certain-element-in-an-array>
 [Dropbox]: <https://www.dropbox.com/sh/z49xw5kvydjaem3/AABvWeLA1JTnCTqTNKjpEJZPa?dl=0>
 [Wallpapercave]: <https://wallpapercave.com/carbon-wallpaper-hd>
-[Jasmine Test Results Page]: <https://github.com/selinaerhabor/memory-game/tree/master/Tests/browser-tests/Result%20-%20Jasmine%20Tests.png>
-[Initial Ideas - Wireframes]: <https://github.com/selinaerhabor/memory-game/tree/master/Initial%20Ideas%20-%20Wireframes>
+[Jasmine Test Results Page]: <https://github.com/selinaerhabor/memory-game/tree/master/tests/browser-tests/result-jasmine-testing.png>
+[Initial Ideas - Wireframes]: <https://github.com/selinaerhabor/memory-game/tree/master/initial-ideas-wireframes>
+[JSHint]: <https://jshint.com/>
 
 
 
