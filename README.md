@@ -217,22 +217,22 @@ user has started their attempt for a level.
 
 * Inactive Hint Button Modal:
 
-![Hint Button Error Modal](/assets/images/tests/browser-tests/modal-window-hint-button-error.png)
+![Hint Button Error Modal](/tests/browser-tests/modal-window-hint-button-error.png)
 
 
 * Tncorrect Move Modal:
 
-![Incorrect Move Modal](/assets/images/tests/browser-tests/modal-window-incorrect-move.png)
+![Incorrect Move Modal](/tests/browser-tests/modal-window-incorrect-move.png)
 
 
 * Win Modal:
 
-![Win Modal](/assets/images/tests/browser-tests/modal-window-win.png)
+![Win Modal](/tests/browser-tests/modal-window-win.png)
 
 
 * Reset Game Modal:
 
-![Reset Game Modal](/assets/images/tests/browser-tests/modal-window-reset-game.png)
+![Reset Game Modal](/tests/browser-tests/modal-window-reset-game.png)
 
 **Game Count Screen**
 > "Game screen would be nice, to monitor the level you are on"
@@ -368,7 +368,7 @@ As modal windows can also be exited by clicking outside the modal, I deactivated
 `{backdrop: 'static', keyboard: false}` so that players are guided to press the 'X' button to exit the 
 modal windows for Incorrect Move ('#showErrorModal') and Game Win ('#gameWinModal').
 
-![Modal Window 'X' Close Button](/assets/images/tests/browser-tests/modal-window-close-button.png)
+![Modal Window 'X' Close Button](/tests/browser-tests/modal-window-close-button.png)
 
 
 * Function for modal to display when user makes an incorrect move:
